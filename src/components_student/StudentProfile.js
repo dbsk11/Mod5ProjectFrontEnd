@@ -5,7 +5,8 @@ const Profile = (props) => {
         <div className="profile">
             <h1>My Profile</h1>
             <h4>Name: </h4>
-            <p>Subject: </p>
+            <p>DOB: </p>
+            <p>Age: </p>
             <p>Email: </p>
         </div>
     );
