@@ -24,6 +24,7 @@ import ResponseScreen from './components_student/ResponseScreen'
 
 function App() {
   let [userType, setUserType] = useState("")
+  let [viewScreen, setViewScreen] = useState(false)
 
   return (
     <div className="maincontainer">
@@ -31,7 +32,7 @@ function App() {
         <Header />
       </div>
       <NavBarTeacher />
-          <Route exact path="/teacher" component={MessageContainer} />
+          <Route exact path="/teacher" component={MessageContainer} setViewScreen={setViewScreen}/>
           <Route exact path="/teacher/profile" component={Profile} />
           <Route exact path="/teacher/reply" component={ReplyContainer} />
           <Route exact path="/teacher/studentrequest" component={StudentRequestContainer} />

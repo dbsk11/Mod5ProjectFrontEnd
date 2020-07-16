@@ -8,7 +8,6 @@ import StudentRequestContainer from './StudentRequestContainer'
 const MessageContainer = (props) => {
     let [convo, setConvo] = useState([]);
     let [klass, setKlass] = useState([]);
-    let [mainScreen, setMainScreen] = useState(false)
     let [screen, setScreen] = useState("")
     let [studentConvo, setStudentConvo] = useState([])
 
@@ -70,10 +69,10 @@ const MessageContainer = (props) => {
             })} */}
 
             <div className="allconvos">
-                <MessageColumn klass={klasses[0]} conversations={array1} setScreen={setScreen} setStudentConvo={setStudentConvo} />
-                <MessageColumn klass={klasses[1]} conversations={array2} setScreen={setScreen} setStudentConvo={setStudentConvo} />
-                <MessageColumn klass={klasses[2]} conversations={array3} setScreen={setScreen} setStudentConvo={setStudentConvo} />
-                <MessageColumn klass={klasses[3]} conversations={array4} setScreen={setScreen} setStudentConvo={setStudentConvo} />
+                <MessageColumn klass={klasses[0]} conversations={array1} setViewScreen={props.setViewScreen} setStudentConvo={setStudentConvo} />
+                <MessageColumn klass={klasses[1]} conversations={array2} setViewScreen={props.setViewScreen} setStudentConvo={setStudentConvo} />
+                <MessageColumn klass={klasses[2]} conversations={array3} setViewScreen={props.setViewScreen} setStudentConvo={setStudentConvo} />
+                <MessageColumn klass={klasses[3]} conversations={array4} setViewScreen={props.setViewScreen} setStudentConvo={setStudentConvo} />
                 <ResponseColumn conversations={convo}/>
             </div>
 
