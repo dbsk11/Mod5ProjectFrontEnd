@@ -1,11 +1,13 @@
 import React from 'react';
 
 const ResponseCard = (props) => {
-    let {response, office_hours, time} = props.response
+    // destructuring 
+    const {response, office_hours, time} = props.response;
     
+    // edit button 
     const handleEdit = (evt) => {
         
-    }
+    };
 
     return (
         <div className="responsecard">

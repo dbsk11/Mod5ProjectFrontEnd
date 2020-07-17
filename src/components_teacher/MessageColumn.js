@@ -1,15 +1,17 @@
 import React from 'react';
-import MessageCard from './MessageCard'
+import MessageCard from './MessageCard';
 
 const MessageColumn = (props) => {
-    let arrayOfConvos = props.conversations.map((convoPOJO) => {
+    // render array of conversations
+    const arrayOfConvos = props.conversations.map((convoPOJO) => {
         return <MessageCard
             conversation={convoPOJO}
             key={convoPOJO.id}
-            setMainScreen={props.setMainScreen}
-            setStudentConvo={props.setStudentConvo}
+            setAlternateScreen={props.setAlternateScreen}
+            updateConvo={props.updateConvo}
+            setViewPage={props.setViewPage}
         />
-    })
+    });
 
     return (
         <div className="messagecolumn">

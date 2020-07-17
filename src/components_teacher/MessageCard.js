@@ -1,18 +1,23 @@
 import React from 'react';
 
 const MessageCard = (props) => {
-
-    let {first_name, last_name} = props.conversation.student
-    let {urgency, office_hours} = props.conversation
+    // destructuring
+    const {first_name, last_name} = props.conversation.student;
+    const {urgency, office_hours} = props.conversation;
     
+    //handle view button click 
     const handleViewClick = (evt) => {
-        props.setStudentConvo(props.conversation.id)
-        props.setMainScreen(true)
-    }
+        props.updateConvo(props.conversation)
+        props.setAlternateScreen(true)
+        props.setViewPage("View")
+    };
 
+    // handle reply button click
     const handleReplyClick = (evt) => {
-        console.log(evt.target)
-    }
+        props.updateConvo(props.conversation)
+        props.setAlternateScreen(true)
+        props.setViewPage("Reply")
+    };
 
     return (
         <div className="messagecard">

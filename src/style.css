@@ -119,3 +119,60 @@
       margin-bottom: 10px;
       font-style: italic;
 }
+
+.studentrequest {
+      display: flex;
+      width: 98.8vw;
+      height: 81vh;
+      margin-bottom: 0px;
+      flex-direction: column;
+}
+
+.studentinfo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 98.8vw;
+      padding: 10px;
+}
+
+.studentinfo h5 {
+      margin-top: 0em;
+      margin-bottom: 0em;
+      font-size: 20px;
+}
+
+.studentinfo p {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-style: italic;
+      font-size: 15px;
+}
+
+.klassinfo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 98.8vw;
+      padding: 20px;
+}
+
+.requestinfo {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      justify-content: space-evenly;
+      width: 98.8vw;
+      padding: 50px;
+      margin: 10px;
+}
+
+.replyform {
+      display: flex;
+      flex-direction: column;
+      height: 76.2vh;
+      width: 98.8vw;
+      align-items: center;
+}

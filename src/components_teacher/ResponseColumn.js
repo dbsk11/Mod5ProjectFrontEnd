@@ -2,18 +2,20 @@ import React from 'react';
 import ResponseCard from './ResponseCard';
 
 const ResponseColumn = (props) => {
-    let responsesToRender = props.conversations.filter((convoPOJO) => {
+    // filter conversations with responses
+    const responsesToRender = props.conversations.filter((convoPOJO) => {
         if (convoPOJO.teacher_response === true){
             return convoPOJO
-        }
-    })
+        };
+    });
     
-    let arrayOfResponses = responsesToRender.map((responsePOJO) => {
+    // create array of responses
+    const arrayOfResponses = responsesToRender.map((responsePOJO) => {
         return <ResponseCard
             response={responsePOJO}
             key={responsePOJO.id}
         />
-    })
+    });
 
     return (
         <div className="responsecolumn">

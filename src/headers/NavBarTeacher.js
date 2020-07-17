@@ -9,6 +9,11 @@ const link = {
 }
 
 const NavBarTeacher = (props) => {
+
+    const handleClick = (evt) => {
+        props.setAlternateScreen(false)
+    };
+
     return (
         <div className="navbar">
             <NavLink
@@ -16,6 +21,7 @@ const NavBarTeacher = (props) => {
                 exact
                 style={link}
                 activeStyle={{color: 'red'}}
+                onClick={handleClick}
             >Dashboard</NavLink>
             <NavLink
                 to="/teacher/profile"
