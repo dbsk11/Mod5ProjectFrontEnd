@@ -22,7 +22,7 @@ import StudentProfile from './components_student/StudentProfile'
 import RequestScreen from './components_student/RequestScreen'
 import ResponseScreen from './components_student/ResponseScreen'
 
-function App() {
+const App = () => {
   // Update user state 
   const [userType, setUserType] = useState("")
   
@@ -38,6 +38,8 @@ function App() {
 
   // Update state for teacher response
   const [teacherResponse, setTeacherResponse] = useState(false)
+
+  const [convo, setConvo] = useState([]);
 
   // determine boolean for alternateScreen
   const setAlternateScreen2 = (boolean) => {
@@ -82,7 +84,8 @@ function App() {
           <MessageContainer 
             alternateScreen={alternateScreen} 
             setAlternateScreen={setAlternateScreen2} 
-            // handleReply={handleReply} 
+            setConvo={setConvo}
+            convo={convo}
             determineId={determineId} 
             setTime={setTime} 
             setResponse={setResponse} 

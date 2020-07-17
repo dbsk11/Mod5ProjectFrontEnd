@@ -7,7 +7,7 @@ import StudentRequestContainer from './StudentRequestContainer'
 
 const MessageContainer = (props) => {
     // set State
-    const [convo, setConvo] = useState([]);
+    
     const [klass, setKlass] = useState([]);
     const [studentConvo, setStudentConvo] = useState([]);
     const [viewPage, setViewPage] = useState("");
@@ -22,7 +22,7 @@ const MessageContainer = (props) => {
         fetch('http://localhost:3000/teachers/1')
         .then(r => r.json())
         .then(data => {
-            setConvo(data.conversations)
+            props.setConvo(data.conversations)
             setKlass(data.teacher_classes)
         })
     }, []);
@@ -43,28 +43,28 @@ const MessageContainer = (props) => {
     // })
     
     // array for 1st class
-    const array1 = convo.filter((convoObj) => {
+    const array1 = props.convo.filter((convoObj) => {
         if(convoObj.klass === klasses[0]){
             return convoObj
         };
     });
 
     // array for 2nd class
-    const array2 = convo.filter((convoObj) => {
+    const array2 = props.convo.filter((convoObj) => {
         if(convoObj.klass === klasses[1]){
             return convoObj
         };
     });
 
     // array for 3rd class
-    const array3 = convo.filter((convoObj) => {
+    const array3 = props.convo.filter((convoObj) => {
         if(convoObj.klass === klasses[2]){
             return convoObj
         };
     });
 
     // array for 4th class
-    const array4 = convo.filter((convoObj) => {
+    const array4 = props.convo.filter((convoObj) => {
         if(convoObj.klass === klasses[3]){
             return convoObj
         }; 
@@ -99,7 +99,7 @@ const MessageContainer = (props) => {
                 <MessageColumn klass={klasses[1]} conversations={array2} setAlternateScreen={props.setAlternateScreen} updateConvo={updateConvo} setViewPage={setViewPage} />
                 <MessageColumn klass={klasses[2]} conversations={array3} setAlternateScreen={props.setAlternateScreen} updateConvo={updateConvo} setViewPage={setViewPage} />
                 <MessageColumn klass={klasses[3]} conversations={array4} setAlternateScreen={props.setAlternateScreen} updateConvo={updateConvo} setViewPage={setViewPage} />
-                <ResponseColumn conversations={convo} />
+                <ResponseColumn conversations={props.convo} />
             </div>
             }
             {/* {setMainScreen === false 
