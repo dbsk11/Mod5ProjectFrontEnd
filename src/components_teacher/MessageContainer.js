@@ -17,7 +17,6 @@ const MessageContainer = (props) => {
         setStudentConvo(convoPOJO)
     };
 
-
     // fetch teacher information
     useEffect(() => {
         fetch('http://localhost:3000/teachers/1')
@@ -84,7 +83,14 @@ const MessageContainer = (props) => {
                 ?
                 <StudentRequestContainer convo={studentConvo} setAlternateScreen={props.setAlternateScreen} updateConvo={updateConvo} setViewPage={setViewPage} />
                 :
-                <ReplyContainer convo={studentConvo} handleReply={props.handleReply} determineId={props.determineId} setTime={props.setTime} setResponse={props.setResponse} handleInputResponse={props.handleInputResponse} handleInputTime={props.handleInputTime}/>
+                <ReplyContainer 
+                    convo={studentConvo} 
+                    handleReply={props.handleReply} 
+                    determineId={props.determineId} 
+                    setTime={props.setTime} 
+                    setResponse={props.setResponse} 
+                    setTeacherResponse={props.setTeacherResponse}
+                />
                 }
             </div>
             :

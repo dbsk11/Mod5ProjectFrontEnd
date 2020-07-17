@@ -1,16 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const ReplyContainer = (props) => {
-    
+    const [formResponse, setFormResponse] = useState("")
+    const [formTime, setFormTime] = useState("")
+
+    const handleInput = (evt) => {
+        if (evt.target.name === "description"){
+            setFormResponse(evt.target.value)
+        }
+        if (evt.target.name === "office_hours"){
+            setFormTime(evt.target.value)
+        }
+    };
+
     //submit form
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
-        console.log(evt.target.value)
-        // const replyInfo = {
-        //     e.target.value: e.target.description
-        // }
-        // props.handleReply(replyInfo)
-        // props.determineId(props.teacher.id)
+        props.setTeacherResponse(true)
+        props.setResponse(formResponse)
+        props.setTime(formTime)
+        props.determineId(props.convo.id)
     };
 
     // destructuring
@@ -37,11 +46,11 @@ const ReplyContainer = (props) => {
                 <div className="replyform">
                     <label>
                         Description:
-                        <input type="text" name="description" value={props.setResponse} onChange={props.handleInputResponse} />
+                        <input type="text" name="description" value={formResponse} onChange={handleInput} />
                     </label>
                     <label>
                         Office Hours:
-                        <input type="text" name="office_hours" value={props.setTime} onChange={props.handleInputTime} />
+                        <input type="text" name="office_hours" value={formTime} onChange={handleInput} />
                     </label>
                     <input type="submit" value="Submit" />
                 </div>

@@ -23,33 +23,22 @@ import RequestScreen from './components_student/RequestScreen'
 import ResponseScreen from './components_student/ResponseScreen'
 
 function App() {
-  // User State
+  // Update user state 
   const [userType, setUserType] = useState("")
   
-  // Alternate Screen State
+  // Update screen state
   const [alternateScreen, setAlternateScreen] = useState(false)
   
-  // Response Form state
+  // Update Teacher Response Form state
   const [response, setResponse] = useState("")
   const [time, setTime] = useState("")
-  const prevResponse = usePrevious(response)
-  const prevTime = usePrevious(time)
   
-  // User Id state
-  const [id, setId] = useState([])
+  // Update convo ID state
+  const [convoId, setConvoId] = useState([])
 
-  // retain previous state
-  const usePrevious = (value) => {
-    const ref = useRef();
+  // Update state for teacher response
+  const [teacherResponse, setTeacherResponse] = useState(false)
 
-    useEffect(() => {
-      ref.current = value;
-    }, [value])
-
-    return ref.current
-  }
-
-  
   // determine boolean for alternateScreen
   const setAlternateScreen2 = (boolean) => {
     setAlternateScreen(boolean)
@@ -57,33 +46,32 @@ function App() {
 
   // id from teacher 
   const determineId = (idFromChild) => {
-    setId(idFromChild)
-  }
-
-  // handleInput for Response Form
-  const handleInputResponse = (evt) => {
-    console.log('form', evt.target.value)
-      setResponse(...prevResponse, evt.target.value)
-  }
-
-  // handleInput for Response Form
-  const handleInputTime = (evt) => {
-    setTime(evt.target.value)
+    setConvoId(idFromChild)
   }
 
   // patch request for conversation from teacher
-  const handleReply=(replyInfo)=>{
-    fetch(`http://localhost:3000/teachers/${id}`,{
-        method:'PATCH',
-        headers:{
-            'Content-Type':'application/json',
-            accept:'application/json'
+  useEffect(()=>{
+    fetch(`http://localhost:3000/conversations/${convoId}`,{
+        method: "PATCH",
+        headers: {
+            "Content-Type" : "application/json",
+            "Accept" : "application/json"
         },
-        body:JSON.stringify(replyInfo)
-    }).then(r=>r.json()).then(console.log)
-  };
+        body:JSON.stringify({
+          teacher_response: true,
+          response: response,
+          time: time
+        })
+    })
+    .then(r => r.json())
+    .then(handleSubmission)
+  }, [time]);
 
-  
+  // show main page after submitting form 
+  const handleSubmission = () => {
+    setAlternateScreen(false)
+  }
+
   return (
     <div className="maincontainer">
       <div>
@@ -94,16 +82,15 @@ function App() {
           <MessageContainer 
             alternateScreen={alternateScreen} 
             setAlternateScreen={setAlternateScreen2} 
-            handleReply={handleReply} 
+            // handleReply={handleReply} 
             determineId={determineId} 
             setTime={setTime} 
             setResponse={setResponse} 
-            handleInputResponse={handleInputResponse} 
-            handleInputTime={handleInputTime} 
+            setTeacherResponse={setTeacherResponse}
           />} 
         />
         <Route exact path="/teacher/profile" component={Profile} />
-        <Route exact path="/teacher/reply" render={() => <ReplyContainer />} />
+        <Route exact path="/teacher/reply" component={ReplyContainer} />
         <Route exact path="/teacher/studentrequest" component={StudentRequestContainer} />
       
       {/* {userType === ""

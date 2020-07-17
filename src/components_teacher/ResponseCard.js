@@ -11,6 +11,7 @@ const ResponseCard = (props) => {
 
     return (
         <div className="responsecard">
+            <h5>Name:</h5>
             <h5>Response:</h5>
             <p>{response}</p>
             <h5>Scheduled Office Hour:</h5>
