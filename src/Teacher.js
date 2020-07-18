@@ -16,6 +16,10 @@ const Teacher = () => {
     // Initial State: Teacher Form
     const [response, setResponse] = useState("")
     const [time, setTime] = useState("")
+
+    //Initial State: Current Response
+    const [currentResponse, setCurrentResponse] = useState("")
+    const [currentTime, setCurrentTime] = useState("")
     
     // Initial State: Converesation ID
     const [convoId, setConvoId] = useState([])
@@ -51,7 +55,6 @@ const Teacher = () => {
             })
         })
         .then(r => r.json())
-        // .then(handleSubmission)
         .then(handleSubmission)
     }, [time]);
 
@@ -74,6 +77,10 @@ const Teacher = () => {
                 setTime={setTime} 
                 setResponse={setResponse} 
                 setTeacherResponse={setTeacherResponse}
+                setCurrentResponse={setCurrentResponse}
+                setCurrentTime={setCurrentTime}
+                currentResponse={currentResponse}
+                currentTime={currentTime}
                 />} 
             />
             <Route exact path="/teacher/profile" component={Profile} />

@@ -14,9 +14,16 @@ const ResponseColumn = (props) => {
         return <ResponseCard
             response={responsePOJO}
             key={responsePOJO.id}
+            conversations={props.convos} 
+            setAlternateScreen={props.setAlternateScreen} 
+            setViewPage={props.setViewPage} 
+            updateConvo={props.updateConvo} 
+            setCurrentResponse={props.setCurrentResponse}
+            setCurrentTime={props.setCurrentTime}
         />
     });
 
+    console.log("column", props)
     return (
         <div className="responsecolumn">
             <h1>Responses</h1>

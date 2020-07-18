@@ -25,7 +25,7 @@ const MessageContainer = (props) => {
             props.setConvos(data.conversations)
             setKlass(data.teacher_classes)
         })
-    }, [props.time]);
+    }, [props.response]);
  
     // determine teacher classes
     const klasses = klass.map((klassPOJO) => {
@@ -71,6 +71,7 @@ const MessageContainer = (props) => {
     });
     
 
+
     return (
         <div className="messagecontainer">
             {/* {arrayOfConversations.map((convoArray) => {
@@ -95,6 +96,8 @@ const MessageContainer = (props) => {
                     setTime={props.setTime} 
                     setResponse={props.setResponse} 
                     setTeacherResponse={props.setTeacherResponse}
+                    currentResponse={props.currentResponse}
+                    currentTime={props.currentTime} 
                 />
                 }
             </div>
@@ -106,6 +109,8 @@ const MessageContainer = (props) => {
                     setAlternateScreen={props.setAlternateScreen} 
                     updateConvo={updateConvo} 
                     setViewPage={setViewPage} 
+                    setCurrentResponse={props.setCurrentResponse}
+                    setCurrentTime={props.setCurrentTime}
                 />
                 <MessageColumn 
                     klass={klasses[1]} 
@@ -113,6 +118,8 @@ const MessageContainer = (props) => {
                     setAlternateScreen={props.setAlternateScreen} 
                     updateConvo={updateConvo} 
                     setViewPage={setViewPage} 
+                    setCurrentResponse={props.setCurrentResponse}
+                    setCurrentTime={props.setCurrentTime}
                 />
                 <MessageColumn 
                     klass={klasses[2]} 
@@ -120,6 +127,8 @@ const MessageContainer = (props) => {
                     setAlternateScreen={props.setAlternateScreen} 
                     updateConvo={updateConvo} 
                     setViewPage={setViewPage} 
+                    setCurrentResponse={props.setCurrentResponse}
+                    setCurrentTime={props.setCurrentTime}
                 />
                 <MessageColumn 
                     klass={klasses[3]} 
@@ -127,9 +136,18 @@ const MessageContainer = (props) => {
                     setAlternateScreen={props.setAlternateScreen} 
                     updateConvo={updateConvo} 
                     setViewPage={setViewPage} 
+                    setCurrentResponse={props.setCurrentResponse}
+                    setCurrentTime={props.setCurrentTime}
                 />
                 <ResponseColumn 
                     conversations={props.convos} 
+                    setAlternateScreen={props.setAlternateScreen} 
+                    setViewPage={setViewPage} 
+                    updateConvo={updateConvo} 
+                    setCurrentResponse={props.setCurrentResponse}
+                    setCurrentTime={props.setCurrentTime}
+                    currentResponse={props.currentResponse}
+                    currentTime={props.currentTime} 
                 />
             </div>
             }

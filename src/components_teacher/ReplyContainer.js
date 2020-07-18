@@ -17,6 +17,7 @@ const ReplyContainer = (props) => {
     const {first_name, last_name} = props.convo.student;
     const {description, urgency, office_hours} = props.convo;
 
+    console.log(props.currentResponse)
     return (
         <div>
             <div>

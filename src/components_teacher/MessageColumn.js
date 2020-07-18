@@ -10,6 +10,8 @@ const MessageColumn = (props) => {
             setAlternateScreen={props.setAlternateScreen}
             updateConvo={props.updateConvo}
             setViewPage={props.setViewPage}
+            setCurrentResponse={props.setCurrentResponse}
+            setCurrentTime={props.setCurrentTime}
         />
     });
 
