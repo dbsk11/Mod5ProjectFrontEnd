@@ -1,6 +1,5 @@
 import React, { useState,  useEffect } from 'react';
-import './App.css';
-import './style.css';
+import './components_student/stylestudent.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 //student pages

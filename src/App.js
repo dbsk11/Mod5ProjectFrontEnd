@@ -1,9 +1,8 @@
 import React, { useState,  useEffect, useRef } from 'react';
-import './App.css';
 import './style.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 // main imports
-import MainPage from './MainPage'
+import MainPage from './headers/MainPage'
 import Header from './headers/Header';
 import Login from './headers/Login';
 import Logout from './headers/Logout';

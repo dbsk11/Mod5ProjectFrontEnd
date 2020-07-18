@@ -4,15 +4,6 @@ const ReplyContainer = (props) => {
     const [formResponse, setFormResponse] = useState("")
     const [formTime, setFormTime] = useState("")
 
-    const handleInput = (evt) => {
-        if (evt.target.name === "description"){
-            setFormResponse(evt.target.value)
-        }
-        if (evt.target.name === "office_hours"){
-            setFormTime(evt.target.value)
-        }
-    };
-
     //submit form
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
@@ -41,16 +32,27 @@ const ReplyContainer = (props) => {
                 <p>{office_hours ? "Yes" : "No"}</p>
             </div>
 
-
             <form onSubmit={handleFormSubmit}>
                 <div className="replyform">
-                    <label>
+                    <label htmlFor="description">
                         Description:
-                        <input type="text" name="description" value={formResponse} onChange={handleInput} />
+                        <input 
+                            type="text" 
+                            name="description" 
+                            autoComplete="off" 
+                            value={formResponse} 
+                            onChange={(e) => setFormResponse(e.target.value)} 
+                        />
                     </label>
-                    <label>
+                    <label htmlFor="office_hours">
                         Office Hours:
-                        <input type="text" name="office_hours" value={formTime} onChange={handleInput} />
+                        <input 
+                            type="text" 
+                            name="office_hours" 
+                            autoComplete="off" 
+                            value={formTime} 
+                            onChange={(e) => setFormTime(e.target.value)} 
+                        />
                     </label>
                     <input type="submit" value="Submit" />
                 </div>

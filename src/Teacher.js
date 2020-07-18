@@ -1,6 +1,5 @@
 import React, { useState,  useEffect } from 'react';
-import './App.css';
-import './style.css';
+import './components_teacher/styleteacher.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 // teacher pages
@@ -11,30 +10,28 @@ import ReplyContainer from './components_teacher/ReplyContainer'
 import StudentRequestContainer from './components_teacher/StudentRequestContainer'
 
 const Teacher = () => {
-    // Update user state 
-    const [userType, setUserType] = useState("")
-    
-    // Update screen state
+    // Initial State: Alternate Screen
     const [alternateScreen, setAlternateScreen] = useState(false)
     
-    // Update Teacher Response Form state
+    // Initial State: Teacher Form
     const [response, setResponse] = useState("")
     const [time, setTime] = useState("")
     
-    // Update convo ID state
+    // Initial State: Converesation ID
     const [convoId, setConvoId] = useState([])
 
-    // Update state for teacher response
+    // Initial State: Teacher Response
     const [teacherResponse, setTeacherResponse] = useState(false)
 
-    const [convo, setConvo] = useState([]);
+    // Initial State: Conversations Array
+    const [convos, setConvos] = useState([]);
 
-    // determine boolean for alternateScreen
+    // set boolean for alternate screen
     const setAlternateScreen2 = (boolean) => {
         setAlternateScreen(boolean)
     };
 
-    // id from teacher 
+    // set converesation ID
     const determineId = (idFromChild) => {
         setConvoId(idFromChild)
     }
@@ -48,12 +45,13 @@ const Teacher = () => {
                 "Accept" : "application/json"
             },
             body:JSON.stringify({
-            teacher_response: true,
-            response: response,
-            time: time
+                teacher_response: true,
+                response: response,
+                time: time
             })
         })
         .then(r => r.json())
+        // .then(handleSubmission)
         .then(handleSubmission)
     }, [time]);
 
@@ -69,9 +67,10 @@ const Teacher = () => {
                 <MessageContainer 
                 alternateScreen={alternateScreen} 
                 setAlternateScreen={setAlternateScreen2} 
-                setConvo={setConvo}
-                convo={convo}
+                setConvos={setConvos}
+                convos={convos}
                 determineId={determineId} 
+                time={time}
                 setTime={setTime} 
                 setResponse={setResponse} 
                 setTeacherResponse={setTeacherResponse}
