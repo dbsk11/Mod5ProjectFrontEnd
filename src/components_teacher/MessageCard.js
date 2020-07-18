@@ -1,7 +1,6 @@
 import React from 'react';
 
 const MessageCard = (props) => {
-    console.log("card", props)
     // destructuring
     const {first_name, last_name} = props.conversation.student;
     const {urgency, office_hours, teacher_response} = props.conversation;

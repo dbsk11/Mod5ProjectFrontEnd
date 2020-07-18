@@ -18,7 +18,8 @@ const App = () => {
       <div>
         <Header />
       </div>
-      <Teacher />
+      {/* <Teacher /> */}
+      <Student />
         {/* {userType === ""
         ?
         <Route exact path="/" render={()=><MainPage userType={userType} setUserType={setUserType}/>} />

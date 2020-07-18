@@ -86,7 +86,7 @@ const Teacher = () => {
             />
             <Route exact path="/teacher/profile" component={Profile} />
             <Route exact path="/teacher/reply" component={ReplyContainer} />
-            <Route exact path="/teacher/studentrequest" component={StudentRequestContainer} />
+            <Route exact path="/teacher/student_request" component={StudentRequestContainer} />
         </div>
     );
 };

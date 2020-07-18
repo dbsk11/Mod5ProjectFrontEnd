@@ -22,7 +22,6 @@ const ResponseColumn = (props) => {
         />
     });
 
-    console.log("column", props)
     return (
         <div className="responsecolumn">
             <h1>Responses</h1>

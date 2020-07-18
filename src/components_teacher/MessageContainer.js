@@ -6,6 +6,7 @@ import StudentRequestContainer from './StudentRequestContainer'
 
 
 const MessageContainer = (props) => {
+    console.log("message", props)
     // set State
     const [klass, setKlass] = useState([]);
     const [studentConvo, setStudentConvo] = useState([]);
@@ -23,6 +24,7 @@ const MessageContainer = (props) => {
         .then(data => {
             props.setConvos(data.conversations)
             setKlass(data.teacher_classes)
+            
         })
     }, [props.alternateScreen]);
  
@@ -69,7 +71,6 @@ const MessageContainer = (props) => {
         }; 
     });
 
-    console.log("current", props.currentResponse, props.currentTime)
     return (
         <div className="messagecontainer">
             { props.alternateScreen

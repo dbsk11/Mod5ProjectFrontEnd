@@ -11,7 +11,13 @@ import ResponseScreen from './components_student/ResponseScreen'
 
 const Student = () => {
     return (
-        <h1>Student</h1>
+        <div className="studentcontainer">
+            <NavBarStudent />
+            <Route exact path="/student" render={() => <MainContainer />} />
+            <Route exact path="/student/profile" component={StudentProfile}/>
+            <Route exact path="/student/make_request" component={RequestScreen}/>
+            <Route exact path="/student/view_response" component={ResponseScreen}/>
+        </div>
     );
 };
 
