@@ -25,7 +25,7 @@ const MessageContainer = (props) => {
             props.setConvos(data.conversations)
             setKlass(data.teacher_classes)
         })
-    }, [props.response]);
+    }, [props.alternateScreen]);
  
     // determine teacher classes
     const klasses = klass.map((klassPOJO) => {
