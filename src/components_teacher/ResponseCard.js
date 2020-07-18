@@ -1,18 +1,17 @@
 import React from 'react';
 
 const ResponseCard = (props) => {
-    console.log(props)
+    console.log("response", props)
     // destructuring 
     const {response, office_hours, time} = props.response;
     
     // edit button 
     const handleEdit = (evt) => {
-        console.log("evt", evt.target)
         props.setAlternateScreen(true)
         props.setViewPage("Reply")
         props.updateConvo(props.response)
-        props.setCurrentResponse(props.response.response)
-        props.setCurrentTime(props.response.time)
+        props.setFormResponse(props.response.response)
+        props.setFormTime(props.response.time)
     };
 
     return (

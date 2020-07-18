@@ -17,9 +17,9 @@ const Teacher = () => {
     const [response, setResponse] = useState("")
     const [time, setTime] = useState("")
 
-    //Initial State: Current Response
-    const [currentResponse, setCurrentResponse] = useState("")
-    const [currentTime, setCurrentTime] = useState("")
+    // onChange for Reply Form / Repopulate Form for Edit
+    const [formResponse, setFormResponse] = useState("")
+    const [formTime, setFormTime] = useState("")
     
     // Initial State: Converesation ID
     const [convoId, setConvoId] = useState([])
@@ -70,17 +70,18 @@ const Teacher = () => {
                 <MessageContainer 
                 alternateScreen={alternateScreen} 
                 setAlternateScreen={setAlternateScreen2} 
-                setConvos={setConvos}
                 convos={convos}
-                determineId={determineId} 
+                setConvos={setConvos}
                 time={time}
                 setTime={setTime} 
+                response={response}
                 setResponse={setResponse} 
                 setTeacherResponse={setTeacherResponse}
-                setCurrentResponse={setCurrentResponse}
-                setCurrentTime={setCurrentTime}
-                currentResponse={currentResponse}
-                currentTime={currentTime}
+                formResponse={formResponse}
+                setFormResponse={setFormResponse}
+                formTime={formTime}
+                setFormTime={setFormTime}
+                determineId={determineId} 
                 />} 
             />
             <Route exact path="/teacher/profile" component={Profile} />

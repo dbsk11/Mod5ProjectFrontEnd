@@ -14,12 +14,11 @@ const ResponseColumn = (props) => {
         return <ResponseCard
             response={responsePOJO}
             key={responsePOJO.id}
-            conversations={props.convos} 
             setAlternateScreen={props.setAlternateScreen} 
             setViewPage={props.setViewPage} 
             updateConvo={props.updateConvo} 
-            setCurrentResponse={props.setCurrentResponse}
-            setCurrentTime={props.setCurrentTime}
+            setFormResponse={props.setFormResponse}
+            setFormTime={props.setFormTime}
         />
     });
 

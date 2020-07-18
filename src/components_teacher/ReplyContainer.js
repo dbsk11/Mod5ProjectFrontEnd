@@ -1,15 +1,12 @@
 import React, {useState} from 'react';
 
 const ReplyContainer = (props) => {
-    const [formResponse, setFormResponse] = useState("")
-    const [formTime, setFormTime] = useState("")
-
     //submit form
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
         props.setTeacherResponse(true)
-        props.setResponse(formResponse)
-        props.setTime(formTime)
+        props.setResponse(props.formResponse)
+        props.setTime(props.formTime)
         props.determineId(props.convo.id)
     };
 
@@ -17,7 +14,7 @@ const ReplyContainer = (props) => {
     const {first_name, last_name} = props.convo.student;
     const {description, urgency, office_hours} = props.convo;
 
-    console.log(props.currentResponse)
+    console.log(props.currentTime, props.currentResponse)
     return (
         <div>
             <div>
@@ -41,8 +38,8 @@ const ReplyContainer = (props) => {
                             type="text" 
                             name="description" 
                             autoComplete="off" 
-                            value={formResponse} 
-                            onChange={(e) => setFormResponse(e.target.value)} 
+                            value={props.formResponse} 
+                            onChange={(e) => props.setFormResponse(e.target.value)} 
                         />
                     </label>
                     <label htmlFor="office_hours">
@@ -51,8 +48,8 @@ const ReplyContainer = (props) => {
                             type="text" 
                             name="office_hours" 
                             autoComplete="off" 
-                            value={formTime} 
-                            onChange={(e) => setFormTime(e.target.value)} 
+                            value={props.formTime} 
+                            onChange={(e) => props.setFormTime(e.target.value)} 
                         />
                     </label>
                     <input type="submit" value="Submit" />

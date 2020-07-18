@@ -1,6 +1,7 @@
 import React from 'react';
 
 const MessageCard = (props) => {
+    console.log("card", props)
     // destructuring
     const {first_name, last_name} = props.conversation.student;
     const {urgency, office_hours, teacher_response} = props.conversation;
@@ -17,14 +18,17 @@ const MessageCard = (props) => {
         props.updateConvo(props.conversation)
         props.setAlternateScreen(true)
         props.setViewPage("Reply")
+        props.setFormResponse("")
+        props.setFormTime("")
     };
 
     const handleEdit = (evt) => {
+        console.log("edit", props.conversation)
         props.setAlternateScreen(true)
         props.setViewPage("Reply")
         props.updateConvo(props.conversation)
-        props.setCurrentResponse(props.conversation.response)
-        props.setCurrentTime(props.conversation.time)
+        props.setFormResponse(props.conversation.response)
+        props.setFormTime(props.conversation.time)
     }
 
     return (

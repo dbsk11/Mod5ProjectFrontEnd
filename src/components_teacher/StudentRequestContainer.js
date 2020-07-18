@@ -9,6 +9,8 @@ const StudentRequestContainer = (props) => {
     const handleClick = (evt) => {
         props.setAlternateScreen(true)
         props.setViewPage("Reply")
+        props.setFormResponse("")
+        props.setFormTime("")
     };
 
     return (

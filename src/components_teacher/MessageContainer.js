@@ -7,7 +7,6 @@ import StudentRequestContainer from './StudentRequestContainer'
 
 const MessageContainer = (props) => {
     // set State
-    
     const [klass, setKlass] = useState([]);
     const [studentConvo, setStudentConvo] = useState([]);
     const [viewPage, setViewPage] = useState("");
@@ -69,14 +68,10 @@ const MessageContainer = (props) => {
             return convoObj
         }; 
     });
-    
 
-
+    console.log("current", props.currentResponse, props.currentTime)
     return (
         <div className="messagecontainer">
-            {/* {arrayOfConversations.map((convoArray) => {
-                return <MessageColumn conversations={convoArray} key={convoArray.id}/>
-            })} */}
             { props.alternateScreen
             ? 
             <div>
@@ -85,19 +80,21 @@ const MessageContainer = (props) => {
                 <StudentRequestContainer 
                     convo={studentConvo} 
                     setAlternateScreen={props.setAlternateScreen} 
-                    updateConvo={updateConvo} 
                     setViewPage={setViewPage} 
+                    setFormResponse={props.setFormResponse}
+                    setFormTime={props.setFormTime}
                 />
                 :
                 <ReplyContainer 
                     convo={studentConvo} 
-                    handleReply={props.handleReply} 
                     determineId={props.determineId} 
+                    setTeacherResponse={props.setTeacherResponse}
                     setTime={props.setTime} 
                     setResponse={props.setResponse} 
-                    setTeacherResponse={props.setTeacherResponse}
-                    currentResponse={props.currentResponse}
-                    currentTime={props.currentTime} 
+                    formResponse={props.formResponse}
+                    setFormResponse={props.setFormResponse}
+                    formTime={props.formTime}
+                    setFormTime={props.setFormTime}
                 />
                 }
             </div>
@@ -109,8 +106,8 @@ const MessageContainer = (props) => {
                     setAlternateScreen={props.setAlternateScreen} 
                     updateConvo={updateConvo} 
                     setViewPage={setViewPage} 
-                    setCurrentResponse={props.setCurrentResponse}
-                    setCurrentTime={props.setCurrentTime}
+                    setFormResponse={props.setFormResponse}
+                    setFormTime={props.setFormTime}
                 />
                 <MessageColumn 
                     klass={klasses[1]} 
@@ -118,8 +115,8 @@ const MessageContainer = (props) => {
                     setAlternateScreen={props.setAlternateScreen} 
                     updateConvo={updateConvo} 
                     setViewPage={setViewPage} 
-                    setCurrentResponse={props.setCurrentResponse}
-                    setCurrentTime={props.setCurrentTime}
+                    setFormResponse={props.setFormResponse}
+                    setFormTime={props.setFormTime}
                 />
                 <MessageColumn 
                     klass={klasses[2]} 
@@ -127,8 +124,8 @@ const MessageContainer = (props) => {
                     setAlternateScreen={props.setAlternateScreen} 
                     updateConvo={updateConvo} 
                     setViewPage={setViewPage} 
-                    setCurrentResponse={props.setCurrentResponse}
-                    setCurrentTime={props.setCurrentTime}
+                    setFormResponse={props.setFormResponse}
+                    setFormTime={props.setFormTime}
                 />
                 <MessageColumn 
                     klass={klasses[3]} 
@@ -136,40 +133,19 @@ const MessageContainer = (props) => {
                     setAlternateScreen={props.setAlternateScreen} 
                     updateConvo={updateConvo} 
                     setViewPage={setViewPage} 
-                    setCurrentResponse={props.setCurrentResponse}
-                    setCurrentTime={props.setCurrentTime}
+                    setFormResponse={props.setFormResponse}
+                    setFormTime={props.setFormTime}
                 />
                 <ResponseColumn 
                     conversations={props.convos} 
                     setAlternateScreen={props.setAlternateScreen} 
                     setViewPage={setViewPage} 
                     updateConvo={updateConvo} 
-                    setCurrentResponse={props.setCurrentResponse}
-                    setCurrentTime={props.setCurrentTime}
-                    currentResponse={props.currentResponse}
-                    currentTime={props.currentTime} 
+                    setFormResponse={props.setFormResponse}
+                    setFormTime={props.setFormTime}
                 />
             </div>
             }
-            {/* {setMainScreen === false 
-            ?
-            <div className="allconvos">
-                <MessageColumn klass={klasses[0]} conversations={array1} setMainScreen={setMainScreen} setStudentConvo={setStudentConvo} />
-                <MessageColumn klass={klasses[1]} conversations={array2} setMainScreen={setMainScreen} setStudentConvo={setStudentConvo} />
-                <MessageColumn klass={klasses[2]} conversations={array3} setMainScreen={setMainScreen} setStudentConvo={setStudentConvo} />
-                <MessageColumn klass={klasses[3]} conversations={array4} setMainScreen={setMainScreen} setStudentConvo={setStudentConvo} />
-                <ResponseColumn/>
-            </div>
-            :
-            <div>
-                {setScreen === ""
-                ?
-                <StudentRequestContainer />
-                :
-                <ReplyContainer />
-                }
-            </div>
-            } */}
         </div>
     );
 };
