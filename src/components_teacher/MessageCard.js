@@ -23,7 +23,6 @@ const MessageCard = (props) => {
     };
 
     const handleEdit = (evt) => {
-        console.log("edit", props.conversation)
         props.setAlternateScreen(true)
         props.setViewPage("Reply")
         props.updateConvo(props.conversation)

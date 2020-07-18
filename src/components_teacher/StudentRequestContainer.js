@@ -5,13 +5,21 @@ const StudentRequestContainer = (props) => {
     const {first_name, last_name} = props.convo.student;
     const {description, klass, office_hours, created_at, topic, urgency} = props.convo;
 
-    // update state
+    // reply button - update state
     const handleClick = (evt) => {
         props.setAlternateScreen(true)
         props.setViewPage("Reply")
         props.setFormResponse("")
         props.setFormTime("")
     };
+
+    // edit button - update state
+    const handleEdit = (evt) => {
+        props.setAlternateScreen(true)
+        props.setViewPage("Reply")
+        props.setFormResponse(props.convo.response)
+        props.setFormTime(props.convo.time)
+    }
 
     return (
         <div className="studentrequest">
@@ -50,7 +58,14 @@ const StudentRequestContainer = (props) => {
                     <p>{office_hours ? "Yes" : "No"}</p>
                 </div>
             </div>
-            <button onClick={handleClick}>Reply</button>
+            <div className="studentrequestcontainerbutton">
+                {office_hours
+                ?
+                <button onClick={handleEdit}>Edit Reply</button>
+                :
+                <button onClick={handleClick}>Reply</button>
+                }
+            </div>
         </div>
     );
 };
