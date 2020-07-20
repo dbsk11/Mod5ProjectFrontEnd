@@ -9,7 +9,7 @@ import StudentProfile from './components_student/StudentProfile'
 import RequestScreen from './components_student/RequestScreen'
 import ResponseScreen from './components_student/ResponseScreen'
 
-const Student = () => {
+const Student = (props) => {
     // Initial State: Alternate Screen
     const [alternateScreen, setAlternateScreen] = useState(false);
 
@@ -21,6 +21,9 @@ const Student = () => {
 
     // set Student ID 
     const [studentId, setStudentId] = useState([]);
+
+    // set class for Form
+    const [formKlass, setFormKlass] = useState([])
 
     // Initial State: Request Form
     const [topic, setTopic] = useState("Lecture")
@@ -34,12 +37,9 @@ const Student = () => {
     const [formOfficeHours, setFormOfficeHours] = useState(true)
     const [formDescription, setFormDescription] = useState("")
 
-
     const setAlternateScreen2 = (boolean) => {
         setAlternateScreen(boolean)
     };
-
-    console.log(studentId)
 
     return (
         <div className="studentcontainer">
@@ -52,8 +52,9 @@ const Student = () => {
                     setConvos={setConvos}
                     alternateScreen={alternateScreen}
                     setAlternateScreen={setAlternateScreen2}
-                    // teacherId={teacherId}
-                    // setTeacherId={setTeacherId}
+                    teacherId={teacherId}
+                    setTeacherId={setTeacherId}
+                    studentId={studentId}
                     setStudentId={setStudentId}
                     topic={topic}
                     setTopic={setTopic}
@@ -71,8 +72,9 @@ const Student = () => {
                     setFormOfficeHours={setFormOfficeHours}
                     formDescription={formDescription}
                     setFormDescription={setFormDescription}
-
-
+                    formKlass={formKlass}
+                    setFormKlass={setFormKlass}
+                    setAcknowledged={props.setAcknowledged}
                 />} 
             />
             <Route exact path="/student/profile" component={StudentProfile}/>

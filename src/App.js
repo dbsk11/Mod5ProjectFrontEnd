@@ -18,7 +18,7 @@ const App = () => {
       <div>
         <Header />
       </div>
-      {/* <Teacher /> */}
+      {/* <Teacher acknowledged={acknowledged}/> */}
       <Student />
         {/* {userType === ""
         ?
@@ -27,9 +27,11 @@ const App = () => {
         <div>
           {userType === "Student"
           ?
-          <Student />
+          <Student 
+          />
           :
-          <Teacher />
+          <Teacher 
+          />
           }
         </div>
         } */}

@@ -1,15 +1,35 @@
 import React from 'react';
 
 const RequestScreen = (props) => {
-    console.log(props)
-
+    // submit form
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
         props.setTopic(props.formTopic)
         props.setUrgency(props.formUrgency)
         props.setOfficeHours(props.formOfficeHours)
         props.setDescription(props.formDescription)
-    }
+
+        fetch("http://localhost:3000/conversations", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                student_id: props.studentId,
+                teacher_id: props.teacherId,
+                klass: props.formKlass,
+                topic: props.formTopic,
+                urgency: props.formUrgency,
+                office_hours: props.formOfficeHours,
+                description: props.formDescription
+            })
+        })
+        .then(r => r.json())
+        .then(newRequest => {
+            props.handleSubmit(newRequest)
+            props.setAlternateScreen(false)
+        })
+    };
 
     return (
         <div>

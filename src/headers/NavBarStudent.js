@@ -14,7 +14,7 @@ const NavBarStudent = (props) => {
     }
 
     return (
-        <div className="navbar">
+        <div className="navbarstudent">
             <NavLink
                 to="/student/"
                 exact

@@ -16,11 +16,10 @@ const RequestColumn = (props) => {
     const handleNewRequest = (evt) => {
         props.setAlternateScreen(true)
         props.setViewPage("Make Request")
-        // props.setTeacherId(props.convos.teacher.id)
-        // props.setStudentId(props.convos.student.id)
+        props.setTeacherId(props.teacherid)
+        props.setFormKlass(props.klass)
     }
 
-    console.log("column", props)
     return (
         <div className="requestcolumn">
             <h1>{props.klass}</h1>

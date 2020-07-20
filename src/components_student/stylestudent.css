@@ -1,17 +1,45 @@
-.maincontainer {
+.navbarstudent {
+    display: flex;
+    flex-direction: row;
+    height: 5vh;
+    width: 98.8vw;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.studentcontainer {
     display: flex;
     flex-direction: column;
+    border: blue;
+}
+
+.studentmain {
+    display: flex;
+    flex-direction: column;
+    width: 98vw;
+    height: 57vh;
+    border-color: red
 }
 
 .requestcolumn {
     display: flex;
     flex-direction: column;
     width: 17.5vw;
-    height: 77vh;
+    height: 78vh;
     border-style: solid;
     margin: 10px;
     align-items: center;
     overflow-y: scroll;
+}
+
+.requestcolumn h1 {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.newrequest {
+    display: flex;
+    margin-bottom: 5px;
 }
 
 .conversation {
@@ -25,23 +53,48 @@
 }
 
 .studentconvo h5 {
+    display: flex;
     margin-top: 0em;
     margin-bottom: 0em;
+    align-items: center;
+    justify-content: center;
 }
 
 .studentconvo p {
+    display: flex;  
     margin-top: 0px;
     margin-bottom: 10px;
     font-style: italic;
+    align-items: center;
+    justify-content: center;
 }
 
 .teacherconvo h5 {
+    display: flex;
     margin-top: 0em;
     margin-bottom: 0em;
+    align-items: center;
+    justify-content: center;
 }
 
 .teacherconvo p {
-    margin-top: 0px;
-    margin-bottom: 10px;
-    font-style: italic;
+    display: flex;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 7px;
+
+}
+
+.button {
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+}
+
+.waitingalert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -8,6 +8,14 @@ const RequestCard = (props) => {
         props.updateConvo(props.conversation)
     }
     
+    const handleAcknowledgeClick = (evt) => {
+        //patch request acknowledge
+    }
+
+    const handleDeleteClick = (evt) => {
+        console.log(evt.target)
+    }
+
     let {klass, description, teacher_response, office_hours, response, time, teacher_id} = props.conversation
 
     return (
@@ -15,16 +23,24 @@ const RequestCard = (props) => {
             <div className="studentconvo">
                 <h5>Request:</h5>
                 <p>{description}</p>
-                <button onClick={handleClick}>See Entire Request</button>
-                <button>Edit Request</button>
-                <button>Delete Request</button>
+                <button className="button" onClick={handleClick}>View Request</button>
+                <button className="button" onClick={handleDeleteClick}>Delete Request</button>
             </div>
             <div className="teacherconvo">
-                <h5>Teacher Response: </h5>
-                <p>{response}</p>
-                <h5>Office Hours: </h5>
-                <p>{office_hours ? time : "N/A"}</p>
-                <button>Acknowledge</button>
+                {teacher_response
+                ?
+                <div>
+                    <h5>Teacher Response: </h5>
+                    <p>{response}</p>
+                    <h5>Office Hours: </h5>
+                    <p>{office_hours ? time : "N/A"}</p>
+                    <button onClick={handleAcknowledgeClick}>Acknowledge</button>
+                </div>
+                :
+                <div className="waitingalert">
+                    Waiting for Response
+                </div>
+                }
             </div>
         </div>
     );

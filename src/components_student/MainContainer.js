@@ -25,31 +25,39 @@ const MainContainer = (props) => {
             props.setConvos(data.conversations)
             setKlass(data.student_classes)
             props.setStudentId(data.id)
-            console.log('fetch', data)
         })
     }, [])
 
     const klasses = klass.map((klassPOJO) => {
-        return klassPOJO.teacher_class.klass.name
+        return klassPOJO.teacher_class
     })
-    console.log('klass', klass)
 
-    const arrayToRender = klass.map((klass) => {
-        let array = props.convos.filter((convo) => convo.klass === klass)
+    const arrayToRender = klasses.map((klass) => {
+        let array = props.convos.filter((convo) => convo.klass === klass.klass.name)
         return (
             <RequestColumn 
-                klass={klass}
+                klass={klass.klass.name}
+                key={klass.klass.id}
                 convos={array}
+                studentId={props.studentId}
+                teacherid={klass.teacher_id}
                 setAlternateScreen={props.setAlternateScreen}
                 setViewPage={setViewPage}
                 updateConvo={updateConvo}
-                // setTeacherId={props.setTeacherId}
+                setTeacherId={props.setTeacherId}
+                setFormKlass={props.setFormKlass}
+                formKlass={props.formKlass}
             />
         )
     })
 
+    const handleSubmit = (newRequest) => {
+        let copyOfConvoList = [...props.convos, newRequest]
+        props.setConvos(copyOfConvoList)
+    }
+
     return (
-        <div className="maincontainer">
+        <div className="studentmain">
             {props.alternateScreen 
             ?
             <div>
@@ -76,6 +84,10 @@ const MainContainer = (props) => {
                     formDescription={props.formDescription}
                     setFormDescription={props.setFormDescription}
                     studentId={props.studentId}
+                    teacherId={props.teacherId}
+                    formKlass={props.formKlass}
+                    handleSubmit={handleSubmit}
+                    setAlternateScreen={props.setAlternateScreen}
                 />
                 }
             </div>
