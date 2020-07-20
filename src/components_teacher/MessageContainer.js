@@ -6,7 +6,6 @@ import StudentRequestContainer from './StudentRequestContainer'
 
 
 const MessageContainer = (props) => {
-    console.log("message", props)
     // set State
     const [klass, setKlass] = useState([]);
     const [studentConvo, setStudentConvo] = useState([]);
@@ -33,15 +32,22 @@ const MessageContainer = (props) => {
         return klassPOJO.klass.name
     });
 
-    // counter to allow for inconsistent numbers of classes
-    // const arrayOfConversations = convo.filter((convoObj) => {
-    //     let arrayToRender = []
-    //     for (let i = 0; i < klasses.length; i++) {
-    //         if(convoObj.klass === klasses[i]){
-    //             arrayToRender[klasses[i]] = convoObj
-    //         }
-    //     }return arrayToRender
+    // looped filter and return 
+    // const arrayToRender = klass.map((klass) => {
+    //     let array = props.convos.filter((convo) => convo.klass === klass)
+    //     return (
+    //         <MessageColumn 
+    //             klass={klass}
+    //             conversation={array}
+    //             setAlternateScreen={props.setAlternateScreen} 
+    //             updateConvo={updateConvo} 
+    //             setViewPage={setViewPage} 
+    //             setFormResponse={props.setFormResponse}
+    //             setFormTime={props.setFormTime}
+    //         />
+    //     )
     // })
+    // console.log("loop", arrayToRender)
     
     // array for 1st class
     const array1 = props.convos.filter((convoObj) => {

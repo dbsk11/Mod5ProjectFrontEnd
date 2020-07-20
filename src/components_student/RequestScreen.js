@@ -1,8 +1,59 @@
 import React from 'react';
 
 const RequestScreen = (props) => {
+    console.log(props)
+
+    const handleFormSubmit = (evt) => {
+        evt.preventDefault();
+        props.setTopic(props.formTopic)
+        props.setUrgency(props.formUrgency)
+        props.setOfficeHours(props.formOfficeHours)
+        props.setDescription(props.formDescription)
+    }
+
     return (
-        <h1>RequestScreen</h1>
+        <div>
+            <div className="requestformheader">
+                Create A New Request
+            </div>
+            <form onSubmit={handleFormSubmit}>
+                <div className="requestform">
+                    <label>
+                        Topic:
+                        <select value={props.formTopic} onChange={(e) => props.setFormTopic(e.target.value)}>
+                            <option value="lecture">Lecture</option>
+                            <option value="classwork">Classwork</option>
+                            <option value="homework">Homework</option>
+                        </select>
+                    </label>
+                    <label>
+                        Urgency:
+                        <select value={props.formUrgency} onChange={(e) => props.setFormUrgency(e.target.value)}>
+                            <option value="immediate">Immediate Response Requested</option>
+                            <option value="endofday">By End of Day</option>
+                        </select>
+                    </label>
+                    <label>
+                        Request Office Hours:
+                        <select value={props.formOfficeHours} onChange={(e) => props.setFormOfficeHours(e.target.value)}>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </label>
+                    <label htmlFor="description">
+                        Description:
+                        <input 
+                            type="text" 
+                            name="description" 
+                            autoComplete="off" 
+                            value={props.formDescription} 
+                            onChange={(e) => props.setFormDescription(e.target.value)}
+                        />
+                    </label>
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
+        </div>
     );
 };
 

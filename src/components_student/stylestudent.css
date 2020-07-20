@@ -1,0 +1,47 @@
+.maincontainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.requestcolumn {
+    display: flex;
+    flex-direction: column;
+    width: 17.5vw;
+    height: 77vh;
+    border-style: solid;
+    margin: 10px;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.conversation {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    align-items: center;
+}
+
+.studentconvo h5 {
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+.studentconvo p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.teacherconvo h5 {
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+.teacherconvo p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-style: italic;
+}

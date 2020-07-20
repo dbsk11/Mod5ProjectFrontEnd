@@ -11,21 +11,21 @@ import StudentRequestContainer from './components_teacher/StudentRequestContaine
 
 const Teacher = () => {
     // Initial State: Alternate Screen
-    const [alternateScreen, setAlternateScreen] = useState(false)
+    const [alternateScreen, setAlternateScreen] = useState(false);
     
-    // Initial State: Teacher Form
-    const [response, setResponse] = useState("")
-    const [time, setTime] = useState("")
+    // Initial State: Teacher Resposne Form
+    const [response, setResponse] = useState("");
+    const [time, setTime] = useState("");
 
     // onChange for Reply Form / Repopulate Form for Edit
-    const [formResponse, setFormResponse] = useState("")
-    const [formTime, setFormTime] = useState("")
+    const [formResponse, setFormResponse] = useState("");
+    const [formTime, setFormTime] = useState("");
     
     // Initial State: Converesation ID
-    const [convoId, setConvoId] = useState([])
+    const [convoId, setConvoId] = useState([]);
 
     // Initial State: Teacher Response
-    const [teacherResponse, setTeacherResponse] = useState(false)
+    const [teacherResponse, setTeacherResponse] = useState(false);
 
     // Initial State: Conversations Array
     const [convos, setConvos] = useState([]);
@@ -38,7 +38,7 @@ const Teacher = () => {
     // set converesation ID
     const determineId = (idFromChild) => {
         setConvoId(idFromChild)
-    }
+    };
 
     // patch request for conversation from teacher
     useEffect(()=>{
@@ -68,20 +68,20 @@ const Teacher = () => {
             <NavBarTeacher setAlternateScreen={setAlternateScreen2}/>
             <Route exact path="/teacher" render={() => 
                 <MessageContainer 
-                alternateScreen={alternateScreen} 
-                setAlternateScreen={setAlternateScreen2} 
-                convos={convos}
-                setConvos={setConvos}
-                time={time}
-                setTime={setTime} 
-                response={response}
-                setResponse={setResponse} 
-                setTeacherResponse={setTeacherResponse}
-                formResponse={formResponse}
-                setFormResponse={setFormResponse}
-                formTime={formTime}
-                setFormTime={setFormTime}
-                determineId={determineId} 
+                    alternateScreen={alternateScreen} 
+                    setAlternateScreen={setAlternateScreen2} 
+                    convos={convos}
+                    setConvos={setConvos}
+                    time={time}
+                    setTime={setTime} 
+                    response={response}
+                    setResponse={setResponse} 
+                    setTeacherResponse={setTeacherResponse}
+                    formResponse={formResponse}
+                    setFormResponse={setFormResponse}
+                    formTime={formTime}
+                    setFormTime={setFormTime}
+                    determineId={determineId} 
                 />} 
             />
             <Route exact path="/teacher/profile" component={Profile} />

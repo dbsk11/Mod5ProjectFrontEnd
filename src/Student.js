@@ -10,10 +10,71 @@ import RequestScreen from './components_student/RequestScreen'
 import ResponseScreen from './components_student/ResponseScreen'
 
 const Student = () => {
+    // Initial State: Alternate Screen
+    const [alternateScreen, setAlternateScreen] = useState(false);
+
+    // Initial State: Conversations Array
+    const [convos, setConvos] = useState([]);
+
+    // set Teacher ID
+    const [teacherId, setTeacherId] = useState([]);
+
+    // set Student ID 
+    const [studentId, setStudentId] = useState([]);
+
+    // Initial State: Request Form
+    const [topic, setTopic] = useState("Lecture")
+    const [urgency, setUrgency] = useState("Immediate Response Requested")
+    const [officeHours, setOfficeHours] = useState(false)
+    const [description, setDescription] = useState("")
+
+    // onChange for Request Form / Repopulate Form for Edit
+    const [formTopic, setFormTopic] = useState("Lecture")
+    const [formUrgency, setFormUrgency] = useState("Immediate Response Requested")
+    const [formOfficeHours, setFormOfficeHours] = useState(true)
+    const [formDescription, setFormDescription] = useState("")
+
+
+    const setAlternateScreen2 = (boolean) => {
+        setAlternateScreen(boolean)
+    };
+
+    console.log(studentId)
+
     return (
         <div className="studentcontainer">
-            <NavBarStudent />
-            <Route exact path="/student" render={() => <MainContainer />} />
+            <NavBarStudent 
+                setAlternateScreen={setAlternateScreen2}
+            />
+            <Route exact path="/student" render={() => 
+                <MainContainer 
+                    convos={convos}
+                    setConvos={setConvos}
+                    alternateScreen={alternateScreen}
+                    setAlternateScreen={setAlternateScreen2}
+                    // teacherId={teacherId}
+                    // setTeacherId={setTeacherId}
+                    setStudentId={setStudentId}
+                    topic={topic}
+                    setTopic={setTopic}
+                    urgency={urgency}
+                    setUrgency={setUrgency}
+                    officeHours={officeHours}
+                    setOfficeHours={setOfficeHours}
+                    description={description}
+                    setDescription={setDescription}
+                    formTopic={formTopic}
+                    setFormTopic={setFormTopic}
+                    formUrgency={formUrgency}
+                    setFormUrgency={setFormUrgency}
+                    formOfficeHours={formOfficeHours}
+                    setFormOfficeHours={setFormOfficeHours}
+                    formDescription={formDescription}
+                    setFormDescription={setFormDescription}
+
+
+                />} 
+            />
             <Route exact path="/student/profile" component={StudentProfile}/>
             <Route exact path="/student/make_request" component={RequestScreen}/>
             <Route exact path="/student/view_response" component={ResponseScreen}/>
