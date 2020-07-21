@@ -30,34 +30,22 @@ const MessageContainer = (props) => {
     const klasses = klass.map((klassPOJO) => {
         return klassPOJO.klass.name
     });
-    
-    // array for 1st class
-    const array1 = props.convos.filter((convoObj) => {
-        if(convoObj.klass === klasses[0]){
-            return convoObj
-        };
-    });
-
-    // array for 2nd class
-    const array2 = props.convos.filter((convoObj) => {
-        if(convoObj.klass === klasses[1]){
-            return convoObj
-        };
-    });
-
-    // array for 3rd class
-    const array3 = props.convos.filter((convoObj) => {
-        if(convoObj.klass === klasses[2]){
-            return convoObj
-        };
-    });
-
-    // array for 4th class
-    const array4 = props.convos.filter((convoObj) => {
-        if(convoObj.klass === klasses[3]){
-            return convoObj
-        }; 
-    });
+ 
+    // determine array to render
+    const arrayToRender = klasses.map((klass) => {
+        let array = props.convos.filter((convo) => convo.klass === klass)
+        return (
+            <MessageColumn 
+                klass={klass} 
+                conversations={array} 
+                setAlternateScreen={props.setAlternateScreen} 
+                updateConvo={updateConvo} 
+                setViewPage={setViewPage} 
+                setFormResponse={props.setFormResponse}
+                setFormTime={props.setFormTime}
+            />
+        )
+    })
 
     return (
         <div className="messagecontainer">
@@ -89,42 +77,7 @@ const MessageContainer = (props) => {
             </div>
             :
             <div className="allconvos">
-                <MessageColumn 
-                    klass={klasses[0]} 
-                    conversations={array1} 
-                    setAlternateScreen={props.setAlternateScreen} 
-                    updateConvo={updateConvo} 
-                    setViewPage={setViewPage} 
-                    setFormResponse={props.setFormResponse}
-                    setFormTime={props.setFormTime}
-                />
-                <MessageColumn 
-                    klass={klasses[1]} 
-                    conversations={array2} 
-                    setAlternateScreen={props.setAlternateScreen} 
-                    updateConvo={updateConvo} 
-                    setViewPage={setViewPage} 
-                    setFormResponse={props.setFormResponse}
-                    setFormTime={props.setFormTime}
-                />
-                <MessageColumn 
-                    klass={klasses[2]} 
-                    conversations={array3} 
-                    setAlternateScreen={props.setAlternateScreen} 
-                    updateConvo={updateConvo} 
-                    setViewPage={setViewPage} 
-                    setFormResponse={props.setFormResponse}
-                    setFormTime={props.setFormTime}
-                />
-                <MessageColumn 
-                    klass={klasses[3]} 
-                    conversations={array4} 
-                    setAlternateScreen={props.setAlternateScreen} 
-                    updateConvo={updateConvo} 
-                    setViewPage={setViewPage} 
-                    setFormResponse={props.setFormResponse}
-                    setFormTime={props.setFormTime}
-                />
+                {arrayToRender}
                 <ResponseColumn 
                     conversations={props.convos} 
                     setAlternateScreen={props.setAlternateScreen} 

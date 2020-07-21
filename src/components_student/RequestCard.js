@@ -50,7 +50,7 @@ const RequestCard = (props) => {
     }
 
     // destructuring props
-    let {description, teacher_response, office_hours, response, time, topic, urgency} = props.conversation
+    let {description, teacher_response, office_hours, response, time} = props.conversation
 
     return (
         <div className="conversation">

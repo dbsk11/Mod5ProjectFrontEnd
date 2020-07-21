@@ -5,7 +5,7 @@ const ReplyContainer = (props) => {
     //submit form
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
-        props.setTeacherResponse(true);
+        // props.setTeacherResponse(true);
         props.setResponse(props.formResponse);
         props.setTime(props.formTime);
         props.determineId(props.convo.id);
@@ -17,8 +17,8 @@ const ReplyContainer = (props) => {
             },
             body: JSON.stringify({
                 teacher_response: true,
-                response: props.formResponse,
-                time: props.formTime
+                response: props.response,
+                time: props.time
             })
         })
         .then(r => r.json())

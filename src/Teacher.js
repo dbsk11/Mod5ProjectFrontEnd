@@ -1,7 +1,7 @@
 import React, { useState,  useEffect } from 'react';
 import './components_teacher/styleteacher.css'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 
 // teacher pages
 import NavBarTeacher from './headers/NavBarTeacher';
@@ -9,7 +9,6 @@ import MessageContainer from './components_teacher/MessageContainer'
 import Profile from './components_teacher/Profile'
 import ReplyContainer from './components_teacher/ReplyContainer'
 import StudentRequestContainer from './components_teacher/StudentRequestContainer'
-import Login from './components_teacher/Login';
 
 const Teacher = (props) => {
     // Initial State: Alternate Screen
@@ -41,7 +40,7 @@ const Teacher = (props) => {
     const [formPassword, setFormPassword] = useState("")
 
     //Initialize History
-    const history = useHistory();
+    // const history = useHistory();
 
     // Initialize teacherUser
     // const [teacherUser, setTeacherUser] = useState({
@@ -94,6 +93,7 @@ const Teacher = (props) => {
 
     // patch request for conversation from teacher
     useEffect(()=>{
+        console.log(convoId)
         fetch(`http://localhost:3000/conversations/${convoId}`,{
             method: "PATCH",
             headers: {
