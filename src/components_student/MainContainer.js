@@ -42,6 +42,8 @@ const MainContainer = (props) => {
         props.setConvos(copyOfConvoList)
     };
 
+    // const acknowledgeConvo = ()
+
     const deleteConvoFromArray = (deletedConvoId) => {
         let copyOfConvoList = props.convos.filter((convo) => {
             return convo.id !== deletedConvoId
@@ -78,6 +80,7 @@ const MainContainer = (props) => {
                 setFormOfficeHours={props.setFormOfficeHours}
                 setFormDescription={props.setFormDescription}
                 setConvoId={setConvoId}
+                teacherId={klass.teacher_id}
             />
         );
     });

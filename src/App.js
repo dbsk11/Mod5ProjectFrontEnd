@@ -18,9 +18,7 @@ const App = () => {
       <div>
         <Header />
       </div>
-      {/* <Teacher acknowledged={acknowledged}/> */}
-      <Student />
-        {/* {userType === ""
+        {userType === ""
         ?
         <Route exact path="/" render={()=><MainPage userType={userType} setUserType={setUserType}/>} />
         :
@@ -34,7 +32,7 @@ const App = () => {
           />
           }
         </div>
-        } */}
+        }
     </div>
   );
 };

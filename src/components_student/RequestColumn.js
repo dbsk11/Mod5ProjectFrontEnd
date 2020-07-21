@@ -22,7 +22,7 @@ const RequestColumn = (props) => {
     const handleNewRequest = (evt) => {
         props.setAlternateScreen(true)
         props.setViewPage("Make Request")
-        props.setTeacherId(props.teacherid)
+        props.setTeacherId(props.teacherId)
         props.setFormKlass(props.klass)
         props.setFormTopic("Lecture")
         props.setFormUrgency("Immediate Response Requested")

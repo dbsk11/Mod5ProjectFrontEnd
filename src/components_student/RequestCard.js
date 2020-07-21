@@ -8,8 +8,23 @@ const RequestCard = (props) => {
         props.updateConvo(props.conversation)
     }
     
+    console.log('card', props)
     const handleAcknowledgeClick = (evt) => {
-        //patch request acknowledge
+        fetch(`http://localhost:3000/conversations/${props.conversation.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                acknowledged: true
+            })
+        })
+        .then(r => r.json())
+        .then((updatedConvo) => {
+            console.log(updatedConvo)
+            // props.acknowledgeConvo(updatedConvo)
+            props.setAlternateScreen(false)
+        })
     }
 
     const handleEditClick = (evt) => {

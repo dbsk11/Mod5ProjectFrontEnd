@@ -1,6 +1,7 @@
 import React from 'react';
 
 const RequestScreen = (props) => {
+    console.log('request', props)
     // submit form
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
@@ -8,6 +9,8 @@ const RequestScreen = (props) => {
         props.setUrgency(props.formUrgency)
         props.setOfficeHours(props.formOfficeHours)
         props.setDescription(props.formDescription)
+
+        console.log("request", props.studentId, props.teacherId, props.formKlass, props.formTopic, props.formUrgency, props.formOfficeHours, props.formDescription)
 
         fetch("http://localhost:3000/conversations", {
             method: "POST",
@@ -29,6 +32,7 @@ const RequestScreen = (props) => {
             props.handleSubmit(newRequest)
             props.setAlternateScreen(false)
             props.setFormDescription("")
+            console.log(newRequest)
         })
     };
 
