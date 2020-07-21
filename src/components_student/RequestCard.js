@@ -8,7 +8,6 @@ const RequestCard = (props) => {
         props.updateConvo(props.conversation)
     }
     
-    console.log('card', props)
     const handleAcknowledgeClick = (evt) => {
         fetch(`http://localhost:3000/conversations/${props.conversation.id}`, {
             method: "PATCH",
@@ -21,7 +20,6 @@ const RequestCard = (props) => {
         })
         .then(r => r.json())
         .then((updatedConvo) => {
-            console.log(updatedConvo)
             // props.acknowledgeConvo(updatedConvo)
             props.setAlternateScreen(false)
         })

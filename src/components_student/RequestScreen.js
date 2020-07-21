@@ -1,7 +1,6 @@
 import React from 'react';
 
 const RequestScreen = (props) => {
-    console.log('request', props)
     // submit form
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
