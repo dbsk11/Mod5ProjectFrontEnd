@@ -1,13 +1,14 @@
 import React from 'react';
 
 const RequestCard = (props) => {
-
+    // View entire request
     const handleClick = (evt) => {
         props.setAlternateScreen(true)
         props.setViewPage("Full Request")
         props.updateConvo(props.conversation)
     }
     
+    // patch convo/update acknowledge state
     const handleAcknowledgeClick = (evt) => {
         fetch(`http://localhost:3000/conversations/${props.conversation.id}`, {
             method: "PATCH",
@@ -25,6 +26,7 @@ const RequestCard = (props) => {
         })
     }
 
+    // Edit screen to edit convo
     const handleEditClick = (evt) => {
         props.setAlternateScreen(true)
         props.setViewPage("Edit Screen")
@@ -36,6 +38,7 @@ const RequestCard = (props) => {
         props.setConvoId(props.conversation.id)
     }
 
+    // delete convo 
     const handleDeleteClick = (evt) => {
         fetch(`http://localhost:3000/conversations/${props.conversation.id}`, {
             method: "DELETE"
@@ -46,6 +49,7 @@ const RequestCard = (props) => {
         })
     }
 
+    // destructuring props
     let {description, teacher_response, office_hours, response, time, topic, urgency} = props.conversation
 
     return (

@@ -7,7 +7,6 @@ import NavBarStudent from './headers/NavBarStudent';
 import MainContainer from './components_student/MainContainer'
 import StudentProfile from './components_student/StudentProfile'
 import RequestScreen from './components_student/RequestScreen'
-import ResponseScreen from './components_student/ResponseScreen'
 
 const Student = (props) => {
     // Initial State: Alternate Screen
@@ -79,7 +78,6 @@ const Student = (props) => {
             />
             <Route exact path="/student/profile" component={StudentProfile}/>
             <Route exact path="/student/make_request" component={RequestScreen}/>
-            <Route exact path="/student/view_response" component={ResponseScreen}/>
         </div>
     );
 };

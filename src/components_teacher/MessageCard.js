@@ -21,13 +21,14 @@ const MessageCard = (props) => {
         props.setFormTime("")
     };
 
+    // Edit Reply
     const handleEdit = (evt) => {
         props.setAlternateScreen(true)
         props.setViewPage("Reply")
         props.updateConvo(props.conversation)
         props.setFormResponse(props.conversation.response)
         props.setFormTime(props.conversation.time)
-    }
+    };
 
     return (
         <div className="messagecard" 

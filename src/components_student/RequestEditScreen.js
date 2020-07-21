@@ -1,7 +1,6 @@
 import React from 'react';
 
 const RequestEditScreen = (props) => {
-    console.log(props)
     // submit form
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
@@ -24,8 +23,6 @@ const RequestEditScreen = (props) => {
             props.setAlternateScreen(false)
         })
     };
-
-   
 
     return (
         <div>

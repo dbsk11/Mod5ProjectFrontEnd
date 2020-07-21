@@ -22,7 +22,7 @@ const MainContainer = (props) => {
     // set convoId
     const [convoId, setConvoId] = useState([]);
 
-
+    // fetch a students conversations
     useEffect(() => {
         fetch('http://localhost:3000/students/1')
         .then(r => r.json())
@@ -33,10 +33,12 @@ const MainContainer = (props) => {
         })
     }, []);
 
+    // all students classes
     const klasses = klass.map((klassPOJO) => {
         return klassPOJO.teacher_class
     });
 
+    // create updated convo list to include new convo
     const handleSubmit = (newRequest) => {
         let copyOfConvoList = [...props.convos, newRequest]
         props.setConvos(copyOfConvoList)
@@ -44,6 +46,7 @@ const MainContainer = (props) => {
 
     // const acknowledgeConvo = ()
 
+    // remove deleted convo from convos being rendered
     const deleteConvoFromArray = (deletedConvoId) => {
         let copyOfConvoList = props.convos.filter((convo) => {
             return convo.id !== deletedConvoId
@@ -51,6 +54,7 @@ const MainContainer = (props) => {
         props.setConvos(copyOfConvoList)
     };
 
+    // render convo list with updated convo
     const handleEditSubmit = (updatedConvo) => {
         let copyOfConvoList = props.convos.map((convo) => {
             if(convo.id === updatedConvo.id){
@@ -62,6 +66,7 @@ const MainContainer = (props) => {
         props.setConvos(copyOfConvoList)
     };
 
+    // render request column
     const arrayToRender = klasses.map((klass) => {
         let array = props.convos.filter((convo) => convo.klass === klass.klass.name)
         return (
@@ -85,6 +90,7 @@ const MainContainer = (props) => {
         );
     });
 
+    
     return (
         <div className="studentmain">
             {props.alternateScreen 

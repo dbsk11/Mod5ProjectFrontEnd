@@ -6,11 +6,11 @@ const ResponseCard = (props) => {
     
     // edit button 
     const handleEdit = (evt) => {
-        props.setAlternateScreen(true)
-        props.setViewPage("Reply")
-        props.updateConvo(props.response)
-        props.setFormResponse(props.response.response)
-        props.setFormTime(props.response.time)
+        props.setAlternateScreen(true);
+        props.setViewPage("Reply");
+        props.updateConvo(props.response);
+        props.setFormResponse(props.response.response);
+        props.setFormTime(props.response.time);
     };
 
     return (

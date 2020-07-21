@@ -7,7 +7,9 @@ const MainPage = (props) => {
     };
 
     const handleClickTeacher = (evt) => {
+        console.log(evt.target)
         props.setUserType("Teacher")
+        props.setTeacherView("Login")
     }
 
     return (

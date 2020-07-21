@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MessageColumn from './MessageColumn';
 import ResponseColumn from './ResponseColumn';
 import ReplyContainer from './ReplyContainer';
-import StudentRequestContainer from './StudentRequestContainer'
-
+import StudentRequestContainer from './StudentRequestContainer';
 
 const MessageContainer = (props) => {
     // set State
@@ -31,23 +30,6 @@ const MessageContainer = (props) => {
     const klasses = klass.map((klassPOJO) => {
         return klassPOJO.klass.name
     });
-
-    // looped filter and return 
-    // const arrayToRender = klass.map((klass) => {
-    //     let array = props.convos.filter((convo) => convo.klass === klass)
-    //     return (
-    //         <MessageColumn 
-    //             klass={klass}
-    //             conversation={array}
-    //             setAlternateScreen={props.setAlternateScreen} 
-    //             updateConvo={updateConvo} 
-    //             setViewPage={setViewPage} 
-    //             setFormResponse={props.setFormResponse}
-    //             setFormTime={props.setFormTime}
-    //         />
-    //     )
-    // })
-    // console.log("loop", arrayToRender)
     
     // array for 1st class
     const array1 = props.convos.filter((convoObj) => {

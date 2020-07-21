@@ -21,6 +21,10 @@
     border-color: red
 }
 
+.messages {
+    display: flex;
+    flex-direction: row;
+}
 /* .requestcolumn {
     display: flex;
     flex-direction: row;

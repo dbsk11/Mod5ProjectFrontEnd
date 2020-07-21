@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 // main imports
 import MainPage from './headers/MainPage'
 import Header from './headers/Header';
-import Login from './headers/Login';
-import Logout from './headers/Logout';
+import Login from './components_teacher/Login'
+import Logout from './components_teacher/Logout';
 import Teacher from './Teacher'
 import Student from './Student'
 
@@ -13,14 +13,24 @@ const App = () => {
   // Update user state 
   const [userType, setUserType] = useState("")
 
+  // setting initial teacher view page
+  const [teacherView, setTeacherView] = useState("")
+
   return (
     <div className="maincontainer">
       <div>
         <Header />
       </div>
-        {userType === ""
+      <Teacher />
+        {/* {userType === ""
         ?
-        <Route exact path="/" render={()=><MainPage userType={userType} setUserType={setUserType}/>} />
+        <Route exact path="/" render={()=>
+          <MainPage 
+            userType={userType} 
+            setUserType={setUserType}
+            setTeacherView={setTeacherView}
+          />} 
+        />
         :
         <div>
           {userType === "Student"
@@ -29,10 +39,11 @@ const App = () => {
           />
           :
           <Teacher 
+            teacherView={teacherView}
           />
           }
         </div>
-        }
+        } */}
     </div>
   );
 };

@@ -19,6 +19,7 @@ const RequestColumn = (props) => {
         />
     })
 
+    // Create a new request
     const handleNewRequest = (evt) => {
         props.setAlternateScreen(true)
         props.setViewPage("Make Request")

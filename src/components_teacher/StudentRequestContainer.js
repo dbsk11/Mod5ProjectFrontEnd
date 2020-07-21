@@ -19,7 +19,7 @@ const StudentRequestContainer = (props) => {
         props.setViewPage("Reply")
         props.setFormResponse(props.convo.response)
         props.setFormTime(props.convo.time)
-    }
+    };
 
     return (
         <div className="studentrequest">

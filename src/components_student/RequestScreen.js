@@ -9,8 +9,6 @@ const RequestScreen = (props) => {
         props.setOfficeHours(props.formOfficeHours)
         props.setDescription(props.formDescription)
 
-        console.log("request", props.studentId, props.teacherId, props.formKlass, props.formTopic, props.formUrgency, props.formOfficeHours, props.formDescription)
-
         fetch("http://localhost:3000/conversations", {
             method: "POST",
             headers: {
@@ -31,8 +29,7 @@ const RequestScreen = (props) => {
             props.handleSubmit(newRequest)
             props.setAlternateScreen(false)
             props.setFormDescription("")
-            console.log(newRequest)
-        })
+        });
     };
 
     return (
