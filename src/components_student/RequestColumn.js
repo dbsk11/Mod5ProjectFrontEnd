@@ -10,6 +10,12 @@ const RequestColumn = (props) => {
             setAlternateScreen={props.setAlternateScreen}
             setViewPage={props.setViewPage}
             updateConvo={props.updateConvo}
+            deleteConvoFromArray={props.deleteConvoFromArray}
+            setFormTopic={props.setFormTopic}
+            setFormUrgency={props.setFormUrgency}
+            setFormOfficeHours={props.setFormOfficeHours}
+            setFormDescription={props.setFormDescription}
+            setConvoId={props.setConvoId}
         />
     })
 
@@ -18,6 +24,10 @@ const RequestColumn = (props) => {
         props.setViewPage("Make Request")
         props.setTeacherId(props.teacherid)
         props.setFormKlass(props.klass)
+        props.setFormTopic("Lecture")
+        props.setFormUrgency("Immediate Response Requested")
+        props.setFormOfficeHours(true)
+        props.setFormDescription("")
     }
 
     return (

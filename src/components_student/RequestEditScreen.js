@@ -1,23 +1,17 @@
 import React from 'react';
 
-const RequestScreen = (props) => {
+const RequestEditScreen = (props) => {
+    console.log(props)
     // submit form
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
-        props.setTopic(props.formTopic)
-        props.setUrgency(props.formUrgency)
-        props.setOfficeHours(props.formOfficeHours)
-        props.setDescription(props.formDescription)
 
-        fetch("http://localhost:3000/conversations", {
-            method: "POST",
+        fetch(`http://localhost:3000/conversations/${props.convoId}`, {
+            method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                student_id: props.studentId,
-                teacher_id: props.teacherId,
-                klass: props.formKlass,
                 topic: props.formTopic,
                 urgency: props.formUrgency,
                 office_hours: props.formOfficeHours,
@@ -25,17 +19,18 @@ const RequestScreen = (props) => {
             })
         })
         .then(r => r.json())
-        .then(newRequest => {
-            props.handleSubmit(newRequest)
+        .then((updatedConvo) => {
+            props.handleEditSubmit(updatedConvo)
             props.setAlternateScreen(false)
-            props.setFormDescription("")
         })
     };
+
+   
 
     return (
         <div>
             <div className="requestformheader">
-                Create A New Request
+                Edit Your Request
             </div>
             <form onSubmit={handleFormSubmit}>
                 <div className="requestform">
@@ -78,4 +73,4 @@ const RequestScreen = (props) => {
     );
 };
 
-export default RequestScreen;
+export default RequestEditScreen;

@@ -1,7 +1,8 @@
 import React from 'react';
 
 const RequestViewScreen = (props) => {
-    let {description, klass, office_hours, topic, urgency, teacher_response, time, response} = props.convo
+    let {description, klass, office_hours, topic, urgency} = props.convo
+
     return (
         <div className="fullrequest">
             <h1>Class:</h1>
