@@ -1,8 +1,10 @@
 import React from 'react';
 
 const ResponseCard = (props) => {
+    console.log(props)
     // destructuring 
     const {response, office_hours, time} = props.response;
+    const {first_name, last_name} = props.response.student
     
     // edit button 
     const handleEdit = (evt) => {
@@ -16,6 +18,7 @@ const ResponseCard = (props) => {
     return (
         <div className="responsecard">
             <h5>Name:</h5>
+            <p>{first_name} {last_name}</p>
             <h5>Response:</h5>
             <p>{response}</p>
             <h5>Scheduled Office Hour:</h5>

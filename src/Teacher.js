@@ -39,23 +39,23 @@ const Teacher = (props) => {
     const [formUsername, setFormUsername] = useState("")
     const [formPassword, setFormPassword] = useState("")
 
-    //Initialize History
-    // const history = useHistory();
+    Initialize History
+    const history = useHistory();
 
-    // Initialize teacherUser
-    // const [teacherUser, setTeacherUser] = useState({
-    //     teacherUser: {
-    //         id: 0, 
-    //         // first_name: "", 
-    //         // last_name: "",
-    //         // subject: "",
-    //         // email: "",
-    //         username: "",
-    //     //     teacher_classes: [],
-    //     //     converstions: []
-    //     },
-    //     token: ""
-    // })
+    Initialize teacherUser
+    const [teacherUser, setTeacherUser] = useState({
+        teacherUser: {
+            id: 0, 
+            first_name: "", 
+            last_name: "",
+            subject: "",
+            email: "",
+            username: "",
+            teacher_classes: [],
+            converstions: []
+        },
+        token: ""
+    })
 
     // set boolean for alternate screen
     const setAlternateScreen2 = (boolean) => {
@@ -67,29 +67,29 @@ const Teacher = (props) => {
         setConvoId(idFromChild)
     };
 
-    // const handleLoginSubmit = (userInfo) => {
-    //     console.log('fetch', userInfo)
-    //     fetch("http://localhost:3000/teachers/login", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accept": "application/json"
-    //         },
-    //         body: JSON.stringify(userInfo)
-    //     })
-    //     .then(r => r.json())
-    //     .then(console.log)
-    // }
+    const handleLoginSubmit = (userInfo) => {
+        console.log('fetch', userInfo)
+        fetch("http://localhost:3000/teachers/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(userInfo)
+        })
+        .then(r => r.json())
+        .then(console.log)
+    }
 
-    // const handleResponse = (resp) => {
-    //     if(resp.message){
-    //         alert(resp.error)
-    //     } else {
-    //         localStorage.token = resp.token
-    //         setTeacherUser(resp)
-    //         history.push("/teacher")
-    //     }
-    // }
+    const handleResponse = (resp) => {
+        if(resp.message){
+            alert(resp.error)
+        } else {
+            localStorage.token = resp.token
+            setTeacherUser(resp)
+            history.push("/teacher")
+        }
+    }
 
     // patch request for conversation from teacher
     useEffect(()=>{

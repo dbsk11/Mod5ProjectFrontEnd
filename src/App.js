@@ -21,9 +21,9 @@ const App = () => {
       <div>
         <Header />
       </div>
-      {/* <Student /> */}
-      <Teacher />
-        {/* {userType === ""
+      {/* <Student />/ */}
+      {/* <Teacher /> */}
+        {userType === ""
         ?
         <Route exact path="/" render={()=>
           <MainPage 
@@ -44,7 +44,7 @@ const App = () => {
           />
           }
         </div>
-        } */}
+        }
     </div>
   );
 };
