@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ResponseCard = (props) => {
-    console.log(props)
     // destructuring 
     const {response, office_hours, time} = props.response;
     const {first_name, last_name} = props.response.student

@@ -64,14 +64,15 @@ const MessageContainer = (props) => {
                 :
                 <ReplyContainer 
                     convo={studentConvo} 
-                    determineId={props.determineId} 
-                    setTeacherResponse={props.setTeacherResponse}
-                    setTime={props.setTime} 
-                    setResponse={props.setResponse} 
+                    // determineId={props.determineId} 
+                    // setTeacherResponse={props.setTeacherResponse}
+                    // setTime={props.setTime} 
+                    // setResponse={props.setResponse} 
                     formResponse={props.formResponse}
                     setFormResponse={props.setFormResponse}
                     formTime={props.formTime}
                     setFormTime={props.setFormTime}
+                    setAlternateScreen={props.setAlternateScreen}
                 />
                 }
             </div>

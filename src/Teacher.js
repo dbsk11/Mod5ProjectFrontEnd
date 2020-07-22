@@ -14,9 +14,9 @@ const Teacher = (props) => {
     // Initial State: Alternate Screen
     const [alternateScreen, setAlternateScreen] = useState(false);
     
-    // Initial State: Teacher Resposne Form
-    const [response, setResponse] = useState("");
-    const [time, setTime] = useState("");
+    // Initial State: Teacher Response Form
+    // const [response, setResponse] = useState("");
+    // const [time, setTime] = useState("");
 
     // onChange for Reply Form / Repopulate Form for Edit
     const [formResponse, setFormResponse] = useState("");
@@ -26,7 +26,7 @@ const Teacher = (props) => {
     const [convoId, setConvoId] = useState([]);
 
     // Initial State: Teacher Response
-    const [teacherResponse, setTeacherResponse] = useState(false);
+    // const [teacherResponse, setTeacherResponse] = useState(false);
 
     // Initial State: Conversations Array
     const [convos, setConvos] = useState([]);
@@ -39,23 +39,23 @@ const Teacher = (props) => {
     const [formUsername, setFormUsername] = useState("")
     const [formPassword, setFormPassword] = useState("")
 
-    Initialize History
-    const history = useHistory();
+    //Initialize History
+    // const history = useHistory();
 
-    Initialize teacherUser
-    const [teacherUser, setTeacherUser] = useState({
-        teacherUser: {
-            id: 0, 
-            first_name: "", 
-            last_name: "",
-            subject: "",
-            email: "",
-            username: "",
-            teacher_classes: [],
-            converstions: []
-        },
-        token: ""
-    })
+    // Initialize teacherUser
+    // const [teacherUser, setTeacherUser] = useState({
+    //     teacherUser: {
+    //         id: 0, 
+    //         // first_name: "", 
+    //         // last_name: "",
+    //         // subject: "",
+    //         // email: "",
+    //         username: "",
+    //     //     teacher_classes: [],
+    //     //     converstions: []
+    //     },
+    //     token: ""
+    // })
 
     // set boolean for alternate screen
     const setAlternateScreen2 = (boolean) => {
@@ -63,52 +63,52 @@ const Teacher = (props) => {
     };
 
     // set converesation ID
-    const determineId = (idFromChild) => {
-        setConvoId(idFromChild)
-    };
+    // const determineId = (idFromChild) => {
+    //     setConvoId(idFromChild)
+    // };
 
-    const handleLoginSubmit = (userInfo) => {
-        console.log('fetch', userInfo)
-        fetch("http://localhost:3000/teachers/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(userInfo)
-        })
-        .then(r => r.json())
-        .then(console.log)
-    }
+    // const handleLoginSubmit = (userInfo) => {
+    //     console.log('fetch', userInfo)
+    //     fetch("http://localhost:3000/teachers/login", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             "Accept": "application/json"
+    //         },
+    //         body: JSON.stringify(userInfo)
+    //     })
+    //     .then(r => r.json())
+    //     .then(console.log)
+    // }
 
-    const handleResponse = (resp) => {
-        if(resp.message){
-            alert(resp.error)
-        } else {
-            localStorage.token = resp.token
-            setTeacherUser(resp)
-            history.push("/teacher")
-        }
-    }
+    // const handleResponse = (resp) => {
+    //     if(resp.message){
+    //         alert(resp.error)
+    //     } else {
+    //         localStorage.token = resp.token
+    //         setTeacherUser(resp)
+    //         history.push("/teacher")
+    //     }
+    // }
 
     // patch request for conversation from teacher
-    useEffect(()=>{
-        console.log(convoId)
-        fetch(`http://localhost:3000/conversations/${convoId}`,{
-            method: "PATCH",
-            headers: {
-                "Content-Type" : "application/json",
-                "Accept" : "application/json"
-            },
-            body:JSON.stringify({
-                teacher_response: true,
-                response: response,
-                time: time
-            })
-        })
-        .then(r => r.json())
-        .then(handleSubmission)
-    }, [time]);
+    // useEffect(()=>{
+    //     console.log(convoId)
+    //     fetch(`http://localhost:3000/conversations/${convoId}`,{
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type" : "application/json",
+    //             "Accept" : "application/json"
+    //         },
+    //         body:JSON.stringify({
+    //             teacher_response: true,
+    //             response: response,
+    //             time: time
+    //         })
+    //     })
+    //     .then(r => r.json())
+    //     .then(handleSubmission)
+    // }, [time]);
 
     // show main page after submitting form 
     const handleSubmission = () => {
@@ -125,16 +125,16 @@ const Teacher = (props) => {
                         setAlternateScreen={setAlternateScreen2} 
                         convos={convos}
                         setConvos={setConvos}
-                        time={time}
-                        setTime={setTime} 
-                        response={response}
-                        setResponse={setResponse} 
-                        setTeacherResponse={setTeacherResponse}
+                        // time={time}
+                        // setTime={setTime} 
+                        // response={response}
+                        // setResponse={setResponse} 
+                        // setTeacherResponse={setTeacherResponse}
                         formResponse={formResponse}
                         setFormResponse={setFormResponse}
                         formTime={formTime}
                         setFormTime={setFormTime}
-                        determineId={determineId} 
+                        // determineId={determineId} 
                     />} 
                 />
                 <Route exact path="/teacher/profile" component={Profile} />

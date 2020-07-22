@@ -1,14 +1,9 @@
 import React from 'react';
 
 const ReplyContainer = (props) => {
-    console.log(props.convo.id)
     //submit form
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
-        // props.setTeacherResponse(true);
-        props.setResponse(props.formResponse);
-        props.setTime(props.formTime);
-        props.determineId(props.convo.id);
         fetch(`http://localhost:3000/conversations/${props.convo.id}`, {
             method: "PATCH",
             headers: {
@@ -17,12 +12,12 @@ const ReplyContainer = (props) => {
             },
             body: JSON.stringify({
                 teacher_response: true,
-                response: props.response,
-                time: props.time
+                response: props.formResponse,
+                time: props.formTime
             })
         })
         .then(r => r.json())
-        .then(console.log)
+        .then(props.setAlternateScreen(false))
     };
 
     // destructuring
