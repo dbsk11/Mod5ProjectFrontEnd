@@ -14,6 +14,11 @@ const NavBarTeacher = (props) => {
         props.setAlternateScreen(false)
     };
 
+    const handleLogOut = (evt) => {
+        props.clearTeacherUser()
+        props.history.push('/')
+    }
+
     return (
         <div className="navbar">
             <NavLink
@@ -30,10 +35,11 @@ const NavBarTeacher = (props) => {
                 activeStyle={{color: 'red'}}
             >Profile</NavLink>
             <NavLink
-                to="/teacher/logout"
+                to="/"
                 exact
                 style={link}
                 activeStyle={{color: 'red'}}
+                onClick={handleLogOut}
             >Log Out</NavLink>
         </div>
     );

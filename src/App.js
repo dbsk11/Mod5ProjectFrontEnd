@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
 import './style.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 // main imports
-import MainPage from './headers/MainPage'
+import MainPage from './headers/MainPage';
 import Header from './headers/Header';
-// import Login from './components_teacher/Login'
-import Logout from './components_teacher/Logout';
-import Teacher from './Teacher'
-import Student from './Student'
+import Teacher from './Teacher';
+import Student from './Student';
 
 const App = () => {
   // Update user state 
-  const [userType, setUserType] = useState("")
-
-  // setting initial teacher view page
-  const [teacherView, setTeacherView] = useState("")
+  const [userType, setUserType] = useState("");
 
   return (
     <div className="maincontainer">
@@ -22,29 +17,20 @@ const App = () => {
         <Header />
       </div>
       {/* <Student />/ */}
-      <Teacher />
-        {/* {userType === ""
+      {/* <Teacher /> */}
+        {userType === ""
         ?
-        <Route exact path="/" render={()=>
-          <MainPage 
-            userType={userType} 
-            setUserType={setUserType}
-            setTeacherView={setTeacherView}
-          />} 
-        />
+        <Route exact path="/" render={() => <MainPage setUserType={setUserType}/>} />
         :
         <div>
           {userType === "Student"
           ?
-          <Student 
-          />
+          <Student />
           :
-          <Teacher 
-            teacherView={teacherView}
-          />
+          <Teacher />
           }
         </div>
-        } */}
+        }
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React from 'react';
 const StudentRequestContainer = (props) => {
     // destructuring
     const {first_name, last_name} = props.convo.student;
-    const {description, klass, office_hours, created_at, topic, urgency} = props.convo;
+    const {description, klass, office_hours, created_at, topic, urgency, teacher_response} = props.convo;
 
     // reply button - update state
     const handleClick = (evt) => {
@@ -59,7 +59,7 @@ const StudentRequestContainer = (props) => {
                 </div>
             </div>
             <div className="studentrequestcontainerbutton">
-                {office_hours
+                {teacher_response
                 ?
                 <button onClick={handleEdit}>Edit Reply</button>
                 :

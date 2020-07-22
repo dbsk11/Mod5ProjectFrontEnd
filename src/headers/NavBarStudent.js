@@ -11,7 +11,12 @@ const link = {
 const NavBarStudent = (props) => {
     const handleClick = (evt) => {
         props.setAlternateScreen(false)
-    }
+    };
+
+    const handleLogOut = (evt) => {
+        props.clearStudentUser();
+        props.history.push('/');
+    };
 
     return (
         <div className="navbarstudent">
@@ -29,10 +34,11 @@ const NavBarStudent = (props) => {
                 activeStyle={{color: 'red'}}
             >Profile</NavLink>
             <NavLink
-                to="/student/logout"
+                to="/"
                 exact
                 style={link}
                 activeStyle={{color: 'red'}}
+                onClick={handleLogOut}
             >Log Out</NavLink>
         </div>
     );

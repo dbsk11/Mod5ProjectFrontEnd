@@ -8,7 +8,6 @@ const Login = (props) => {
             password: evt.target.password.value
         }
         props.handleLoginSubmit(user)
-        console.log('login', user)
     }
   
     return (
