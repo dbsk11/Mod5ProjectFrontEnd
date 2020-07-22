@@ -6,11 +6,11 @@ const Profile = (props) => {
     return (
         <div className="profile">
             <h1>My Profile</h1>
-            <h4>Name: </h4>
+            <h3>Name: </h3>
             <p>{display_name}</p>
-            <h3>Subject: </h3>
+            <h4>Subject: </h4>
             <p>{subject}</p>
-            <h3>Email: </h3>
+            <h4>Email: </h4>
             <p>{email}</p>
         </div>
     );

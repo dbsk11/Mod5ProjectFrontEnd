@@ -158,7 +158,11 @@ const Student = (props) => {
                         setAcknowledged={props.setAcknowledged}
                     />} 
                 />
-                <Route exact path="/student/profile" component={StudentProfile}/>
+                <Route exact path="/student/profile" render={() => 
+                    <StudentProfile
+                        studentUser={studentUser}
+                    />}
+                />
                 <Route exact path="/student/make_request" component={RequestScreen}/>
             </div>
             :
