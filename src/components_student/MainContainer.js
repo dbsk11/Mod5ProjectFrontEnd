@@ -41,6 +41,7 @@ const MainContainer = (props) => {
                 key={klass.klass.id}
                 convos={array}
                 setTeacherConvo={props.setTeacherConvo}
+                teacherId={klass.teacher_id}
                 setTeacherId={props.setTeacherId}
                 setFormKlass={props.setFormKlass}
                 deleteConvoFromArray={deleteConvoFromArray}
@@ -50,7 +51,6 @@ const MainContainer = (props) => {
                 setFormDescription={props.setFormDescription}
                 setConvoId={props.setConvoId}
                 history={props.history}
-                teacherId={klass.teacher_id}
             />
         );
     });

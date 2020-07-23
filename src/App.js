@@ -205,10 +205,6 @@ const App = () => {
   const [studentFormOfficeHours, setStudentFormOfficeHours] = useState(true)
   const [studentFormDescription, setStudentFormDescription] = useState("")
 
-  // Student: Username and Password Initial State
-  const [studentUsername, setStudentUsername] = useState("");
-  const [studentPassword, setStudentPassword] = useState("");
-
   // Student: Login Form - Username, Password Initial State
   const [studentFormUsername, setStudentFormUsername] = useState("");
   const [studentFormPassword, setStudentFormPassword] = useState("");
@@ -307,18 +303,8 @@ console.log('app', studentConvos)
       <MainContainer 
         convos={studentConvos}
         setConvos={setStudentConvos}
-        teacherId={studentTeacherId}
         setTeacherId={setStudentTeacherId}
-        studentId={studentId}
         setStudentId={setStudentId}
-        topic={studentTopic}
-        setTopic={setStudentTopic}
-        urgency={studentUrgency}
-        setUrgency={setStudentUrgency}
-        officeHours={studentOfficeHours}
-        setOfficeHours={setStudentOfficeHours}
-        description={studentDescription}
-        setDescription={setStudentDescription}
         formTopic={studentFormTopic}
         setFormTopic={setStudentFormTopic}
         formUrgency={studentFormUrgency}
@@ -327,7 +313,6 @@ console.log('app', studentConvos)
         setFormOfficeHours={setStudentFormOfficeHours}
         formDescription={studentFormDescription}
         setFormDescription={setStudentFormDescription}
-        formKlass={studentFormKlass}
         setFormKlass={setStudentFormKlass}
         history={history}
         setTeacherConvo={setStudentTeacherConvo}
@@ -347,10 +332,6 @@ console.log('app', studentConvos)
   const renderStudentLogin = () => {
     return (
       <StudentLogin 
-        setUsername={setStudentUsername} 
-        setPassword={setStudentPassword} 
-        password={studentPassword} 
-        username={studentUsername}
         formUsername={studentFormUsername}
         formPassword={studentFormPassword}
         setFormUsername={setStudentFormUsername}
@@ -389,9 +370,6 @@ console.log('app', studentConvos)
       <RequestViewScreen
         convo={studentTeacherConvo}
         key={studentTeacherConvo.id}
-        teacherId={studentTeacherId}
-        studentId={studentId}
-        history={history}
       />
     )
   }

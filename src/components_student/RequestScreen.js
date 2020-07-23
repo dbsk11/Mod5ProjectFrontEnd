@@ -1,7 +1,6 @@
 import React from 'react';
 
 const RequestScreen = (props) => {
-    console.log('request', props)
     // submit form
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
@@ -30,7 +29,6 @@ const RequestScreen = (props) => {
             props.handleSubmit(newRequest)
             props.history.push("/student")
             props.setFormDescription("")
-            console.log('screen', newRequest)
         });
     };
 
