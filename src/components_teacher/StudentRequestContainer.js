@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 const StudentRequestContainer = (props) => {
     // destructuring
@@ -7,16 +8,14 @@ const StudentRequestContainer = (props) => {
 
     // reply button - update state
     const handleReply = (evt) => {
-        props.setAlternateScreen(true)
-        props.setViewPage("Reply")
+        props.history.push('/teacher/reply')
         props.setFormResponse("")
         props.setFormTime("")
     };
 
     // edit button - update state
     const handleEdit = (evt) => {
-        props.setAlternateScreen(true)
-        props.setViewPage("Reply")
+        props.history.push('/teacher/reply')
         props.setFormResponse(props.convo.response)
         props.setFormTime(props.convo.time)
     };
@@ -24,39 +23,24 @@ const StudentRequestContainer = (props) => {
     return (
         <div className="studentrequest">
             <div className="studentinfo">
-                <div>
-                    <h5>Name:</h5>
-                    <p>{first_name} {last_name}</p> 
-                </div>
-                <div>
-                    <h5>Klass:</h5>
-                    <p>{klass}</p>
-                </div>
-                
+                <h5>Name:</h5>
+                <p>{first_name} {last_name}</p> 
+                <h5>Klass:</h5>
+                <p>{klass}</p>
             </div>
             <div className="klassinfo">
-                <div>
-                    <h5>Topic:</h5>
-                    <p>{topic}</p>
-                </div>
-                <div>
-                    <h5>Urgency:</h5>
-                    <p>{urgency}</p>
-                </div>
-                <div>
-                    <h5>Time Logged::</h5>
-                    <p>{created_at}</p>
-                </div>
+                <h5>Topic:</h5>
+                <p>{topic}</p>
+                <h5>Urgency:</h5>
+                <p>{urgency}</p>
+                <h5>Time Logged::</h5>
+                <p>{created_at}</p>
             </div>
             <div className="requestinfo">
-                <div>
-                    <h5>Description:</h5>
-                    <p>{description}</p>
-                </div>
-                <div>
-                    <h5>Office Hours Requested:</h5>
-                    <p>{office_hours ? "Yes" : "No"}</p>
-                </div>
+                <h5>Description:</h5>
+                <p>{description}</p>
+                <h5>Office Hours Requested:</h5>
+                <p>{office_hours ? "Yes" : "No"}</p>
             </div>
             <div className="studentrequestcontainerbutton">
                 {teacher_response
@@ -70,4 +54,4 @@ const StudentRequestContainer = (props) => {
     );
 };
 
-export default StudentRequestContainer;
+export default withRouter(StudentRequestContainer);

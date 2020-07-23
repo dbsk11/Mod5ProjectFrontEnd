@@ -102,52 +102,31 @@ const Teacher = (props) => {
     //     });
     // };
 
-    console.log('viewpage', props.viewPage)
     return (
         <div className="teachercontainer">
-            {/* {props.alternateScreen
-            ? 
-            <div>
-                {viewPage === "View" 
-                ?
-                <Route exact path="/teacher/student_request" render={() => 
-                    <StudentRequestContainer 
-                        convo={studentConvo} 
-                        setAlternateScreen={props.setAlternateScreen} 
-                        setViewPage={setViewPage} 
-                        setFormResponse={props.setFormResponse}
-                        setFormTime={props.setFormTime}
-                    />}
-                />
-                :
-                <Route exact path="/teacher/reply" render={() =>  
-                    <ReplyContainer 
-                        convo={studentConvo} 
-                        formResponse={props.formResponse}
-                        setFormResponse={props.setFormResponse}
-                        formTime={props.formTime}
-                        setFormTime={props.setFormTime}
-                        setAlternateScreen={props.setAlternateScreen}
-                    />}
-                />
-                }
-            </div>
-            : */}
-            <Route exact path="/teacher" render={() => 
-                <MessageContainer 
-                    alternateScreen={props.alternateScreen} 
-                    setAlternateScreen={props.setAlternateScreen2} 
-                    convos={props.convos}
-                    setConvos={props.setConvos}
+            {props.viewPage === "View" 
+            ?
+            <Route exact path="/teacher/student_request" render={() => 
+                <StudentRequestContainer 
+                    convo={props.studentConvo} 
+                    setAlternateScreen={props.setAlternateScreen} 
+                    setViewPage={props.setViewPage} 
+                    setFormResponse={props.setFormResponse}
+                    setFormTime={props.setFormTime}
+                />}
+            />
+            :
+            <Route exact path="/teacher/reply" render={() =>  
+                <ReplyContainer 
+                    convo={props.studentConvo} 
                     formResponse={props.formResponse}
                     setFormResponse={props.setFormResponse}
                     formTime={props.formTime}
-                    setFormTime={props.setFormTime} 
-                    setStudentConvo={props.setStudentConvo}
-                    setViewPage={props.setViewPage}
-                />} 
+                    setFormTime={props.setFormTime}
+                    setAlternateScreen={props.setAlternateScreen}
+                />}
             />
-            {/* } */}
+            }
         </div>
     );
 };

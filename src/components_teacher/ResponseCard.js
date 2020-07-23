@@ -7,12 +7,10 @@ const ResponseCard = (props) => {
     
     // edit button 
     const handleEdit = (evt) => {
-        props.setAlternateScreen(true);
-        props.setViewPage("Reply");
-        props.updateConvo(props.response);
+        props.setStudentConvo(props.response);
         props.setFormResponse(props.response.response);
         props.setFormTime(props.response.time);
-        console.log('responseedit', props.viewPage)
+        props.history.push('/teacher/reply')
     };
 
     return (

@@ -2,7 +2,6 @@ import React from 'react';
 import ResponseCard from './ResponseCard';
 
 const ResponseColumn = (props) => {
-    console.log(props)
     // filter conversations with responses
     const responsesToRender = props.conversations.filter((convoPOJO) => {
         if (convoPOJO.teacher_response === true){
@@ -15,12 +14,10 @@ const ResponseColumn = (props) => {
         return <ResponseCard
             response={responsePOJO}
             key={responsePOJO.id}
-            setAlternateScreen={props.setAlternateScreen} 
-            setViewPage={props.setViewPage} 
-            updateConvo={props.updateConvo} 
+            setStudentConvo={props.setStudentConvo} 
             setFormResponse={props.setFormResponse}
             setFormTime={props.setFormTime}
-            viewPage={props.viewPage}
+            history={props.history}
         />
     });
 

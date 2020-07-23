@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom'
 const MainPage = (props) => {
     
     const handleClickStudent = (evt) => {
-        props.setUserType("Student")
+        props.history.push('/student/login')
     };
 
     const handleClickTeacher = (evt) => {
-        props.setUserType("Teacher")
+        props.history.push('/teacher/login')
     }
 
     return (

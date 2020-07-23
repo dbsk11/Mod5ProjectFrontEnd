@@ -1,21 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import MessageColumn from './MessageColumn';
 import ResponseColumn from './ResponseColumn';
-import ReplyContainer from './ReplyContainer';
-import StudentRequestContainer from './StudentRequestContainer';
+import { withRouter } from 'react-router-dom';
 
 const MessageContainer = (props) => {
     // set State
     const [klass, setKlass] = useState([]);
-    const [studentConvo, setStudentConvo] = useState([]);
-    const [viewPage, setViewPage] = useState("");
-
-    // set conversation
-    const updateConvo = (convoPOJO) => {
-        setStudentConvo(convoPOJO)
-    };
-
-
 
     // fetch teacher information
     useEffect(() => {
@@ -40,12 +30,10 @@ const MessageContainer = (props) => {
             <MessageColumn 
                 klass={klass} 
                 conversations={array} 
-                setAlternateScreen={props.setAlternateScreen} 
-                updateConvo={updateConvo} 
-                setViewPage={setViewPage} 
+                setStudentConvo={props.setStudentConvo}
                 setFormResponse={props.setFormResponse}
                 setFormTime={props.setFormTime}
-                viewPage={props.viewPage}
+                history={props.history}
             />
         )
     })
@@ -55,15 +43,13 @@ const MessageContainer = (props) => {
             {arrayToRender}
             <ResponseColumn 
                 conversations={props.convos} 
-                setAlternateScreen={props.setAlternateScreen} 
-                setViewPage={setViewPage} 
-                updateConvo={updateConvo} 
+                setStudentConvo={props.setStudentConvo} 
                 setFormResponse={props.setFormResponse}
                 setFormTime={props.setFormTime}
-                viewPage={props.viewPage}
+                history={props.history}
             />
         </div>
     );
 };
 
-export default MessageContainer;
+export default withRouter(MessageContainer);

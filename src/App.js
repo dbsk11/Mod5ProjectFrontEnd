@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './style.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router-dom'
 
-// main imports
+// Main Imports
 import MainPage from './headers/MainPage';
 import Header from './headers/Header';
+
+// Student Imports
 import Student from './Student';
 
 // Teacher Imports
@@ -20,44 +22,25 @@ import MessageContainer from './components_teacher/MessageContainer'
 
 
 const App = () => {
-  // Update user state 
-  const [userType, setUserType] = useState("");
-
   //Initialize History
   const history = useHistory();
 
-
 //TEACHER:
-  // Teacher: Alternate Screen Initial State
-  const [teacherAlternateScreen, setTeacherAlternateScreen] = useState(false);
-
-  // Teacher: set boolean for alternate screen
-  const setTeacherAlternateScreen2 = (boolean) => {
-    setTeacherAlternateScreen(boolean)
-  };
-
-  // Teacher: Teacher View Page Initial State
-  const [teacherViewPage, setTeacherViewPage] = useState("");
-
-  // Teacher: Conversations Array Initial State
+  // Teacher: Initial Convo Array
   const [teacherConvos, setTeacherConvos] = useState([]);
 
-  // Teacher: Student Conversations Initial State
+  // Teacher: Initial Student Convo
   const [teacherStudentConvo, setTeacherStudentConvo] = useState([]);
 
   // Teacher: onChange for Reply Form / Repopulate Form for Edit
   const [teacherFormResponse, setTeacherFormResponse] = useState("");
   const [teacherFormTime, setTeacherFormTime] = useState("");
 
-  // Teacher: Username and Password Initial State
-  const [teacherUsername, setTeacherUsername] = useState("");
-  const [teacherPassword, setTeacherPassword] = useState("");
-
-  // Teacher: Login Form - username, password iniital state
+  // Teacher: Login Form Username/Password Initial State
   const [teacherFormUsername, setTeacherFormUsername] = useState("");
   const [teacherFormPassword, setTeacherFormPassword] = useState("");
 
-  // Teacher: Initialize teacherUser
+  // Teacher: Initialize TeacherUser
   const [teacherUser, setTeacherUser] = useState({
     teacherUser: {
         id: 0, 
@@ -98,7 +81,7 @@ const App = () => {
     };
   };
 
-  // Teacher: clear Teacher User Info
+  // Teacher: Clear Teacher User Info
   const clearTeacherUser = () => {
     localStorage.clear();
     setTeacherFormUsername("")
@@ -119,96 +102,91 @@ const App = () => {
     });
   };
 
-  
+  // Teacher: Profile Render
+  const renderTeacherProfile = () => {
+    return(
+      <Profile 
+        teacherUser={teacherUser}
+      />
+    )
+  }
+
+  // Teacher: Reply Container Render
+  const renderReplyContainer = () => {
+    return (
+      <ReplyContainer 
+        convo={teacherStudentConvo} 
+        formResponse={teacherFormResponse}
+        setFormResponse={setTeacherFormResponse}
+        formTime={teacherFormTime}
+        setFormTime={setTeacherFormTime}
+        history={history}
+      />
+    )
+  }
+
+  // Teacher: Student Request Container Render
+  const renderStudentRequestContainer = () => {
+    return (
+      <StudentRequestContainer 
+        convo={teacherStudentConvo} 
+        setFormResponse={setTeacherFormResponse}
+        setFormTime={setTeacherFormTime}
+        history={history}
+      />
+    )
+  }
+
+  // Teacher: Teacher Messages Render
+  const renderTeacherMessages = () => {
+    return (
+      <MessageContainer 
+        convos={teacherConvos}
+        setConvos={setTeacherConvos}
+        setFormResponse={setTeacherFormResponse}
+        setFormTime={setTeacherFormTime} 
+        setStudentConvo={setTeacherStudentConvo}
+        history={history}
+      />
+    ) 
+  }
+
+  // Teacher: Login Render
+  const renderTeacherLogin = () => {
+    return (
+      <Login 
+        formUsername={teacherFormUsername}
+        formPassword={teacherFormPassword}
+        setFormUsername={setTeacherFormUsername}
+        setFormPassword={setTeacherFormPassword}
+        handleLoginSubmit={handleTeacherLoginSubmit}
+      />
+    )
+  }
+
 // STUDENT 
   
-
-  console.log('app', teacherViewPage)
-  console.log('app', teacherAlternateScreen)
 // RETURN
   return (
     <div className="maincontainer">
-      <div>
-        <Header />
-      </div>
-      <Route exact path="/" render={() => <MainPage setUserType={setUserType}/>} />
+      <Header />
+      <Route exact path="/" render={() => <MainPage history={history} />} />
       {teacherUser.token 
         ?
-        <div>
-          <NavBarTeacher 
-            setAlternateScreen={setTeacherAlternateScreen2}
-            clearTeacherUser={clearTeacherUser}
-            history={history}
-          />
-
-          <Route exact path="/teacher/profile" render={() => 
-            <Profile 
-                teacherUser={teacherUser}
-            />}
-          />
-          {teacherAlternateScreen 
-          ?
-          <div>
-            {teacherViewPage === "View"
-            ?
-            <Route exact path="/teacher/student_request" render={() => 
-              <StudentRequestContainer
-                convo={teacherStudentConvo} 
-                setAlternateScreen={setTeacherAlternateScreen} 
-                setViewPage={setTeacherViewPage} 
-                setFormResponse={setTeacherFormResponse}
-                setFormTime={setTeacherFormTime}
-              />} 
-            />
-            :
-            <Route exact path="/teacher/reply" render={() =>  
-              <ReplyContainer 
-                  convo={teacherStudentConvo} 
-                  formResponse={teacherFormResponse}
-                  setFormResponse={setTeacherFormResponse}
-                  formTime={teacherFormTime}
-                  setFormTime={setTeacherFormTime}
-                  setAlternateScreen={setTeacherAlternateScreen}
-              />}
-          />
-            }
-          </div>
-          :
-          <div className="teachercontainer">
-            <Route exact path="/teacher" render={() => 
-              <MessageContainer 
-                setAlternateScreen2={setTeacherAlternateScreen2}
-                setAlternateScreen={setTeacherAlternateScreen}
-                convos={teacherConvos}
-                setConvos={setTeacherConvos}
-                formResponse={teacherFormResponse}
-                setFormResponse={setTeacherFormResponse}
-                formTime={teacherFormTime}
-                setFormTime={setTeacherFormTime} 
-                setStudentConvo={setTeacherStudentConvo}
-                setViewPage={setTeacherViewPage}
-                viewPage={teacherViewPage}
-              />} 
-            />
-          </div>
-          }
-        </div>
+        <NavBarTeacher 
+          clearTeacherUser={clearTeacherUser}
+          history={history}
+        />
         :
-          <Route exact path="/teacher/login" render={() => 
-            <Login 
-                setUsername={setTeacherUsername} 
-                setPassword={setTeacherPassword} 
-                password={teacherPassword} 
-                username={teacherUsername}
-                formUsername={teacherFormUsername}
-                formPassword={teacherFormPassword}
-                setFormUsername={setTeacherFormUsername}
-                setFormPassword={setTeacherFormPassword}
-                handleLoginSubmit={handleTeacherLoginSubmit}
-            />}
-          />
+        null 
       }
-      
+      <Switch>
+        <Route exact path="/teacher/login" render={() => renderTeacherLogin() }/>
+        <Route exact path="/teacher" render={() => renderTeacherMessages() }/>
+        <Route exact path="/teacher/reply" render={() => renderReplyContainer() }/>
+        <Route exact path="/teacher/student_request" render={() => renderStudentRequestContainer() }/>
+        <Route exact path="/teacher/profile" render={() => renderTeacherProfile() }/>
+      </Switch>
     </div>
   );
 };

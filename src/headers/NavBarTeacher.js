@@ -11,7 +11,7 @@ const link = {
 const NavBarTeacher = (props) => {
 
     const handleClick = (evt) => {
-        props.setAlternateScreen(false)
+        props.history.push('/teacher')
     };
 
     const handleLogOut = (evt) => {

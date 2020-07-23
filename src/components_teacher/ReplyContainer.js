@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 const ReplyContainer = (props) => {
     //submit form
@@ -17,7 +18,7 @@ const ReplyContainer = (props) => {
             })
         })
         .then(r => r.json())
-        .then(props.setAlternateScreen(false))
+        .then(props.history.push('/teacher'))
     };
 
     // destructuring
@@ -26,18 +27,14 @@ const ReplyContainer = (props) => {
 
     return (
         <div>
-            <div>
-                <h1>Name:</h1>
-                <p>{first_name} {last_name}</p>
-            </div>
-            <div>
-                <h3>Description:</h3>
-                <p>{description}</p>
-                <h3>Urgency:</h3>
-                <p>{urgency}</p>
-                <h3>Office Hours Requested:</h3>
-                <p>{office_hours ? "Yes" : "No"}</p>
-            </div>
+            <h1>Name:</h1>
+            <p>{first_name} {last_name}</p>
+            <h3>Description:</h3>
+            <p>{description}</p>
+            <h3>Urgency:</h3>
+            <p>{urgency}</p>
+            <h3>Office Hours Requested:</h3>
+            <p>{office_hours ? "Yes" : "No"}</p>
 
             <form onSubmit={handleFormSubmit}>
                 <div className="replyform">
@@ -63,11 +60,10 @@ const ReplyContainer = (props) => {
                     </label>
                     <input type="submit" value="Submit" />
                 </div>
-                
             </form>
         </div>
         
     );
 };
 
-export default ReplyContainer;
+export default withRouter(ReplyContainer);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 const Profile = (props) => {
     const {display_name, subject, email} = props.teacherUser.teacher
@@ -16,4 +17,4 @@ const Profile = (props) => {
     );
 };
 
-export default Profile;
+export default withRouter(Profile);

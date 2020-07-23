@@ -7,12 +7,10 @@ const MessageColumn = (props) => {
         return <MessageCard
             conversation={convoPOJO}
             key={convoPOJO.id}
-            setAlternateScreen={props.setAlternateScreen}
-            updateConvo={props.updateConvo}
-            setViewPage={props.setViewPage}
+            setStudentConvo={props.setStudentConvo}
             setFormResponse={props.setFormResponse}
             setFormTime={props.setFormTime}
-            viewPage={props.viewPage}
+            history={props.history}
         />
     });
 
