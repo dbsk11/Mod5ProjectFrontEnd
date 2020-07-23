@@ -17,7 +17,6 @@ import StudentLogin from './components_student/StudentLogin';
 import RequestViewScreen from './components_student/RequestViewScreen'
 import RequestEditScreen from './components_student/RequestEditScreen'
 
-
 // Teacher Imports
 import './components_teacher/styleteacher.css';
 import Login from './components_teacher/Login'
@@ -27,13 +26,14 @@ import StudentRequestContainer from './components_teacher/StudentRequestContaine
 import NavBarTeacher from './headers/NavBarTeacher'
 import MessageContainer from './components_teacher/MessageContainer'
 
-
-
 const App = () => {
   //Initialize History
   const history = useHistory();
 
 //TEACHER:
+  // Teacher: ID
+  const [teacherId, setTeacherId] = useState("");
+
   // Teacher: Initial Convo Array
   const [teacherConvos, setTeacherConvos] = useState([]);
 
@@ -47,9 +47,6 @@ const App = () => {
   // Teacher: Login Form Username/Password Initial State
   const [teacherFormUsername, setTeacherFormUsername] = useState("");
   const [teacherFormPassword, setTeacherFormPassword] = useState("");
-
-  // Teacher: ID
-  const [teacherId, setTeacherId] = useState("");
 
   // Teacher: Initialize TeacherUser
   const [teacherUser, setTeacherUser] = useState({
@@ -181,14 +178,20 @@ const App = () => {
 
 
 // STUDENT 
+  // Student: set Student ID 
+  const [studentId, setStudentId] = useState([]);
+
   // Student: Initial Conversations Array
   const [studentConvos, setStudentConvos] = useState([]);
 
   // Student: set Teacher ID
   const [studentTeacherId, setStudentTeacherId] = useState([]);
 
-  // Student: set Student ID 
-  const [studentId, setStudentId] = useState([]);
+  // Student: set convoId
+  const [studentConvoId, setStudentConvoId] = useState([]);
+
+  // Student: Initial State of Convo with Teacher
+  const [studentTeacherConvo, setStudentTeacherConvo] = useState([]);
 
   // Student: set class for Form
   const [studentFormKlass, setStudentFormKlass] = useState([])
@@ -208,12 +211,6 @@ const App = () => {
   // Student: Login Form - Username, Password Initial State
   const [studentFormUsername, setStudentFormUsername] = useState("");
   const [studentFormPassword, setStudentFormPassword] = useState("");
-
-  // Initial State: Convo with Teacher
-  const [studentTeacherConvo, setStudentTeacherConvo] = useState([]);
-
-  // set convoId
-const [studentConvoId, setStudentConvoId] = useState([]);
 
   // Student: Initialize StudentUser
   const [studentUser, setStudentUser] = useState({
@@ -283,8 +280,7 @@ const [studentConvoId, setStudentConvoId] = useState([]);
   const handleStudentSubmit = (newRequest) => {
     let copyOfConvoList = [...studentConvos, newRequest]
     setStudentConvos(copyOfConvoList)
-};
-console.log('app', studentConvos)
+  };
 
    // render convo list with updated convo
    const handleStudentEditSubmit = (updatedConvo) => {
@@ -296,7 +292,7 @@ console.log('app', studentConvos)
         }
     })
     setStudentConvos(copyOfConvoList)
-};
+  };
 
   const renderStudentMainContainer = () => {
     return (
@@ -318,7 +314,7 @@ console.log('app', studentConvos)
         setTeacherConvo={setStudentTeacherConvo}
         setConvoId={setStudentConvoId}
       />
-    )
+    );
   };
 
   const renderStudentProfile = () => {
@@ -326,8 +322,8 @@ console.log('app', studentConvos)
       <StudentProfile
         studentUser={studentUser}
       />
-    )
-  }
+    );
+  };
   
   const renderStudentLogin = () => {
     return (
@@ -338,8 +334,8 @@ console.log('app', studentConvos)
         setFormPassword={setStudentFormPassword}
         handleLoginSubmit={handleStudentLoginSubmit}
       />
-    )
-  }
+    );
+  };
 
   const renderStudentRequestScreen = () => {
     return (
@@ -362,8 +358,8 @@ console.log('app', studentConvos)
         handleSubmit={handleStudentSubmit}
         history={history}
       />
-    )
-  }
+    );
+  };
 
   const renderStudentRequestViewScreen = () => {
     return (
@@ -371,8 +367,8 @@ console.log('app', studentConvos)
         convo={studentTeacherConvo}
         key={studentTeacherConvo.id}
       />
-    )
-  }
+    );
+  };
 
   const renderStudentRequestEditScreen = () => {
     return (
@@ -389,16 +385,17 @@ console.log('app', studentConvos)
         handleEditSubmit={handleStudentEditSubmit}
         history={history}
       />
-    )
-  }
+    );
+  };
 
-  console.log('app teacher', studentTeacherId)
+  console.log(teacherUser)
 // RETURN
   return (
     <div className="maincontainer">
       <Header />
       <Route exact path="/" render={() => <MainPage history={history} />} />
-      <div>
+      
+      {/* TEACHER */}
         {teacherUser.token 
           ?
           <NavBarTeacher 
@@ -414,11 +411,23 @@ console.log('app', studentConvos)
           <Route exact path="/teacher/reply" render={() => renderReplyContainer() }/>
           <Route exact path="/teacher/student_request" render={() => renderStudentRequestContainer() }/>
           <Route exact path="/teacher/profile" render={() => renderTeacherProfile() }/>
+          {/* <Route exact path="/teacher/login" render={() => renderTeacherLogin() }/>
+          <Route exact path="/teacher" render={() => {
+            return teacherUser.token ? renderTeacherMessages() : renderTeacherLogin() }
+          }/>
+          <Route exact path="/teacher/reply" render={() => {
+            return teacherUser.token ? renderReplyContainer() : renderTeacherLogin() }
+          }/>
+          <Route exact path="/teacher/student_request" render={() => {
+            return teacherUser.token ? renderStudentRequestContainer() : renderTeacherLogin() }
+          }/>
+          <Route exact path="/teacher/profile" render={() => {
+            return teacherUser.token ? renderTeacherProfile() : renderTeacherLogin() }
+          }/> */}
         </Switch>
-      </div>
-      
+    
 
-      <div className="studentcontainer">
+      {/* STUDENT */}
         {studentUser.token
           ?
           <NavBarStudent 
@@ -436,7 +445,7 @@ console.log('app', studentConvos)
           <Route exact path="/student/edit_request" render={() => renderStudentRequestEditScreen() }/>
           <Route exact path="/student/login" render={() => renderStudentLogin() }/>
         </Switch>
-      </div>
+    
     </div>
   );
 };
