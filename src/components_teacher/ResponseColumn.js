@@ -20,6 +20,7 @@ const ResponseColumn = (props) => {
             updateConvo={props.updateConvo} 
             setFormResponse={props.setFormResponse}
             setFormTime={props.setFormTime}
+            viewPage={props.viewPage}
         />
     });
 

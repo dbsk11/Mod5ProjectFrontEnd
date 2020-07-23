@@ -12,6 +12,7 @@ const ResponseCard = (props) => {
         props.updateConvo(props.response);
         props.setFormResponse(props.response.response);
         props.setFormTime(props.response.time);
+        console.log('responseedit', props.viewPage)
     };
 
     return (

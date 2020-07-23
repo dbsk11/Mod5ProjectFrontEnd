@@ -1,36 +1,37 @@
 import React from 'react';
 
 const MessageCard = (props) => {
+    console.log('card', props)
     // destructuring
     const {first_name, last_name} = props.conversation.student;
     const {urgency, office_hours, teacher_response} = props.conversation;
     
     //handle view button click 
     const handleViewClick = (evt) => {
-        console.log('view', evt.target)
+        props.setViewPage("View")
         props.updateConvo(props.conversation)
         props.setAlternateScreen(true)
-        props.setViewPage("View")
-    };
+        console.log('EDITclick', props.viewPage)
+    }
 
     // handle reply button click
     const handleReplyClick = (evt) => {
-        console.log('reply', evt.target)
+        props.setViewPage("Reply")
         props.updateConvo(props.conversation)
         props.setAlternateScreen(true)
-        props.setViewPage("Reply")
         props.setFormResponse("")
         props.setFormTime("")
+        console.log('REPLYclick', props.viewPage)
     };
 
     // Edit Reply
     const handleEdit = (evt) => {
-        console.log('edit', evt.target)
-        props.setAlternateScreen(true)
         props.setViewPage("Reply")
+        props.setAlternateScreen(true)
         props.updateConvo(props.conversation)
         props.setFormResponse(props.conversation.response)
         props.setFormTime(props.conversation.time)
+        console.log('REPLYclick', props.viewPage)
     };
 
     return (

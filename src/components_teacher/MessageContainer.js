@@ -45,48 +45,23 @@ const MessageContainer = (props) => {
                 setViewPage={setViewPage} 
                 setFormResponse={props.setFormResponse}
                 setFormTime={props.setFormTime}
+                viewPage={props.viewPage}
             />
         )
     })
 
     return (
         <div className="messagecontainer">
-            { props.alternateScreen
-            ? 
-            <div>
-                {viewPage === "View" 
-                ?
-                <StudentRequestContainer 
-                    convo={studentConvo} 
-                    setAlternateScreen={props.setAlternateScreen} 
-                    setViewPage={setViewPage} 
-                    setFormResponse={props.setFormResponse}
-                    setFormTime={props.setFormTime}
-                />
-                :
-                <ReplyContainer 
-                    convo={studentConvo} 
-                    formResponse={props.formResponse}
-                    setFormResponse={props.setFormResponse}
-                    formTime={props.formTime}
-                    setFormTime={props.setFormTime}
-                    setAlternateScreen={props.setAlternateScreen}
-                />
-                }
-            </div>
-            :
-            <div className="allconvos">
-                {arrayToRender}
-                <ResponseColumn 
-                    conversations={props.convos} 
-                    setAlternateScreen={props.setAlternateScreen} 
-                    setViewPage={setViewPage} 
-                    updateConvo={updateConvo} 
-                    setFormResponse={props.setFormResponse}
-                    setFormTime={props.setFormTime}
-                />
-            </div>
-            }
+            {arrayToRender}
+            <ResponseColumn 
+                conversations={props.convos} 
+                setAlternateScreen={props.setAlternateScreen} 
+                setViewPage={setViewPage} 
+                updateConvo={updateConvo} 
+                setFormResponse={props.setFormResponse}
+                setFormTime={props.setFormTime}
+                viewPage={props.viewPage}
+            />
         </div>
     );
 };

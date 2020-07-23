@@ -12,6 +12,7 @@ const MessageColumn = (props) => {
             setViewPage={props.setViewPage}
             setFormResponse={props.setFormResponse}
             setFormTime={props.setFormTime}
+            viewPage={props.viewPage}
         />
     });
 

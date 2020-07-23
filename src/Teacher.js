@@ -15,16 +15,16 @@ const Teacher = (props) => {
     // // Initial State: Alternate Screen
     // const [alternateScreen, setAlternateScreen] = useState(false);
 
-    // onChange for Reply Form / Repopulate Form for Edit
-    const [formResponse, setFormResponse] = useState("");
-    const [formTime, setFormTime] = useState("");
+    // // onChange for Reply Form / Repopulate Form for Edit
+    // const [formResponse, setFormResponse] = useState("");
+    // const [formTime, setFormTime] = useState("");
 
-    // Initial State: Conversations Array
-    const [convos, setConvos] = useState([]);
+    // // Initial State: Conversations Array
+    // const [convos, setConvos] = useState([]);
 
-    const [studentConvo, setStudentConvo] = useState([]);
+    // const [studentConvo, setStudentConvo] = useState([]);
     
-    const [viewPage, setViewPage] = useState("");
+    // const [viewPage, setViewPage] = useState("");
     // // Username and Password Initial State
     // const [username, setUsername] = useState("");
     // const [password, setPassword] = useState("");
@@ -102,10 +102,10 @@ const Teacher = (props) => {
     //     });
     // };
 
-    console.log('viewpage', viewPage)
+    console.log('viewpage', props.viewPage)
     return (
         <div className="teachercontainer">
-            {props.alternateScreen
+            {/* {props.alternateScreen
             ? 
             <div>
                 {viewPage === "View" 
@@ -132,22 +132,22 @@ const Teacher = (props) => {
                 />
                 }
             </div>
-            :
+            : */}
             <Route exact path="/teacher" render={() => 
                 <MessageContainer 
                     alternateScreen={props.alternateScreen} 
                     setAlternateScreen={props.setAlternateScreen2} 
-                    convos={convos}
-                    setConvos={setConvos}
-                    formResponse={formResponse}
-                    setFormResponse={setFormResponse}
-                    formTime={formTime}
-                    setFormTime={setFormTime} 
-                    setStudentConvo={setStudentConvo}
-                    setViewPage={setViewPage}
+                    convos={props.convos}
+                    setConvos={props.setConvos}
+                    formResponse={props.formResponse}
+                    setFormResponse={props.setFormResponse}
+                    formTime={props.formTime}
+                    setFormTime={props.setFormTime} 
+                    setStudentConvo={props.setStudentConvo}
+                    setViewPage={props.setViewPage}
                 />} 
             />
-            }
+            {/* } */}
         </div>
     );
 };
