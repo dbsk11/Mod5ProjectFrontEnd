@@ -6,7 +6,7 @@ const StudentRequestContainer = (props) => {
     const {description, klass, office_hours, created_at, topic, urgency, teacher_response} = props.convo;
 
     // reply button - update state
-    const handleClick = (evt) => {
+    const handleReply = (evt) => {
         props.setAlternateScreen(true)
         props.setViewPage("Reply")
         props.setFormResponse("")
@@ -63,7 +63,7 @@ const StudentRequestContainer = (props) => {
                 ?
                 <button onClick={handleEdit}>Edit Reply</button>
                 :
-                <button onClick={handleClick}>Reply</button>
+                <button onClick={handleReply}>Reply</button>
                 }
             </div>
         </div>

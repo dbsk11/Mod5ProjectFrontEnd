@@ -7,6 +7,7 @@ const MessageCard = (props) => {
     
     //handle view button click 
     const handleViewClick = (evt) => {
+        console.log('view', evt.target)
         props.updateConvo(props.conversation)
         props.setAlternateScreen(true)
         props.setViewPage("View")
@@ -14,6 +15,7 @@ const MessageCard = (props) => {
 
     // handle reply button click
     const handleReplyClick = (evt) => {
+        console.log('reply', evt.target)
         props.updateConvo(props.conversation)
         props.setAlternateScreen(true)
         props.setViewPage("Reply")
@@ -23,6 +25,7 @@ const MessageCard = (props) => {
 
     // Edit Reply
     const handleEdit = (evt) => {
+        console.log('edit', evt.target)
         props.setAlternateScreen(true)
         props.setViewPage("Reply")
         props.updateConvo(props.conversation)

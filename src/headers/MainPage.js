@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 
 const MainPage = (props) => {
     
@@ -15,8 +16,16 @@ const MainPage = (props) => {
             <h1>Welcome to Ask:Answer</h1>
             <p>Click Student or Teacher to begin</p>
             <div className="mainbuttons">
-                <button onClick={handleClickStudent}>Student</button>
-                <button onClick={handleClickTeacher}>Teacher</button>
+                <NavLink
+                    to="/student/login"
+                    exact
+                    onClick={handleClickStudent}
+                >Student</NavLink>
+                <NavLink
+                    to="/teacher/login"
+                    exact
+                    onClick={handleClickStudent}
+                >Teacher</NavLink>
             </div>
         </div>
     );
