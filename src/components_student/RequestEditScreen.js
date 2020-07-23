@@ -20,7 +20,7 @@ const RequestEditScreen = (props) => {
         .then(r => r.json())
         .then((updatedConvo) => {
             props.handleEditSubmit(updatedConvo)
-            props.setAlternateScreen(false)
+            props.history.push("/student")
         })
     };
 

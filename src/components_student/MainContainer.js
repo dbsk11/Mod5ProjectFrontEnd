@@ -5,22 +5,8 @@ import RequestColumn from './RequestColumn'
 import RequestEditScreen from './RequestEditScreen'
 
 const MainContainer = (props) => {
-    // Initial State: View Page
-    const [viewPage, setViewPage] = useState("");
-
-    // Initial State: Convo with Teacher
-    const [teacherConvo, setTeacherConvo] = useState([]);
-
     // Initial State: Student Classes
     const [klass, setKlass] = useState([]);
-
-    // set conversation to display
-    const updateConvo = (convoPOJO) => {
-        setTeacherConvo(convoPOJO)
-    };
-
-    // set convoId
-    const [convoId, setConvoId] = useState([]);
 
     // fetch a students conversations
     useEffect(() => {
@@ -38,30 +24,10 @@ const MainContainer = (props) => {
         return klassPOJO.teacher_class
     });
 
-    // create updated convo list to include new convo
-    const handleSubmit = (newRequest) => {
-        let copyOfConvoList = [...props.convos, newRequest]
-        props.setConvos(copyOfConvoList)
-    };
-
-    // const acknowledgeConvo = ()
-
     // remove deleted convo from convos being rendered
     const deleteConvoFromArray = (deletedConvoId) => {
         let copyOfConvoList = props.convos.filter((convo) => {
             return convo.id !== deletedConvoId
-        })
-        props.setConvos(copyOfConvoList)
-    };
-
-    // render convo list with updated convo
-    const handleEditSubmit = (updatedConvo) => {
-        let copyOfConvoList = props.convos.map((convo) => {
-            if(convo.id === updatedConvo.id){
-                return updatedConvo
-            } else {
-                return convo
-            }
         })
         props.setConvos(copyOfConvoList)
     };
@@ -74,9 +40,7 @@ const MainContainer = (props) => {
                 klass={klass.klass.name}
                 key={klass.klass.id}
                 convos={array}
-                setAlternateScreen={props.setAlternateScreen}
-                setViewPage={setViewPage}
-                updateConvo={updateConvo}
+                setTeacherConvo={props.setTeacherConvo}
                 setTeacherId={props.setTeacherId}
                 setFormKlass={props.setFormKlass}
                 deleteConvoFromArray={deleteConvoFromArray}
@@ -84,77 +48,16 @@ const MainContainer = (props) => {
                 setFormUrgency={props.setFormUrgency}
                 setFormOfficeHours={props.setFormOfficeHours}
                 setFormDescription={props.setFormDescription}
-                setConvoId={setConvoId}
+                setConvoId={props.setConvoId}
+                history={props.history}
                 teacherId={klass.teacher_id}
             />
         );
     });
 
-    
     return (
-        <div className="studentmain">
-            {props.alternateScreen 
-            ?
-            <div>
-                {viewPage === "Full Request"
-                ?
-                <RequestViewScreen
-                    convo={teacherConvo}
-                    key={teacherConvo.id}
-                    teacherId={props.teacherId}
-                    studentId={props.studentId}
-                />
-                : 
-                <div>
-                    {viewPage === "Edit Screen" 
-                    ?
-                    <div>
-                        <RequestEditScreen 
-                            formTopic={props.formTopic}
-                            setFormTopic={props.setFormTopic}
-                            formUrgency={props.formUrgency}
-                            setFormUrgency={props.setFormUrgency}
-                            formOfficeHours={props.formOfficeHours}
-                            setFormOfficeHours={props.setFormOfficeHours}
-                            formDescription={props.formDescription}
-                            setFormDescription={props.setFormDescription}
-                            convoId={convoId}
-                            setAlternateScreen={props.setAlternateScreen}
-                            handleEditSubmit={handleEditSubmit}
-                        />
-                    </div>
-                    :
-                    <div>
-                        <RequestScreen 
-                            setTopic={props.setTopic}
-                            setUrgency={props.setUrgency}
-                            setOfficeHours={props.setOfficeHours}
-                            setDescription={props.setDescription}
-                            formTopic={props.formTopic}
-                            setFormTopic={props.setFormTopic}
-                            formUrgency={props.formUrgency}
-                            setFormUrgency={props.setFormUrgency}
-                            formOfficeHours={props.formOfficeHours}
-                            setFormOfficeHours={props.setFormOfficeHours}
-                            formDescription={props.formDescription}
-                            setFormDescription={props.setFormDescription}
-                            studentId={props.studentId}
-                            teacherId={props.teacherId}
-                            formKlass={props.formKlass}
-                            handleSubmit={handleSubmit}
-                            setAlternateScreen={props.setAlternateScreen}
-                        />
-                    </div>
-                    }
-                </div>
-                
-                }
-            </div>
-            :
-            <div className="messages">
-                {arrayToRender}
-            </div> 
-            }
+        <div className="messages">
+            {arrayToRender}
         </div>
     );
 };

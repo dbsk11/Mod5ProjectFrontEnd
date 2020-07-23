@@ -7,22 +7,20 @@ const RequestColumn = (props) => {
         return <RequestCard
             conversation={convoPOJO}
             key={convoPOJO.id}
-            setAlternateScreen={props.setAlternateScreen}
-            setViewPage={props.setViewPage}
-            updateConvo={props.updateConvo}
+            setTeacherConvo={props.setTeacherConvo}
             deleteConvoFromArray={props.deleteConvoFromArray}
             setFormTopic={props.setFormTopic}
             setFormUrgency={props.setFormUrgency}
             setFormOfficeHours={props.setFormOfficeHours}
             setFormDescription={props.setFormDescription}
             setConvoId={props.setConvoId}
+            history={props.history}
         />
     })
 
     // Create a new request
     const handleNewRequest = (evt) => {
-        props.setAlternateScreen(true)
-        props.setViewPage("Make Request")
+        props.history.push("/student/make_request")
         props.setTeacherId(props.teacherId)
         props.setFormKlass(props.klass)
         props.setFormTopic("Lecture")
@@ -30,6 +28,8 @@ const RequestColumn = (props) => {
         props.setFormOfficeHours(true)
         props.setFormDescription("")
     }
+
+    console.log('column', props)
 
     return (
         <div className="requestcolumn">

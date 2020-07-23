@@ -3,9 +3,8 @@ import React from 'react';
 const RequestCard = (props) => {
     // View entire request
     const handleClick = (evt) => {
-        props.setAlternateScreen(true)
-        props.setViewPage("Full Request")
-        props.updateConvo(props.conversation)
+        props.history.push("/student/view_request")
+        props.setTeacherConvo(props.conversation)
     }
     
     // patch convo/update acknowledge state
@@ -21,16 +20,14 @@ const RequestCard = (props) => {
         })
         .then(r => r.json())
         .then((updatedConvo) => {
-            // props.acknowledgeConvo(updatedConvo)
-            props.setAlternateScreen(false)
+            props.history.push("/student")
         })
     }
 
     // Edit screen to edit convo
     const handleEditClick = (evt) => {
-        props.setAlternateScreen(true)
-        props.setViewPage("Edit Screen")
-        props.updateConvo(props.conversation)
+        props.history.push("/student/edit_request")
+        props.setTeacherConvo(props.conversation)
         props.setFormTopic(props.conversation.topic)
         props.setFormUrgency(props.conversation.urgency)
         props.setFormOfficeHours(props.conversation.office_hours)
