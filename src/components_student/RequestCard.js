@@ -43,6 +43,7 @@ const RequestCard = (props) => {
         .then(r => r.json())
         .then((deletedConvo) => {
             props.deleteConvoFromArray(deletedConvo.id)
+            alert("Request has been deleted")
         })
     }
 

@@ -4,20 +4,32 @@ import ResponseColumn from './ResponseColumn';
 import { withRouter } from 'react-router-dom';
 
 const MessageContainer = (props) => {
+    console.log('containerId', props.teacherId)
     // set State
     const [klass, setKlass] = useState([]);
-
+    
     // fetch teacher information
-    useEffect(() => {
-        fetch('http://localhost:3000/teachers/1')
-        .then(r => r.json())
-        .then(data => {
-            props.setConvos(data.conversations)
-            setKlass(data.teacher_classes)
+    // useEffect(() => {
+    // fetch(`http://localhost:3000/teachers/${id}`)
+    //     .then(r => r.json())
+    //     .then(console.log)
+    //     // .then(data => {
+    //     //     props.setConvos(data.conversations)
+    //     //     setKlass(data.teacher_classes)
             
-        })
-    }, [props.alternateScreen]);
- 
+    //     // })
+    // }, []);
+    
+    // useEffect(() => {
+    //     fetch("http://localhost:3000/teachers/1")
+    //     .then(r => r.json())
+    //     .then(data => {
+    //         props.setConvos(data.conversations)
+    //         setKlass(data.teacher_classes) 
+    //     })
+    // }, []);
+
+    console.log('container', props)
     // determine teacher classes
     const klasses = klass.map((klassPOJO) => {
         return klassPOJO.klass.name

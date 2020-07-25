@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { useHistory } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 // Main Imports
 import MainPage from './headers/MainPage';
@@ -81,14 +82,29 @@ const App = () => {
     })
   };
 
+  // Teacher: Stay Logged In
+  // useEffect(() => {
+  //   if(localStorage.token){
+  //     fetch("http://localhost:3000/teachers/stay_logged_in", {
+  //       headers: {
+  //         "Authorization": localStorage.token
+  //       }
+  //     })
+  //     .then(r => r.json())
+  //     .then(data => {
+  //       handleTeacherResponse(data)
+  //     })
+  //   }
+  // }, [])
+
   // Teacher: Handle Login Response 
   const handleTeacherResponse = (resp) => {
-    if(resp.message){
-        alert(resp.message)
+    if(resp.teacher){
+      localStorage.token = resp.token
+      setTeacherUser(resp)
+      history.push("/teacher")
     } else {
-        localStorage.token = resp.token
-        setTeacherUser(resp)
-        history.push("/teacher")
+      alert(resp.error)
     };
   };
 
@@ -243,14 +259,29 @@ const App = () => {
     .then(handleStudentResponse)
   };
 
+  // Student: Stay Logged in 
+  // useEffect(() => {
+  //   if(localStorage.token){
+  //     fetch("http://localhost:3000/students/stay_logged_in", {
+  //       headers: {
+  //         "Authorization": localStorage.token
+  //       }
+  //     })
+  //     .then(r => r.json())
+  //     .then(data => {
+  //       handleStudentResponse(data)
+  //     })
+  //   }
+  // }, [])
+
   // Student: Handle Login Response 
   const handleStudentResponse = (resp) => {
-    if(resp.message){
-        alert(resp.message)
+    if(resp.student){
+      localStorage.token = resp.token
+      setStudentUser(resp)
+      history.push("/student")
     } else {
-        localStorage.token = resp.token
-        setStudentUser(resp)
-        history.push("/student")
+      alert(resp.error) 
     };
   };
 
@@ -388,7 +419,7 @@ const App = () => {
     );
   };
 
-  console.log(teacherUser)
+
 // RETURN
   return (
     <div className="maincontainer">
@@ -411,19 +442,6 @@ const App = () => {
           <Route exact path="/teacher/reply" render={() => renderReplyContainer() }/>
           <Route exact path="/teacher/student_request" render={() => renderStudentRequestContainer() }/>
           <Route exact path="/teacher/profile" render={() => renderTeacherProfile() }/>
-          {/* <Route exact path="/teacher/login" render={() => renderTeacherLogin() }/>
-          <Route exact path="/teacher" render={() => {
-            return teacherUser.token ? renderTeacherMessages() : renderTeacherLogin() }
-          }/>
-          <Route exact path="/teacher/reply" render={() => {
-            return teacherUser.token ? renderReplyContainer() : renderTeacherLogin() }
-          }/>
-          <Route exact path="/teacher/student_request" render={() => {
-            return teacherUser.token ? renderStudentRequestContainer() : renderTeacherLogin() }
-          }/>
-          <Route exact path="/teacher/profile" render={() => {
-            return teacherUser.token ? renderTeacherProfile() : renderTeacherLogin() }
-          }/> */}
         </Switch>
     
 
@@ -450,4 +468,5 @@ const App = () => {
   );
 };
 
-export default App;
+let RouterComponent = withRouter(App)
+export default RouterComponent;
