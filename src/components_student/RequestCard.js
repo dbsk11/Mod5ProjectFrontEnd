@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RequestCard = (props) => {
-    console.log('card', props.conversation.id)
+    console.log('card', props)
     // View entire request
     const handleClick = (evt) => {
         props.history.push("/student/view_request")
@@ -21,6 +21,8 @@ const RequestCard = (props) => {
         })
         .then(r => r.json())
         .then((updatedConvo) => {
+            console.log(updatedConvo)
+            props.handleAcknowledge(updatedConvo)
             props.history.push("/student")
         })
     }
@@ -56,9 +58,19 @@ const RequestCard = (props) => {
             <div className="studentconvo">
                 <h5>Request:</h5>
                 <p>{description}</p>
-                <button className="button" onClick={handleClick}>View Request</button>
-                <button className="button" onClick={handleEditClick}>Edit Request</button>
-                <button className="button" onClick={handleDeleteClick}>Delete Request</button>
+                {acknowledged 
+                ?
+                <div>
+                    <button className="button" onClick={handleClick}>View</button>
+                    <button className="button" onClick={handleDeleteClick}>Delete</button>
+                </div>
+                :
+                <div>
+                    <button className="button" onClick={handleClick}>View</button>
+                    <button className="button" onClick={handleEditClick}>Edit</button>
+                    <button className="button" onClick={handleDeleteClick}>Delete</button>
+                </div>
+                }
             </div>
             <div className="teacherconvo">
                 {teacher_response

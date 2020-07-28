@@ -2,6 +2,7 @@ import React from 'react';
 import RequestCard from './RequestCard';
 
 const RequestColumn = (props) => {
+    console.log('column', props)
     // create array to render   
     const arrayToRender = props.convos.map((convoPOJO) => {
         return <RequestCard
@@ -15,6 +16,7 @@ const RequestColumn = (props) => {
             setFormDescription={props.setFormDescription}
             setConvoId={props.setConvoId}
             history={props.history}
+            handleAcknowledge={props.handleAcknowledge}
         />
     })
 
@@ -28,8 +30,6 @@ const RequestColumn = (props) => {
         props.setFormOfficeHours(true)
         props.setFormDescription("")
     }
-
-    console.log('column', props)
 
     return (
         <div className="requestcolumn">

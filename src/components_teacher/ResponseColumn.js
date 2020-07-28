@@ -2,7 +2,6 @@ import React from 'react';
 import ResponseCard from './ResponseCard';
 
 const ResponseColumn = (props) => {
-    // console.log('column', props)
     // filter conversations with responses
     const responsesToRender = props.conversations.filter((convoPOJO) => {
         if (convoPOJO.teacher_response === true){
@@ -10,8 +9,13 @@ const ResponseColumn = (props) => {
         };
     });
     
+    // sort responses by updated_at
+    const sortedResponsesToRender = responsesToRender.sort((convoA, convoB) => {
+        return convoB.updated_at.localeCompare(convoA.updated_at)
+    })
+
     // create array of responses
-    const arrayOfResponses = responsesToRender.map((responsePOJO) => {
+    const arrayOfResponses = sortedResponsesToRender.map((responsePOJO) => {
         return <ResponseCard
             response={responsePOJO}
             key={responsePOJO.id}

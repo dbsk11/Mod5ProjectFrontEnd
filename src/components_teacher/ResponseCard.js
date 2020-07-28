@@ -7,7 +7,6 @@ const ResponseCard = (props) => {
     
     // edit button 
     const handleEdit = (evt) => {
-        console.log('edit', props.response)
         props.setStudentConvo(props.response);
         props.setFormResponse(props.response.response);
         props.setFormTime(props.response.time);

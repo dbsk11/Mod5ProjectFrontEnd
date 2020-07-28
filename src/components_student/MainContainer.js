@@ -53,6 +53,7 @@ const MainContainer = (props) => {
                 setFormDescription={props.setFormDescription}
                 setConvoId={props.setConvoId}
                 history={props.history}
+                handleAcknowledge={props.handleAcknowledge}
             />
         );
     });

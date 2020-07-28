@@ -78,7 +78,7 @@ const App = () => {
     })
     .then(r => r.json())
     .then((data) => {
-      console.log('login')
+      console.log(data)
       handleTeacherResponse(data)
       setTeacherId(data.teacher.id)
     })
@@ -332,6 +332,18 @@ const App = () => {
     setStudentConvos(copyOfConvoList)
   };
 
+  // render convo list with acknowledge update
+  const handleAcknowledge = (updatedConvo) => {
+    let copyOfConvoList = studentConvos.map((convo) => {
+      if(convo.id === updatedConvo.id){
+        return updatedConvo
+      } else {
+        return convo
+      }
+    })
+    setStudentConvos(copyOfConvoList)
+  }
+
   const renderStudentMainContainer = () => {
     return (
       <MainContainer 
@@ -351,6 +363,7 @@ const App = () => {
         history={history}
         setTeacherConvo={setStudentTeacherConvo}
         setConvoId={setStudentConvoId}
+        handleAcknowledge={handleAcknowledge}
       />
     );
   };
