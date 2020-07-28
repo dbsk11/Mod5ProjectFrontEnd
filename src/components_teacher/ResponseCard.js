@@ -2,14 +2,16 @@ import React from 'react';
 
 const ResponseCard = (props) => {
     // destructuring 
-    const {response, office_hours, time} = props.response;
+    const {response, office_hours, time, office_hours_date} = props.response;
     const {first_name, last_name} = props.response.student
     
     // edit button 
     const handleEdit = (evt) => {
+        console.log('edit', props.response)
         props.setStudentConvo(props.response);
         props.setFormResponse(props.response.response);
         props.setFormTime(props.response.time);
+        props.setFormDate(props.response.office_hours_date);
         props.history.push('/teacher/reply')
     };
 
@@ -20,7 +22,8 @@ const ResponseCard = (props) => {
             <h5>Response:</h5>
             <p>{response}</p>
             <h5>Scheduled Office Hour:</h5>
-            <p>{office_hours ? time : "N/A"}</p>
+            <p>Date: {office_hours ? office_hours_date : "N/A"}</p>
+            <p>Time: {office_hours ? time : "N/A"}</p>
             <button onClick={handleEdit}>Edit</button>
         </div>
     );

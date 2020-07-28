@@ -44,6 +44,7 @@ const App = () => {
   // Teacher: onChange for Reply Form / Repopulate Form for Edit
   const [teacherFormResponse, setTeacherFormResponse] = useState("");
   const [teacherFormTime, setTeacherFormTime] = useState("");
+  const [teacherFormDate, setTeacherFormDate] = useState("");
 
   // Teacher: Login Form Username/Password Initial State
   const [teacherFormUsername, setTeacherFormUsername] = useState("");
@@ -77,6 +78,7 @@ const App = () => {
     })
     .then(r => r.json())
     .then((data) => {
+      console.log('login')
       handleTeacherResponse(data)
       setTeacherId(data.teacher.id)
     })
@@ -145,6 +147,8 @@ const App = () => {
         convo={teacherStudentConvo} 
         formResponse={teacherFormResponse}
         setFormResponse={setTeacherFormResponse}
+        formDate={teacherFormDate}
+        setFormDate={setTeacherFormDate}
         formTime={teacherFormTime}
         setFormTime={setTeacherFormTime}
         history={history}
@@ -159,6 +163,7 @@ const App = () => {
         convo={teacherStudentConvo} 
         setFormResponse={setTeacherFormResponse}
         setFormTime={setTeacherFormTime}
+        setFormDate={setTeacherFormDate}
         history={history}
       />
     )
@@ -173,6 +178,7 @@ const App = () => {
         setConvos={setTeacherConvos}
         setFormResponse={setTeacherFormResponse}
         setFormTime={setTeacherFormTime} 
+        setFormDate={setTeacherFormDate}
         setStudentConvo={setTeacherStudentConvo}
         history={history}
       />
@@ -191,6 +197,7 @@ const App = () => {
       />
     )
   }
+
 
 
 // STUDENT 

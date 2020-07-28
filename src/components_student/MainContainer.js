@@ -5,6 +5,7 @@ import RequestColumn from './RequestColumn'
 import RequestEditScreen from './RequestEditScreen'
 
 const MainContainer = (props) => {
+    console.log('main', props)
     // Initial State: Student Classes
     const [klass, setKlass] = useState([]);
 
@@ -35,6 +36,7 @@ const MainContainer = (props) => {
     // render request column
     const arrayToRender = klasses.map((klass) => {
         let array = props.convos.filter((convo) => convo.klass === klass.klass.name)
+        console.log('main', klass, array, props.convos)
         return (
             <RequestColumn 
                 klass={klass.klass.name}

@@ -10,6 +10,7 @@ const MessageColumn = (props) => {
             setStudentConvo={props.setStudentConvo}
             setFormResponse={props.setFormResponse}
             setFormTime={props.setFormTime}
+            setFormDate={props.setFormDate}
             history={props.history}
         />
     });

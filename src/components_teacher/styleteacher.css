@@ -1,50 +1,159 @@
+/* LOGIN PAGE */
+.loginform {
+    display: flex;
+    flex-direction: row;
+    background: #eff7ff;
+    border: solid;
+    width: 98.7vw;
+    height: 84.2vh;
+    justify-content: center;
+}
+
+.loginform h1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px;
+}
+
+.usernameinput {
+    margin: 5px;
+}
+
+.passwordinput {
+    margin: 5px;
+}
+
+.submitbutton {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+/* NAVBAR */
 .navbar {
     display: flex;
     flex-direction: row;
+    background: #eff7ff;
+    border: solid;
     height: 5vh;
-    width: 98.8vw;
+    width: 98.7vw;
     justify-content: space-evenly;
     align-items: center;
+    font-size: 20px;
 }
 
 .profile {
     display: flex;
-    height: 76.2vh;
-    width: 98.8vw;
+    height: 78.5vh;
+    width: 98.7vw;
     flex-direction: column;
     align-items: center;
+    background: #eff7ff;
+    border: solid;
 }
 
-.teachercontainer {
+.profile h1 {
+    margin-top: 40px;
+}
+
+.infodisplay {
     display: flex;
+    flex-direction: row;
+}
+
+.profile h3 {
+    margin-right: 15px;
+}
+
+.profile h4 {
+    margin-right: 15px;
+}
+
+.profile p {
     display: flex;
-    width: 98.8vw;
-    height: 81vh;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 0px;
 }
 
+/* MESSAGE CONTAINER */
 .messagecontainer {
     display: flex;
-    width: 98.8vw;
-    height: 81vh;
+    background: #eff7ff;
+    border: solid;
+    width: 98.7vw;
+    height: 78.4vh;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
     margin-bottom: 0px;
 }
 
-.responsecolumn {
+/* MESSAGE COLUMN */
+.messagecolumn {
     display: flex;
     flex-direction: column;
-    width: 17.5vw;
-    height: 77vh;
+    width: 15vw;
+    height: 73vh;
     border-style: solid;
-    margin: 10px;
+    margin: 32px;
     align-items: center;
     overflow-y: scroll;
 }
 
+/* MESSAGE CARD */
+.messagecard {
+    display: flex;
+    flex-direction: column;
+    width: 9vw;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    align-items: center;
+}
+
+.cardcontent {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+.cardcontent h5 {
+    display: flex;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    align-self: center;
+}
+
+.cardcontent h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.cardcontent p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.offhours {
+    text-align: center;
+}
+
+/* RESPONSE COLUMN */
+.responsecolumn {
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+    height: 73vh;
+    border-style: solid;
+    margin: 32px;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+/* RESPONSE CARD */
 .responsecard {
     display: flex;
     flex-direction: column;
@@ -52,7 +161,9 @@
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
+    width: 9vw;
     align-items: center;
+    text-align: center;
 } 
 
 .responsecard h5 {
@@ -66,50 +177,17 @@
     font-style: italic;
 }
 
-
-.messagecolumn {
-    display: flex;
-    flex-direction: column;
-    width: 17.5vw;
-    height: 77vh;
-    border-style: solid;
-    margin: 10px;
-    align-items: center;
-    overflow-y: scroll;
-}
-
-.messagecard {
-    display: flex;
-    flex-direction: column;
-    border: 2px solid red;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px;
-    align-items: center;
-}
-
-.messagecard h5 {
-    margin-top: 0em;
-    margin-bottom: 0em;
-}
-
-.messagecard h3 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.messagecard p {
-    margin-top: 0px;
-    margin-bottom: 10px;
-    font-style: italic;
-}
-
+/* STUDENT REQUEST CONTAINER */
 .studentrequest {
     display: flex;
-    width: 98.8vw;
-    height: 81vh;
-    margin-bottom: 0px;
     flex-direction: column;
+    border: solid;
+    width: 98.7vw;
+    height: 78.4vh;
+    margin-bottom: 0px;
+    align-items: center;
+    background: #eff7ff
+
 }
 
 .studentinfo {
@@ -118,20 +196,18 @@
     align-items: center;
     justify-content: space-evenly;
     width: 98.8vw;
-    padding: 10px;
+} 
+
+.studentrequest h5 {
+    margin-right: 15px;
+    font-size: 18px;
 }
 
-.studentinfo h5 {
-    margin-top: 0em;
-    margin-bottom: 0em;
-    font-size: 20px;
-}
-
-.studentinfo p {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-style: italic;
-    font-size: 15px;
+.studentrequest p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 17px;
 }
 
 .klassinfo {
@@ -146,17 +222,73 @@
 .requestinfo {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     justify-content: space-evenly;
     width: 98.8vw;
-    padding: 50px;
+    padding: 10px;
     margin: 10px;
 }
 
+.requestinfo h5 {
+    font-size: 20px;
+}
+
+.request info p {
+    font-size: 18px;
+}
+
+/* REPLY PAGE INFO */
+.replypageinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #eff7ff;
+    border: solid;
+    width: 96vw;
+    height: 73.9vh;
+    padding: 20px;
+}
+
+.replypageinfo h3 {
+    margin-right: 15px;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.replypageinfo p {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 17px;
+}
+
+/* REPLY FORM */
 .replyform {
     display: flex;
     flex-direction: column;
     height: 76.2vh;
     width: 98.8vw;
     align-items: center;
+    padding: 30px;
+}
+
+.timeanddate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.officehours {
+    margin: 20px;
+}
+
+.replysubmitbutton {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.noofficehours {
+    margin-top: 20px;
 }

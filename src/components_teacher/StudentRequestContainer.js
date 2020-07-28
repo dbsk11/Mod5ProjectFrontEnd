@@ -4,13 +4,14 @@ import { withRouter } from 'react-router-dom';
 const StudentRequestContainer = (props) => {
     // destructuring
     const {first_name, last_name} = props.convo.student;
-    const {description, klass, office_hours, created_at, topic, urgency, teacher_response} = props.convo;
+    const {description, klass, office_hours, date_created, topic, urgency, teacher_response} = props.convo;
 
     // reply button - update state
     const handleReply = (evt) => {
         props.history.push('/teacher/reply')
         props.setFormResponse("")
         props.setFormTime("")
+        props.setFormDate("")
     };
 
     // edit button - update state
@@ -18,29 +19,44 @@ const StudentRequestContainer = (props) => {
         props.history.push('/teacher/reply')
         props.setFormResponse(props.convo.response)
         props.setFormTime(props.convo.time)
+        props.setFormDate(props.convo.date)
     };
 
     return (
         <div className="studentrequest">
             <div className="studentinfo">
-                <h5>Name:</h5>
-                <p>{first_name} {last_name}</p> 
-                <h5>Klass:</h5>
-                <p>{klass}</p>
+                <div className="infodisplay">
+                    <h5>Name:</h5>
+                    <p>{first_name} {last_name}</p> 
+                </div>
+                <div className="infodisplay">
+                    <h5>Klass:</h5>
+                    <p>{klass}</p>
+                </div>
             </div>
             <div className="klassinfo">
-                <h5>Topic:</h5>
-                <p>{topic}</p>
-                <h5>Urgency:</h5>
-                <p>{urgency}</p>
-                <h5>Time Logged::</h5>
-                <p>{created_at}</p>
+                <div className="infodisplay">
+                    <h5>Topic:</h5>
+                    <p>{topic}</p>
+                </div>
+                <div className="infodisplay">
+                    <h5>Urgency:</h5>
+                    <p>{urgency}</p>
+                </div>
+                <div className="infodisplay">
+                    <h5>Created at:</h5>
+                    <p>{date_created}</p>
+                </div>
             </div>
             <div className="requestinfo">
-                <h5>Description:</h5>
-                <p>{description}</p>
-                <h5>Office Hours Requested:</h5>
-                <p>{office_hours ? "Yes" : "No"}</p>
+                <div className="infodisplay">
+                    <h5>Description:</h5>
+                    <p>{description}</p>
+                </div>
+                <div className="infodisplay">
+                    <h5>Office Hours Requested:</h5>
+                    <p>{office_hours ? "Yes" : "No"}</p>
+                </div>
             </div>
             <div className="studentrequestcontainerbutton">
                 {teacher_response

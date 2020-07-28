@@ -7,12 +7,18 @@ const Profile = (props) => {
     return (
         <div className="profile">
             <h1>My Profile</h1>
-            <h3>Name: </h3>
-            <p>{display_name}</p>
-            <h4>Subject: </h4>
-            <p>{subject}</p>
-            <h4>Email: </h4>
-            <p>{email}</p>
+            <div className="infodisplay">
+                <h3>Name: </h3>
+                <p>{display_name}</p>
+            </div>
+            <div className="infodisplay">
+                <h4>Subject: </h4>
+                <p>{subject}</p>
+            </div>
+            <div className="infodisplay">
+                <h4>Email: </h4>
+                <p>{email}</p>
+            </div>
         </div>
     );
 };

@@ -13,7 +13,8 @@ const RequestEditScreen = (props) => {
             body: JSON.stringify({
                 topic: props.formTopic,
                 urgency: props.formUrgency,
-                office_hours: props.formOfficeHours,
+                office_hours_date: props.formDate,
+                time: props.formTime,
                 description: props.formDescription
             })
         })

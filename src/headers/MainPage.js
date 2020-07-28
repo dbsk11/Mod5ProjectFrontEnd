@@ -15,17 +15,13 @@ const MainPage = (props) => {
         <div className="mainpage">
             <h1>Welcome to Ask:Answer</h1>
             <p>Click Student or Teacher to begin</p>
-            <div className="mainbuttons">
-                <NavLink
-                    to="/student/login"
-                    exact
-                    onClick={handleClickStudent}
-                >Student</NavLink>
-                <NavLink
-                    to="/teacher/login"
-                    exact
-                    onClick={handleClickStudent}
-                >Teacher</NavLink>
+            <div className="mainpagebuttons">
+                <div className="studentbutton">
+                    <button className="mainbutton" onClick={handleClickStudent} >Student</button>
+                </div>
+                <div className="teacherbutton">
+                    <button className="mainbutton" onClick={handleClickTeacher}>Teacher</button>
+                </div>
             </div>
         </div>
     );

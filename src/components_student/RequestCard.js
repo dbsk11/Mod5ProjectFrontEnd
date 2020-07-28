@@ -1,6 +1,7 @@
 import React from 'react';
 
 const RequestCard = (props) => {
+    console.log('card', props.conversation.id)
     // View entire request
     const handleClick = (evt) => {
         props.history.push("/student/view_request")
@@ -48,7 +49,7 @@ const RequestCard = (props) => {
     }
 
     // destructuring props
-    let {description, teacher_response, office_hours, response, time} = props.conversation
+    let {description, teacher_response, office_hours, response, time, acknowledged} = props.conversation
 
     return (
         <div className="conversation">
@@ -67,7 +68,12 @@ const RequestCard = (props) => {
                     <p>{response}</p>
                     <h5>Office Hours: </h5>
                     <p>{office_hours ? time : "N/A"}</p>
+                    {acknowledged 
+                    ?
+                    "Acknowledged"
+                    :
                     <button onClick={handleAcknowledgeClick}>Acknowledge</button>
+                    }
                 </div>
                 :
                 <div className="waitingalert">
