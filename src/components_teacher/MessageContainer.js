@@ -4,7 +4,6 @@ import ResponseColumn from './ResponseColumn';
 import { withRouter } from 'react-router-dom';
 
 const MessageContainer = (props) => {
-    console.log('container teacher ID', props.teacherId)
     // console.log('container', props)
     // set State
     const [klass, setKlass] = useState([]);
@@ -16,23 +15,10 @@ const MessageContainer = (props) => {
             .then(r => r.json())
              .then(data => {
             props.setConvos(data.conversations)
-            setKlass(data.teacher_classes)
-            
-        })
-            // .then(data => console.log('fetch', data))
+            setKlass(data.teacher_classes)   
+            })
         }
-       
     }, [props.teacherId]);
-    
-    
-    // useEffect(() => {
-    //     fetch("http://localhost:3000/teachers/1")
-    //     .then(r => r.json())
-    //     .then(data => {
-    //         props.setConvos(data.conversations)
-    //         setKlass(data.teacher_classes) 
-    //     })
-    // }, []);
 
     // determine teacher classes
     const klasses = klass.map((klassPOJO) => {

@@ -1,24 +1,23 @@
 .maincontainer {
-      border-style: solid;
+      border-style: groove;
       height: 97.4vh;
       width: 99vw;
 }
 
 .header {
-      border: solid;
       display: flex;
       height: 12vh;
-      width: 98.7vw;
+      width: 99vw;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      background: #eff7ff
+      background: #03045E
 }
 
 .header h1 {
       font-size: 55px;
       font-family: Georgia, 'Times New Roman', Times, serif;
-      color: #474973;
+      color: #f7e733;
 }
 
 /* eff7ff */
@@ -26,11 +25,11 @@
 .mainpage {
       display: flex;
       flex-direction: column;
-      border: solid;
-      height: 84.1vh;
-      width: 98.7vw;
-      background: #eff7ff;
+      height: 85.4vh;
+      width: 99vw;
+      background: #c9ddff ;
       align-items: center;
+      color: #0e1c36
 }
 
 .mainpage h1 {

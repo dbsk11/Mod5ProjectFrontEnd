@@ -12,7 +12,7 @@ const MainPage = (props) => {
 
     return (
         <div className="mainpage">
-            <h1>Welcome to Ask:Answer</h1>
+            <h1>Ask:Answer Messaging Portal</h1>
             <p>Click Student or Teacher to begin</p>
             <div className="mainpagebuttons">
                 <div className="studentbutton">

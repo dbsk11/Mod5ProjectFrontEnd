@@ -19,7 +19,7 @@ const StudentRequestContainer = (props) => {
         props.history.push('/teacher/reply')
         props.setFormResponse(props.convo.response)
         props.setFormTime(props.convo.time)
-        props.setFormDate(props.convo.date)
+        props.setFormDate(props.convo.office_hours_date)
     };
 
     return (

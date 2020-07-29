@@ -2,7 +2,7 @@ import React from 'react';
 
 const ResponseCard = (props) => {
     // destructuring 
-    const {response, office_hours, time, office_hours_date} = props.response;
+    const {response, office_hours, time, office_hours_date, acknowledged} = props.response;
     const {first_name, last_name} = props.response.student;
     
     // edit button 
@@ -15,7 +15,7 @@ const ResponseCard = (props) => {
     };
 
     return (
-        <div className="responsecard">
+        <div className={acknowledged ? "responsecardtrue" : "responsecardfalse"}>
             <h5>Name:</h5>
             <p>{first_name} {last_name}</p>
             <h5>Response:</h5>

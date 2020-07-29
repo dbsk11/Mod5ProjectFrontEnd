@@ -1,7 +1,6 @@
 import React from 'react';
 
 const MessageCard = (props) => {
-    console.log('card', props)
     // destructuring
     const {first_name, last_name} = props.conversation.student;
     const {urgency, office_hours, teacher_response} = props.conversation;
@@ -23,18 +22,14 @@ const MessageCard = (props) => {
 
     // Edit Reply
     const handleEdit = (evt) => {
-        console.log('edit', props.conversation)
         props.history.push('/teacher/reply')
-        props.setStudentConvo(props.conversation)
         props.setFormResponse(props.conversation.response)
         props.setFormTime(props.conversation.time)
         props.setFormDate(props.conversation.office_hours_date)
     };
 
     return (
-        <div className="messagecard" 
-            style={{backgroundColor: teacher_response ? 'lightgreen' : 'yellow'}}
-        >
+        <div className={teacher_response ? "messagecardtrue" : "messagecardfalse"}>
             <div className="cardcontent">
                 <h5>Name:</h5>
                 <p>{first_name} {last_name}</p>
