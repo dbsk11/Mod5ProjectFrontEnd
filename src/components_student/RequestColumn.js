@@ -18,7 +18,7 @@ const RequestColumn = (props) => {
             history={props.history}
             handleAcknowledge={props.handleAcknowledge}
         />
-    })
+    });
 
     // Create a new request
     const handleNewRequest = (evt) => {
@@ -29,7 +29,7 @@ const RequestColumn = (props) => {
         props.setFormUrgency("Immediate Response Requested")
         props.setFormOfficeHours(true)
         props.setFormDescription("")
-    }
+    };
 
     return (
         <div className="requestcolumn">

@@ -6,7 +6,7 @@ const link = {
     padding: '12px',
     margin: '0 6px 6px',
     color: 'blue'
-}
+};
 
 const NavBarStudent = (props) => {
     const handleClick = (evt) => {

@@ -10,7 +10,7 @@ const MessageCard = (props) => {
     const handleViewClick = (evt) => {
         props.history.push('/teacher/student_request')
         props.setStudentConvo(props.conversation)
-    }
+    };
 
     // handle reply button click
     const handleReplyClick = (evt) => {

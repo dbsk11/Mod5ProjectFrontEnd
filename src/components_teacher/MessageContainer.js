@@ -53,8 +53,8 @@ const MessageContainer = (props) => {
                 setFormTime={props.setFormTime}
                 history={props.history}
             />
-        )
-    })
+        );
+    });
 
     return (
         <div className="messagecontainer">

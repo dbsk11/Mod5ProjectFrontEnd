@@ -12,7 +12,7 @@ const ResponseColumn = (props) => {
     // sort responses by updated_at
     const sortedResponsesToRender = responsesToRender.sort((convoA, convoB) => {
         return convoB.updated_at.localeCompare(convoA.updated_at)
-    })
+    });
 
     // create array of responses
     const arrayOfResponses = sortedResponsesToRender.map((responsePOJO) => {

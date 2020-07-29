@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
 
 const MainPage = (props) => {
     
@@ -9,7 +8,7 @@ const MainPage = (props) => {
 
     const handleClickTeacher = (evt) => {
         props.history.push('/teacher/login')
-    }
+    };
 
     return (
         <div className="mainpage">

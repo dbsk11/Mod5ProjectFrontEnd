@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import { Route, Switch } from 'react-router-dom';
-import { useHistory } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 // Main Imports
 import MainPage from './headers/MainPage';
@@ -15,17 +15,17 @@ import MainContainer from './components_student/MainContainer';
 import StudentProfile from './components_student/StudentProfile';
 import RequestScreen from './components_student/RequestScreen';
 import StudentLogin from './components_student/StudentLogin';
-import RequestViewScreen from './components_student/RequestViewScreen'
-import RequestEditScreen from './components_student/RequestEditScreen'
+import RequestViewScreen from './components_student/RequestViewScreen';
+import RequestEditScreen from './components_student/RequestEditScreen';
 
 // Teacher Imports
 import './components_teacher/styleteacher.css';
-import Login from './components_teacher/Login'
-import Profile from './components_teacher/Profile'
-import ReplyContainer from './components_teacher/ReplyContainer'
-import StudentRequestContainer from './components_teacher/StudentRequestContainer'
-import NavBarTeacher from './headers/NavBarTeacher'
-import MessageContainer from './components_teacher/MessageContainer'
+import Login from './components_teacher/Login';
+import Profile from './components_teacher/Profile';
+import ReplyContainer from './components_teacher/ReplyContainer';
+import StudentRequestContainer from './components_teacher/StudentRequestContainer';
+import NavBarTeacher from './headers/NavBarTeacher';
+import MessageContainer from './components_teacher/MessageContainer';
 
 const App = () => {
   //Initialize History
@@ -137,8 +137,8 @@ const App = () => {
       <Profile 
         teacherUser={teacherUser}
       />
-    )
-  }
+    );
+  };
 
   // Teacher: Reply Container Render
   const renderReplyContainer = () => {
@@ -153,8 +153,8 @@ const App = () => {
         setFormTime={setTeacherFormTime}
         history={history}
       />
-    )
-  }
+    );
+  };
 
   // Teacher: Student Request Container Render
   const renderStudentRequestContainer = () => {
@@ -166,8 +166,8 @@ const App = () => {
         setFormDate={setTeacherFormDate}
         history={history}
       />
-    )
-  }
+    );
+  };
 
   // Teacher: Teacher Messages Render
   const renderTeacherMessages = () => {
@@ -182,8 +182,8 @@ const App = () => {
         setStudentConvo={setTeacherStudentConvo}
         history={history}
       />
-    ) 
-  }
+    );
+  };
 
   // Teacher: Login Render
   const renderTeacherLogin = () => {
@@ -195,8 +195,8 @@ const App = () => {
         setFormPassword={setTeacherFormPassword}
         handleLoginSubmit={handleTeacherLoginSubmit}
       />
-    )
-  }
+    );
+  };
 
 
 
@@ -217,19 +217,19 @@ const App = () => {
   const [studentTeacherConvo, setStudentTeacherConvo] = useState([]);
 
   // Student: set class for Form
-  const [studentFormKlass, setStudentFormKlass] = useState([])
+  const [studentFormKlass, setStudentFormKlass] = useState([]);
 
   // Student: Request Form Initial State
-  const [studentTopic, setStudentTopic] = useState("Lecture")
-  const [studentUrgency, setStudentUrgency] = useState("Immediate Response Requested")
-  const [studentOfficeHours, setStudentOfficeHours] = useState(false)
-  const [studentDescription, setStudentDescription] = useState("")
+  const [studentTopic, setStudentTopic] = useState("Lecture");
+  const [studentUrgency, setStudentUrgency] = useState("Immediate Response Requested");
+  const [studentOfficeHours, setStudentOfficeHours] = useState(false);
+  const [studentDescription, setStudentDescription] = useState("");
 
   // Student: onChange for Request Form / Repopulate Form for Edit
-  const [studentFormTopic, setStudentFormTopic] = useState("Lecture")
-  const [studentFormUrgency, setStudentFormUrgency] = useState("Immediate Response Requested")
-  const [studentFormOfficeHours, setStudentFormOfficeHours] = useState(true)
-  const [studentFormDescription, setStudentFormDescription] = useState("")
+  const [studentFormTopic, setStudentFormTopic] = useState("Lecture");
+  const [studentFormUrgency, setStudentFormUrgency] = useState("Immediate Response Requested");
+  const [studentFormOfficeHours, setStudentFormOfficeHours] = useState(true);
+  const [studentFormDescription, setStudentFormDescription] = useState("");
 
   // Student: Login Form - Username, Password Initial State
   const [studentFormUsername, setStudentFormUsername] = useState("");
@@ -342,7 +342,7 @@ const App = () => {
       }
     })
     setStudentConvos(copyOfConvoList)
-  }
+  };
 
   const renderStudentMainContainer = () => {
     return (
@@ -417,6 +417,16 @@ const App = () => {
       <RequestViewScreen
         convo={studentTeacherConvo}
         key={studentTeacherConvo.id}
+        formTopic={studentFormTopic}
+        setFormTopic={setStudentFormTopic}
+        formUrgency={studentFormUrgency}
+        setFormUrgency={setStudentFormUrgency}
+        formOfficeHours={studentFormOfficeHours}
+        setFormOfficeHours={setStudentFormOfficeHours}
+        formDescription={studentFormDescription}
+        setFormDescription={setStudentFormDescription}
+        history={history}
+        setConvoId={setStudentConvoId}
       />
     );
   };
@@ -488,5 +498,5 @@ const App = () => {
   );
 };
 
-let RouterComponent = withRouter(App)
+let RouterComponent = withRouter(App);
 export default RouterComponent;

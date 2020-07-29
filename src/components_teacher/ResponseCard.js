@@ -3,7 +3,7 @@ import React from 'react';
 const ResponseCard = (props) => {
     // destructuring 
     const {response, office_hours, time, office_hours_date} = props.response;
-    const {first_name, last_name} = props.response.student
+    const {first_name, last_name} = props.response.student;
     
     // edit button 
     const handleEdit = (evt) => {

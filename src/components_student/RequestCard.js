@@ -6,7 +6,7 @@ const RequestCard = (props) => {
     const handleClick = (evt) => {
         props.history.push("/student/view_request")
         props.setTeacherConvo(props.conversation)
-    }
+    };
     
     // patch convo/update acknowledge state
     const handleAcknowledgeClick = (evt) => {
@@ -24,19 +24,18 @@ const RequestCard = (props) => {
             console.log(updatedConvo)
             props.handleAcknowledge(updatedConvo)
             props.history.push("/student")
-        })
-    }
+        });
+    };
 
     // Edit screen to edit convo
     const handleEditClick = (evt) => {
         props.history.push("/student/edit_request")
-        props.setTeacherConvo(props.conversation)
         props.setFormTopic(props.conversation.topic)
         props.setFormUrgency(props.conversation.urgency)
         props.setFormOfficeHours(props.conversation.office_hours)
         props.setFormDescription(props.conversation.description)
         props.setConvoId(props.conversation.id)
-    }
+    };
 
     // delete convo 
     const handleDeleteClick = (evt) => {
@@ -47,11 +46,11 @@ const RequestCard = (props) => {
         .then((deletedConvo) => {
             props.deleteConvoFromArray(deletedConvo.id)
             alert("Request has been deleted")
-        })
-    }
+        });
+    };
 
     // destructuring props
-    let {description, teacher_response, office_hours, response, time, acknowledged} = props.conversation
+    let {description, teacher_response, office_hours, response, time, acknowledged} = props.conversation;
 
     return (
         <div className="conversation">

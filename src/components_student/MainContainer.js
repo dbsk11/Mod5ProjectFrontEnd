@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import RequestViewScreen from './RequestViewScreen'
-import RequestScreen from './RequestScreen'
-import RequestColumn from './RequestColumn'
-import RequestEditScreen from './RequestEditScreen'
+import RequestColumn from './RequestColumn';
 
 const MainContainer = (props) => {
-    console.log('main', props)
     // Initial State: Student Classes
     const [klass, setKlass] = useState([]);
 

@@ -7,7 +7,7 @@ const link = {
     margin: '0 6px 6px',
     color: 'blue',
     font: '20px'
-}
+};
 
 const NavBarTeacher = (props) => {
 
@@ -18,7 +18,7 @@ const NavBarTeacher = (props) => {
     const handleLogOut = (evt) => {
         props.clearTeacherUser()
         props.history.push('/')
-    }
+    };
 
     return (
         <div className="navbar">

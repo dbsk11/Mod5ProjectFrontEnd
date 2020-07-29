@@ -1,8 +1,18 @@
 import React from 'react';
 
 const RequestViewScreen = (props) => {
+    console.log('view', props.convo)
     // destructuring props 
-    let {description, klass, office_hours, topic, urgency} = props.convo;
+    let {id, description, klass, office_hours, topic, urgency, teacher_response} = props.convo;
+
+    const handleEdit = (evt) => {
+        props.history.push("/student/edit_request")
+        props.setFormTopic(topic)
+        props.setFormUrgency(urgency)
+        props.setFormOfficeHours(office_hours)
+        props.setFormDescription(description)
+        props.setConvoId(id)
+    };
 
     return (
         <div className="fullrequest">
@@ -16,6 +26,12 @@ const RequestViewScreen = (props) => {
             <p>{description}</p>
             <h1>Office Hours Requested</h1>
             <p>{office_hours ? "Yes" : "No"}</p>
+            {teacher_response
+            ?
+            null
+            :
+            <button onClick={handleEdit}>Edit Request</button>
+            }
         </div>
     );
 };

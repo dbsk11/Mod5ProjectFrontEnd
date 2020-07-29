@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Login = (props) => {
+    // submit handle
     const handleSubmit = (evt) => {
         evt.preventDefault()
         const user={
@@ -8,7 +9,7 @@ const Login = (props) => {
             password: evt.target.password.value
         }
         props.handleLoginSubmit(user)
-    }
+    };
   
     return (
         <div className="loginform">

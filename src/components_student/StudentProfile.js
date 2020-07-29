@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Profile = (props) => {
-    const {fullname, display_age, dob, email} = props.studentUser.student
+    const {fullname, display_age, dob, email} = props.studentUser.student;
  
     return (
         <div className="profile">

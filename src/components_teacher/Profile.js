@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 const Profile = (props) => {
-    const {display_name, subject, email} = props.teacherUser.teacher
+    const {display_name, subject, email} = props.teacherUser.teacher;
 
     return (
         <div className="profile">

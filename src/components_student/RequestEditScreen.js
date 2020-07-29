@@ -22,7 +22,7 @@ const RequestEditScreen = (props) => {
         .then((updatedConvo) => {
             props.handleEditSubmit(updatedConvo)
             props.history.push("/student")
-        })
+        });
     };
 
     return (
