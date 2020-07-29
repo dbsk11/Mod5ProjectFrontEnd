@@ -1,12 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { findByLabelText } from '@testing-library/react';
 
 const link = {
+    display: 'flex',
+    justifyContent: 'center',
     width: '100px',
     padding: '12px',
     margin: '0 6px 6px',
-    color: 'blue',
-    font: '20px'
+    color: 'white',
+    font: '20px',
 };
 
 const NavBarTeacher = (props) => {
@@ -22,24 +25,27 @@ const NavBarTeacher = (props) => {
 
     return (
         <div className="navbar">
+            <div className="spacer">
+
+            </div>
             <NavLink
                 to="/teacher/"
                 exact
                 style={link}
-                activeStyle={{color: 'red'}}
+                activeStyle={{color: 'yellow'}}
                 onClick={handleClick}
             >Dashboard</NavLink>
             <NavLink
                 to="/teacher/profile"
                 exact
                 style={link}
-                activeStyle={{color: 'red'}}
+                activeStyle={{color: 'yellow'}}
             >Profile</NavLink>
             <NavLink
                 to="/"
                 exact
                 style={link}
-                activeStyle={{color: 'red'}}
+                activeStyle={{color: 'yellow'}}
                 onClick={handleLogOut}
             >Log Out</NavLink>
         </div>

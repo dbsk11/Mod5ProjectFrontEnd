@@ -33,19 +33,19 @@
 .navbar {
     display: flex;
     flex-direction: row;
-    background: #eff7ff;
-    justify-content: space-evenly;
+    background: #03045E;
+    justify-content: flex-end;
     align-items: center;
     font-size: 18px;
     margin-top: 1px;
-    height: 5vh;
-    width: 99vw;
+    height: 12vh;
+    width: 50vw;
 }
 
 /* PROFILE */
 .profile {
     display: flex;
-    height: 80.3vh;
+    height: 85.3vh;
     width: 99vw;
     flex-direction: column;
     align-items: center;
@@ -86,12 +86,8 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 0px;
-    background-image: radial-gradient(#f0f7ff 20%, transparent 20%),
-     radial-gradient(#f0f7ff 20%, transparent 20%);
-    background-color: #eff7ff;
-    background-position: 0 0, 50px 50px;
-    background-size: 100px 100px;
-    height: 80.3vh;
+    background-color: white;
+    height: 85.3vh;
     width: 99vw;
 }
 
@@ -100,10 +96,9 @@
     display: flex;
     flex-direction: column;
     width: 15vw;
-    height: 73vh;
-    border-style: solid;
-    border-color: #5f758e;
-    margin: 32px;
+    height: 80vh;
+    margin: 40px;
+    margin-top: 2px;
     align-items: center;
     overflow-y: scroll;
     border-radius: 10px;
@@ -117,8 +112,7 @@
 .messagecardtrue {
     display: flex;
     flex-direction: column;
-    width: 9vw;
-    height: 20vh;
+    width: 90%;
     border: 2px solid #5f758e;
     border-radius: 5px;
     padding: 10px;
@@ -134,7 +128,7 @@
 .messagecardfalse {
     display: flex;
     flex-direction: column;
-    width: 9vw;
+    width: 90%;
     border: 2px solid #FE6D73 ;
     border-radius: 5px;
     padding: 10px;
@@ -179,9 +173,9 @@
     display: flex;
     flex-direction: column;
     width: 15vw;
-    height: 73vh;
-    border-style: solid;
-    margin: 32px;
+    height: 80vh;
+    margin: 40px;
+    margin-top: 2px;
     align-items: center;
     overflow-y: scroll;
     border-radius: 10px;
@@ -199,8 +193,7 @@
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
-    width: 9vw;
-    height: 20vh;
+    width: 90%;
     align-items: center;
     text-align: center;
     background-color: rgb(95, 117, 142, .6)
@@ -217,7 +210,7 @@
     border-radius: 5px;
     padding: 10px;
     margin: 5px;
-    width: 9vw;
+    width: 90%;
     align-items: center;
     text-align: center;
     background-color: rgb(95, 117, 142, .3)
@@ -253,9 +246,8 @@
 .studentrequest {
     display: flex;
     flex-direction: column;
-    border: solid;
-    width: 98.7vw;
-    height: 78.4vh;
+    width: 99vw;
+    height: 85.3vh;
     margin-bottom: 0px;
     align-items: center;
     background: #eff7ff
@@ -314,9 +306,8 @@
     flex-direction: column;
     align-items: center;
     background: #eff7ff;
-    border: solid;
-    width: 96vw;
-    height: 73.9vh;
+    width: 96.8vw;
+    height: 80.7vh;
     padding: 20px;
 }
 

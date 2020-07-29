@@ -59,12 +59,12 @@ const RequestCard = (props) => {
                 <p>{description}</p>
                 {acknowledged 
                 ?
-                <div>
+                <div className="buttonrow">
                     <button className="button" onClick={handleClick}>View</button>
                     <button className="button" onClick={handleDeleteClick}>Delete</button>
                 </div>
                 :
-                <div>
+                <div className="buttonrow">
                     <button className="button" onClick={handleClick}>View</button>
                     <button className="button" onClick={handleEditClick}>Edit</button>
                     <button className="button" onClick={handleDeleteClick}>Delete</button>

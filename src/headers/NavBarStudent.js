@@ -2,10 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const link = {
+    display: 'flex',
+    justifyContent: 'center',
     width: '100px',
     padding: '12px',
     margin: '0 6px 6px',
-    color: 'blue'
+    color: 'white',
+    font: '20px',
 };
 
 const NavBarStudent = (props) => {
@@ -24,20 +27,20 @@ const NavBarStudent = (props) => {
                 to="/student/"
                 exact
                 style={link}
-                activeStyle={{color: 'red'}}
+                activeStyle={{color: 'yellow'}}
                 onClick={handleClick}
             >Dashboard</NavLink>
             <NavLink
                 to="/student/profile"
                 exact
                 style={link}
-                activeStyle={{color: 'red'}}
+                activeStyle={{color: 'yellow'}}
             >Profile</NavLink>
             <NavLink
                 to="/"
                 exact
                 style={link}
-                activeStyle={{color: 'red'}}
+                activeStyle={{color: 'yellow'}}
                 onClick={handleLogOut}
             >Log Out</NavLink>
         </div>

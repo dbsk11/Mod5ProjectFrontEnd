@@ -4,14 +4,22 @@
       width: 99vw;
 }
 
-.header {
+.titlebar {
       display: flex;
-      height: 12vh;
-      width: 99vw;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      background: #03045E
+}
+
+.header {
+      display: flex;
+      height: 12vh;
+      width: 100%;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
+      background: #03045E;
+      padding-left: 50px;
 }
 
 .header h1 {
@@ -19,8 +27,6 @@
       font-family: Georgia, 'Times New Roman', Times, serif;
       color: #f7e733;
 }
-
-/* eff7ff */
 
 .mainpage {
       display: flex;

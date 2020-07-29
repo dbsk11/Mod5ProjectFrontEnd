@@ -453,11 +453,11 @@ const App = () => {
 // RETURN
   return (
     <div className="maincontainer">
-      <Header />
-      <Route exact path="/" render={() => <MainPage history={history} />} />
-      
+      <div className="titlebar">
+        <Header />
+
       {/* TEACHER */}
-        {teacherUser.token 
+      {teacherUser.token 
           ?
           <NavBarTeacher 
             clearTeacherUser={clearTeacherUser}
@@ -466,17 +466,9 @@ const App = () => {
           :
           null 
         }
-        <Switch>
-          <Route exact path="/teacher/login" render={() => renderTeacherLogin() }/>
-          <Route exact path="/teacher" render={() => renderTeacherMessages() }/>
-          <Route exact path="/teacher/reply" render={() => renderReplyContainer() }/>
-          <Route exact path="/teacher/student_request" render={() => renderStudentRequestContainer() }/>
-          <Route exact path="/teacher/profile" render={() => renderTeacherProfile() }/>
-        </Switch>
-    
-
-      {/* STUDENT */}
-        {studentUser.token
+        
+         {/* STUDENT */}
+         {studentUser.token
           ?
           <NavBarStudent 
             clearStudentUser={clearStudentUser}
@@ -485,6 +477,20 @@ const App = () => {
           :
           null
         }
+       
+        
+      </div>
+      
+      <Route exact path="/" render={() => <MainPage history={history} />} />
+      
+      <Switch>
+          <Route exact path="/teacher/login" render={() => renderTeacherLogin() }/>
+          <Route exact path="/teacher" render={() => renderTeacherMessages() }/>
+          <Route exact path="/teacher/reply" render={() => renderReplyContainer() }/>
+          <Route exact path="/teacher/student_request" render={() => renderStudentRequestContainer() }/>
+          <Route exact path="/teacher/profile" render={() => renderTeacherProfile() }/>
+        </Switch>
+
         <Switch>
           <Route exact path="/student" render={() => renderStudentMainContainer() }/>
           <Route exact path="/student/profile" render={() => renderStudentProfile() }/>
@@ -493,6 +499,7 @@ const App = () => {
           <Route exact path="/student/edit_request" render={() => renderStudentRequestEditScreen() }/>
           <Route exact path="/student/login" render={() => renderStudentLogin() }/>
         </Switch>
+     
     
     </div>
   );

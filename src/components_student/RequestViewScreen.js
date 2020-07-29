@@ -16,24 +16,25 @@ const RequestViewScreen = (props) => {
 
     return (
         <div className="fullrequest">
+            <h1>Request</h1>
             <div className="infodisplay">
-                <h1>Class:</h1>
+                <h2>Class:</h2>
                 <p>{klass}</p>
             </div>
             <div className="infodisplay">
-                <h1>Topic:</h1>
+                <h2>Topic:</h2>
                 <p>{topic}</p>
             </div>
             <div className="infodisplay">
-                <h1>Urgency:</h1>
+                <h2>Urgency:</h2>
                 <p>{urgency}</p>
             </div>
             <div className="infodisplay">
-                <h1>Request:</h1>
+                <h2>Request:</h2>
                 <p>{description}</p>
             </div>
             <div className="infodisplay">
-                <h1>Office Hours Requested:</h1>
+                <h2>Office Hours Requested:</h2>
                 <p>{office_hours ? "Yes" : "No"}</p>
             </div>
             {teacher_response

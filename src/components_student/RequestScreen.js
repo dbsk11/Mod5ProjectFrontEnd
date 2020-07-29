@@ -51,7 +51,7 @@ const RequestScreen = (props) => {
                         Urgency:
                         <select value={props.formUrgency} onChange={(e) => props.setFormUrgency(e.target.value)}>
                             <option value="immediate">Immediate Response Requested</option>
-                            <option value="endofday">By End of Day</option>
+                            <option value="end of day">By End of Day</option>
                         </select>
                     </label>
                     <label className="requestofficehours">
