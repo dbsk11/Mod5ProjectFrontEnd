@@ -53,7 +53,7 @@ const RequestCard = (props) => {
     let {description, teacher_response, office_hours, response, time, acknowledged} = props.conversation;
 
     return (
-        <div className="conversation">
+        <div className={acknowledged ? "conversationtrue" : "conversationfalse"}>
             <div className="studentconvo">
                 <h5>Request:</h5>
                 <p>{description}</p>

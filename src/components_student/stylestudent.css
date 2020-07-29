@@ -1,63 +1,141 @@
+/* LOGIN PAGE */
+.loginform {
+    display: flex;
+    flex-direction: row;
+    background: #c9ddff;
+    width: 99vw;
+    height: 85.4vh;
+    justify-content: center;
+}
+
+.loginform h1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px;
+}
+
+.usernameinput {
+    margin: 5px;
+}
+
+.passwordinput {
+    margin: 5px;
+}
+
+.submitbutton {
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+/* NAVBAR */
 .navbarstudent {
     display: flex;
     flex-direction: row;
     height: 5vh;
-    width: 98.8vw;
+    width: 99vw;
     justify-content: space-evenly;
     align-items: center;
+    font-size: 18px;
+    margin-top: 1px;
+    background: #eff7ff;
 }
 
-.studentcontainer {
+/* PROFILE */
+.profile {
     display: flex;
+    height: 80.3vh;
+    width: 99vw;
     flex-direction: column;
-    border: blue;
+    align-items: center;
+    background: #eff7ff;
 }
 
-.studentmain {
+.profile h1 {
+    margin-top: 40px;
+    color: #03045E;
+}
+
+.infodisplay {
     display: flex;
     flex-direction: row;
-    width: 98vw;
-    height: 57vh;
-    border-color: red
 }
 
+.profile h3 {
+    margin-right: 15px;
+    color: #03045E
+}
+
+.profile h4 {
+    margin-right: 15px;
+    color: #03045E
+}
+
+.profile p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #03045E;
+}
+
+/* MAIN CONTAINER */
 .messages {
     display: flex;
     flex-direction: row;
-}
-/* .requestcolumn {
-    display: flex;
-    flex-direction: row;
-    width: 97.5vw;
-    height: 18.5vh;
-    border-style: solid;
-    margin: 10px;
+    justify-content: center;
     align-items: center;
-    overflow-y: scroll;
-} */
+    height: 80.3vh;
+    width: 99vw;
+    background-color: #eff7ff;
+}
 
+/* REQUEST COLUMN */
 .requestcolumn {
     display: flex;
     flex-direction: column;
-    width: 18vw;
+    width: 17vw;
     height: 75vh;
     border-style: solid;
-    margin: 30px;
+    border-color: #5f758e;
+    margin: 50px;
     align-items: center;
     overflow-y: scroll;
+    border-radius: 10px;
 }
 
 .requestcolumn h1 {
     display: flex;
     margin-bottom: 10px;
+    color: #03045E;
 }
 
+/* BUTTON */
 .newrequest {
     display: flex;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
-.conversation {
+/* REQUEST CARD */
+.conversationtrue {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 11vw;
+    height: 28vh;
+    background-color: rgb(172, 243, 157, .5)
+}
+
+.conversationtrue:hover{
+    background-color: rgb(172, 243, 157, .9)
+}
+
+.conversationfalse {
     display: flex;
     flex-direction: column;
     border: 2px solid red;
@@ -65,6 +143,14 @@
     padding: 10px;
     margin: 5px;
     align-items: center;
+    width: 11vw;
+    height: 28vh;
+    justify-content: space-evenly;
+    background-color: rgb(247, 231, 51, .2);
+}
+
+.conversationfalse:hover{
+    background-color: rgb(247, 231, 51, .5)
 }
 
 .studentconvo h5 {
@@ -112,4 +198,77 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* REQUEST VIEW SCREEN */
+.fullrequest {
+    display: flex;
+    flex-direction: column;
+    width: 99vw;
+    height: 80.3vh;
+    margin-bottom: 0px;
+    align-items: center;
+    background: #eff7ff;
+}
+
+.fullrequest h1 {
+    display: flex;
+    flex-direction: row;
+    margin-right: 15px;
+    font-size: 22px;
+    align-items: center;
+}
+
+.fullrequest p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 20px;
+}
+
+/* REQUEST FORM */
+.requestformheader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+}
+
+.requestform {
+    display: flex;
+    flex-direction: column;
+    height: 76.2vh;
+    width: 98.8vw;
+    align-items: center;
+    padding: 50px;
+}
+
+.topic {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+    margin: 15px;
+}
+
+.urgency {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+    margin: 15px;
+}
+
+.requestofficehours {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+    margin: 15px;
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+    margin: 15px;
+    margin-bottom: 30px;
 }

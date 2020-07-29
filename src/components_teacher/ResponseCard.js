@@ -20,9 +20,19 @@ const ResponseCard = (props) => {
             <p>{first_name} {last_name}</p>
             <h5>Response:</h5>
             <p>{response}</p>
-            <h5>Scheduled Office Hour:</h5>
-            <p>Date: {office_hours ? office_hours_date : "N/A"}</p>
-            <p>Time: {office_hours ? time : "N/A"}</p>
+            {office_hours 
+            ?
+            <div>
+                <h5>Scheduled Office Hour:</h5>
+                <p>Date: {office_hours ? office_hours_date : "N/A"}</p>
+                <p>Time: {office_hours ? time : "N/A"}</p>
+            </div>
+            :
+            <div>
+                <h5>Office Hours Requested:</h5>
+                <p>No</p>
+            </div>
+            }
             <button onClick={handleEdit}>Edit</button>
         </div>
     );

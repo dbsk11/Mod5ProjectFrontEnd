@@ -39,7 +39,7 @@ const RequestScreen = (props) => {
             </div>
             <form onSubmit={handleFormSubmit}>
                 <div className="requestform">
-                    <label>
+                    <label className="topic">
                         Topic:
                         <select value={props.formTopic} onChange={(e) => props.setFormTopic(e.target.value)}>
                             <option value="lecture">Lecture</option>
@@ -47,21 +47,21 @@ const RequestScreen = (props) => {
                             <option value="homework">Homework</option>
                         </select>
                     </label>
-                    <label>
+                    <label className="urgency">
                         Urgency:
                         <select value={props.formUrgency} onChange={(e) => props.setFormUrgency(e.target.value)}>
                             <option value="immediate">Immediate Response Requested</option>
                             <option value="endofday">By End of Day</option>
                         </select>
                     </label>
-                    <label>
+                    <label className="requestofficehours">
                         Request Office Hours:
                         <select value={props.formOfficeHours} onChange={(e) => props.setFormOfficeHours(e.target.value)}>
                             <option value="true">Yes</option>
                             <option value="false">No</option>
                         </select>
                     </label>
-                    <label htmlFor="description">
+                    <label className="description" htmlFor="description">
                         Description:
                         <input 
                             type="text" 

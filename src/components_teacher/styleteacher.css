@@ -42,6 +42,7 @@
     width: 99vw;
 }
 
+/* PROFILE */
 .profile {
     display: flex;
     height: 80.3vh;
@@ -105,6 +106,7 @@
     margin: 32px;
     align-items: center;
     overflow-y: scroll;
+    border-radius: 10px;
 }
 
 .messagecolumn h1 {
@@ -128,7 +130,6 @@
 .messagecardtrue:hover{
     background-color: rgb(172, 243, 157, .9)
 }
-/* hover effect */
 
 .messagecardfalse {
     display: flex;
@@ -183,6 +184,7 @@
     margin: 32px;
     align-items: center;
     overflow-y: scroll;
+    border-radius: 10px;
 }
 
 .responsecolumn h1 {
@@ -201,7 +203,7 @@
     height: 20vh;
     align-items: center;
     text-align: center;
-    background-color: rgb(95, 117, 142, .7)
+    background-color: rgb(95, 117, 142, .6)
 } 
 
 .responsecardtrue:hover {
@@ -218,7 +220,7 @@
     width: 9vw;
     align-items: center;
     text-align: center;
-    background-color: rgb(95, 117, 142, .2)
+    background-color: rgb(95, 117, 142, .3)
 } 
 
 .responsecardfalse:hover {
@@ -257,7 +259,6 @@
     margin-bottom: 0px;
     align-items: center;
     background: #eff7ff
-
 }
 
 .studentinfo {
