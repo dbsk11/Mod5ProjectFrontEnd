@@ -9,6 +9,7 @@ const link = {
     margin: '0 6px 6px',
     color: 'white',
     font: '20px',
+    fontFamily: 'Open Sans'
 };
 
 const NavBarStudent = (props) => {

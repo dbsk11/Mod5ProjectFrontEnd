@@ -83,7 +83,7 @@ const RequestCard = (props) => {
                     ?
                     "Acknowledged"
                     :
-                    <button onClick={handleAcknowledgeClick}>Acknowledge</button>
+                    <button className="button" onClick={handleAcknowledgeClick}>Acknowledge</button>
                     }
                 </div>
                 :

@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Carter+One&family=Open+Sans&family=Raleway&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Raleway', sans-serif; 
+font-family: 'Carter One', cursive;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Acme', sans-serif; */
+
+
 .maincontainer {
       border-style: groove;
       height: 97.4vh;
@@ -19,13 +28,13 @@
       justify-content: start;
       align-items: center;
       background: #03045E;
-      padding-left: 50px;
+      padding-left: 30px;
 }
 
 .header h1 {
       font-size: 55px;
-      font-family: Georgia, 'Times New Roman', Times, serif;
       color: #f7e733;
+      font-family: 'Carter One', cursive;
 }
 
 .mainpage {
@@ -35,7 +44,7 @@
       width: 99vw;
       background: #c9ddff ;
       align-items: center;
-      color: #0e1c36
+      color: #0e1c36;
 }
 
 .mainpage h1 {
@@ -45,12 +54,14 @@
       margin-top: 70px;
       margin-bottom: 5px;
       font-size: 50px;
+      font-family: 'Carter One', cursive;
 }
 
 .mainpage p {
       display: flex;
       flex-direction: column;
       font-size: 20px;
+      font-family: 'Open Sans', sans-serif;
 }
 
 .mainpagebuttons {

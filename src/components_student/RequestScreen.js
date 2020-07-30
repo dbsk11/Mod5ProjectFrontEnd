@@ -33,8 +33,8 @@ const RequestScreen = (props) => {
     };
 
     return (
-        <div>
-            <div className="requestformheader">
+        <div className="newrequest">
+            <div className="newrequestformheader">
                 Create A New Request
             </div>
             <form onSubmit={handleFormSubmit}>

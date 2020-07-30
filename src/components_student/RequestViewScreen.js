@@ -16,7 +16,7 @@ const RequestViewScreen = (props) => {
 
     return (
         <div className="fullrequest">
-            <h1>Request</h1>
+            <h1>Request Information</h1>
             <div className="infodisplay">
                 <h2>Class:</h2>
                 <p>{klass}</p>

@@ -30,6 +30,7 @@ const ReplyContainer = (props) => {
 
     return (
         <div className="replypageinfo">
+            <h1>Reply To Request </h1>
             <div className="infodisplay">
                 <h3>Name:</h3>
                 <p>{first_name} {last_name}</p>

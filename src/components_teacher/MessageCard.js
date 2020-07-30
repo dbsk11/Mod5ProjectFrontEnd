@@ -38,16 +38,18 @@ const MessageCard = (props) => {
                 <h5 className="offhours">Office Hours Requested:</h5>
                 <p>{office_hours ? "Yes" : "No"}</p>
             </div>
-            
-            <button onClick={handleViewClick}>View Message</button>
-            <div>
-                {teacher_response 
-                ?
-                <button onClick={handleEdit}>Edit Reply</button>
-                :
-                <button onClick={handleReplyClick}>Reply</button>
-                }
+            <div className="buttonrow">
+                <button onClick={handleViewClick}>View Message</button>
+                <div>
+                    {teacher_response 
+                    ?
+                    <button onClick={handleEdit}>Edit Reply</button>
+                    :
+                    <button onClick={handleReplyClick}>Reply</button>
+                    }
+                </div>
             </div>
+            
         </div>
     );
 };

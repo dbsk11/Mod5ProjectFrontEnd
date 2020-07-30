@@ -26,7 +26,7 @@ const RequestEditScreen = (props) => {
     };
 
     return (
-        <div>
+        <div className="request">
             <div className="requestformheader">
                 Edit Your Request
             </div>
