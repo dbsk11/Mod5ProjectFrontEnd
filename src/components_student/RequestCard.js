@@ -53,7 +53,16 @@ const RequestCard = (props) => {
     let {description, teacher_response, office_hours, response, time, acknowledged} = props.conversation;
 
     return (
-        <div className={acknowledged ? "conversationtrue" : "conversationfalse"}>
+        <div className={acknowledged 
+            ? 
+            "conversationtrue" 
+            : 
+            teacher_response 
+            ?
+            "conversationfalse"
+            :
+            "conversationwaiting"
+            }>
             <div className="studentconvo">
                 <h5>Request:</h5>
                 <p>{description}</p>
@@ -81,7 +90,7 @@ const RequestCard = (props) => {
                     <p>{office_hours ? time : "N/A"}</p>
                     {acknowledged 
                     ?
-                    "Acknowledged"
+                    <p>Acknowledged</p>
                     :
                     <button className="button" onClick={handleAcknowledgeClick}>Acknowledge</button>
                     }

@@ -12,7 +12,12 @@ const MainPage = (props) => {
 
     return (
         <div className="mainpage">
-            <h1>Ask:Answer Messaging Portal</h1>
+            <div className="title">
+                <h1>Ask : Answer </h1>
+            </div>
+            <div className="titleheading">
+                <h1>Messaging Portal</h1>
+            </div>
             <p>Click Student or Teacher to begin</p>
             <div className="mainpagebuttons">
                 <div className="studentbutton">

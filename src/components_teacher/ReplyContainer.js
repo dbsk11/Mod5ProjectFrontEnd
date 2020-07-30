@@ -52,7 +52,7 @@ const ReplyContainer = (props) => {
                     <label htmlFor="description">
                         Description:
                         <input 
-                            type="textarea" 
+                            type="textfield" 
                             name="description" 
                             autoComplete="off" 
                             value={props.formResponse} 

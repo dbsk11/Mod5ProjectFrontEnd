@@ -64,7 +64,7 @@ const RequestScreen = (props) => {
                     <label className="description" htmlFor="description">
                         Description:
                         <input 
-                            type="text" 
+                            type="textfield" 
                             name="description" 
                             autoComplete="off" 
                             value={props.formDescription} 

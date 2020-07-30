@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Acme&family=Carter+One&family=Open+Sans&family=Raleway&display=swap');
 /* 
-font-family: 'Abril Fatface', cursive;
-font-family: 'Raleway', sans-serif; 
 font-family: 'Carter One', cursive;
-font-family: 'Open Sans', sans-serif;
-font-family: 'Acme', sans-serif; */
+font-family: 'Open Sans', sans-serif; */
 
 
 .maincontainer {
@@ -47,13 +44,25 @@ font-family: 'Acme', sans-serif; */
       color: #0e1c36;
 }
 
-.mainpage h1 {
+.title h1 {
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: 70px;
       margin-bottom: 5px;
-      font-size: 50px;
+      font-size: 80px;
+      font-family: 'Carter One', cursive;
+      color: #f7e733;
+      text-shadow: 5px 5px #0e1c36;
+}
+
+.titleheading h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      margin-bottom: 5px;
+      font-size: 40px;
       font-family: 'Carter One', cursive;
 }
 

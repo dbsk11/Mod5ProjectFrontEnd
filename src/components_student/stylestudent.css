@@ -14,6 +14,7 @@ font-family: 'Acme', sans-serif; */
     background: #c9ddff;
     width: 99vw;
     height: 85.4vh;
+    padding-top: 200px;
     justify-content: center;
 }
 
@@ -169,6 +170,23 @@ font-family: 'Acme', sans-serif; */
     background-color: rgb(252, 176, 179, .8)
 }
 
+.conversationwaiting {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #FE6D73 ;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    width: 90%;
+    justify-content: space-evenly;
+    background-color: rgb(247, 231, 51, .5)
+}
+
+.conversationwaiting:hover {
+    background-color: rgb(247, 231, 51, .9)
+}
+
 .buttonrow {
     display: flex;
     flex-direction: row;
@@ -198,6 +216,7 @@ font-family: 'Acme', sans-serif; */
     color: #03045E;
     font-weight: bold;
     font-size: 16px;
+    text-align: center;
 }
 
 .teacherconvo h5 {
