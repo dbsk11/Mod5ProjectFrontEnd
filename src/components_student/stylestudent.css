@@ -252,8 +252,8 @@ font-family: 'Acme', sans-serif; */
 
 .waitingalert {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
 }
 
 /* REQUEST VIEW SCREEN */
