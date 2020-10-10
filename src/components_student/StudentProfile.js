@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Profile = (props) => {
+    // destructuring props
     const {fullname, display_age, dob, email} = props.studentUser.student;
  
     return (

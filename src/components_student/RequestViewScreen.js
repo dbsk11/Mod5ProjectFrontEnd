@@ -5,6 +5,7 @@ const RequestViewScreen = (props) => {
     // destructuring props 
     let {id, description, klass, office_hours, topic, urgency, teacher_response} = props.convo;
 
+    // edit response 
     const handleEdit = (evt) => {
         props.history.push("/student/edit_request")
         props.setFormTopic(topic)

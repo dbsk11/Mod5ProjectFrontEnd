@@ -16,7 +16,7 @@ const MainContainer = (props) => {
         })
     }, []);
 
-    // all students classes
+    // all the students classes
     const klasses = klass.map((klassPOJO) => {
         return klassPOJO.teacher_class
     });

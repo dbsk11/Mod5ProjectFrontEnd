@@ -4,7 +4,6 @@ const RequestEditScreen = (props) => {
     // submit form
     const handleFormSubmit = (evt) => {
         evt.preventDefault();
-
         fetch(`http://localhost:3000/conversations/${props.convoId}`, {
             method: "PATCH",
             headers: {

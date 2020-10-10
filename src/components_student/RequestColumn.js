@@ -2,7 +2,6 @@ import React from 'react';
 import RequestCard from './RequestCard';
 
 const RequestColumn = (props) => {
-    console.log('column', props)
     // create array to render   
     const arrayToRender = props.convos.map((convoPOJO) => {
         return <RequestCard
