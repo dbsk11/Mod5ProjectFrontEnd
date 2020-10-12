@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 const Profile = (props) => {
+    // destructuring
     const {display_name, subject, email} = props.teacherUser.teacher;
 
     return (

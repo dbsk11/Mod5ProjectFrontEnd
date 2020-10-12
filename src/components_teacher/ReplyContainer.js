@@ -2,7 +2,6 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 const ReplyContainer = (props) => {
-    console.log('reply', props)
     //submit form
     const handleFormSubmit = (evt) => {
         console.log(props.formDate)

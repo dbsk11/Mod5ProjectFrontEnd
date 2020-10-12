@@ -4,7 +4,6 @@ import ResponseColumn from './ResponseColumn';
 import { withRouter } from 'react-router-dom';
 
 const MessageContainer = (props) => {
-    // console.log('container', props)
     // set State
     const [klass, setKlass] = useState([]);
 
