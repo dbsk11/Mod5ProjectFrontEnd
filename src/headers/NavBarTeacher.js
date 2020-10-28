@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { findByLabelText } from '@testing-library/react';
 
 const link = {
     display: 'flex',
