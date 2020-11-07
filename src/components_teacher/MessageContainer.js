@@ -12,7 +12,7 @@ const MessageContainer = (props) => {
         if (props.teacherId){
             fetch(`http://localhost:3000/teachers/${props.teacherId}`)
             .then(r => r.json())
-             .then(data => {
+            .then(data => {
             props.setConvos(data.conversations)
             setKlass(data.teacher_classes)   
             })
